@@ -12,4 +12,10 @@ public struct LowLayerMessage: Content {
     
     let service: LowMicroserviceName
     
+    // MARK: - Init
+    
+    public init(service: LowMicroserviceName) {
+        self.service = service
+    }
+    
 }
