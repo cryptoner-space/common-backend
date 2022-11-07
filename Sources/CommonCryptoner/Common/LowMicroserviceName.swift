@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum LowMicroserviceName: String, Decodable {
+public enum LowMicroserviceName: String, Codable {
     
     /// P2P Микросервис
     case p2p
