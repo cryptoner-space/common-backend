@@ -12,26 +12,26 @@ public struct MerchantWalletDto {
     public struct Req: Content {
         
         /// Идентификатор мерчанта
-        let merchantId: UUID
+        public let merchantId: UUID
         
         /// Идентификатор кошелька
-        let walletId: String
+        public let walletId: String
         
     }
     
     public struct Res: Content {
         
         /// Идентификатор связки мерчант кошелек
-        let id: UUID
+        public let id: UUID
         
         /// Дата создания
-        let createdAt: Date?
+        public let createdAt: Date?
         
         /// Идентификатор кошелька в сервисе кошельков
-        let walletId: String
+        public let walletId: String
         
         /// Модель мерчанта
-        let merchant: MerchantDto.Res
+        public let merchant: MerchantDto.Res
         
     }
     

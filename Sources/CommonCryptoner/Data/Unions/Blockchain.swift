@@ -47,12 +47,12 @@ public enum Blockchain: String, CaseIterable, Codable {
 }
 
 extension Blockchain {
-    static let scheme: String = "blockchain_enum_001"
-    static let relation: FieldKey = .init(stringLiteral: "blockchain")
+    static public let scheme: String = "blockchain_enum_001"
+    static public let relation: FieldKey = .init(stringLiteral: "blockchain")
     
 }
 
 extension Blockchain.Token {
-    static let scheme: String = "blockchain_token_enum_001"
-    static let relation: FieldKey = .init(stringLiteral: "blockchain_token")
+    static public let scheme: String = "blockchain_token_enum_001"
+    static public let relation: FieldKey = .init(stringLiteral: "blockchain_token")
 }

@@ -12,13 +12,13 @@ public struct BuySaleOrderDto {
     public struct Req: Content {
         
         /// Идентификатор заявки продажи
-        let orderId: UUID
+        public let orderId: UUID
         
         /// Идентификатор кошелька мерчанта для покупки
-        let walletId: UUID
+        public let walletId: UUID
         
         /// Количество покупки
-        let value: Int64
+        public let value: Int64
         
     }
     
