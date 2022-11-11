@@ -17,6 +17,16 @@ public struct MerchantWalletDto {
         /// Идентификатор кошелька
         public let walletId: String
         
+        // MARK: - Init
+        
+        public init(
+            merchantId: UUID,
+            walletId: String
+        ) {
+            self.merchantId = merchantId
+            self.walletId = walletId
+        }
+        
     }
     
     public struct Res: Content {
@@ -32,6 +42,20 @@ public struct MerchantWalletDto {
         
         /// Модель мерчанта
         public let merchant: MerchantDto.Res
+        
+        // MARK: - Init
+        
+        public init(
+            id: UUID,
+            createdAt: Date?,
+            walletid: String,
+            merchant: MerchantDto.Res
+        ) {
+            self.id = id
+            self.createdAt = createdAt
+            self.walletId = walletid
+            self.merchant = merchant
+        }
         
     }
     

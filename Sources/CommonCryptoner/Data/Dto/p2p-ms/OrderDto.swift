@@ -28,6 +28,22 @@ public struct OrderDto {
             /// Максимальная сумма сделки
             public let limitMaxValue: Double
             
+            // MARK: - Init
+            
+            public init(
+                merchantId: UUID,
+                token: Blockchain.Token,
+                available: Double,
+                limitMinValue: Double,
+                limitMaxValue: Double
+            ) {
+                self.merchantId = merchantId
+                self.token = token
+                self.available = available
+                self.limitMinValue = limitMinValue
+                self.limitMaxValue = limitMaxValue
+            }
+            
         }
         
         public struct Res: Content {
@@ -46,6 +62,22 @@ public struct OrderDto {
             
             /// Максимальная сумма сделки крипто [nano]
             public let limitMaxValue: Double
+            
+            // MARK: - Init
+            
+            public init(
+                id: UUID,
+                token: Blockchain.Token,
+                available: Double,
+                limitMinValue: Double,
+                limitMaxValue: Double
+            ) {
+                self.id = id
+                self.token = token
+                self.available = available
+                self.limitMinValue = limitMinValue
+                self.limitMaxValue = limitMaxValue
+            }
             
         }
         

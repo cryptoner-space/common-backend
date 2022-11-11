@@ -17,6 +17,16 @@ public struct MerchantDto {
         /// Название мерчата
         public let merchantName: String
         
+        // MARK: - Init
+        
+        public init(
+            userId: String,
+            merchantName: String
+        ) {
+            self.userId = userId
+            self.merchantName = merchantName
+        }
+        
     }
     
     public struct Res: Content {
@@ -29,6 +39,18 @@ public struct MerchantDto {
         
         /// Наименование мерчанта
         public let merchantName: String
+        
+        // MARK: - Init
+        
+        public init(
+            id: UUID,
+            userId: String,
+            merchantName: String
+        ) {
+            self.id = id
+            self.userId = userId
+            self.merchantName = merchantName
+        }
         
     }
     

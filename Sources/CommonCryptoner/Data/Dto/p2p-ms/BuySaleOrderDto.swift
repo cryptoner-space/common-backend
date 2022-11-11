@@ -20,6 +20,18 @@ public struct BuySaleOrderDto {
         /// Количество покупки
         public let value: Int64
         
+        // MARK: - Init
+        
+        public init(
+            orderId: UUID,
+            walletId: UUID,
+            value: Int64
+        ) {
+            self.orderId = orderId
+            self.walletId = walletId
+            self.value = value
+        }
+        
     }
     
 }
