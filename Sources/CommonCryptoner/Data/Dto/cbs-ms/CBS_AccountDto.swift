@@ -14,7 +14,7 @@ extension CBS_Dto {
         public struct Req: Content {
             
             /// Идентификатор пользователя
-            let userId: String
+            public let userId: String
             
         }
         

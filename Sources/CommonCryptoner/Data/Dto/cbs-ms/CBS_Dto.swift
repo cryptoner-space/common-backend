@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CBS_Dto.swift
 //  
 //
 //  Created by skibinalexander on 12.11.2022.
