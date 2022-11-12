@@ -1,5 +1,5 @@
 //
-//  AccountDto.swift
+//  CBS_AccountDto.swift
 //  
 //
 //  Created by skibinalexander on 12.11.2022.
