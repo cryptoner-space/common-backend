@@ -16,10 +16,10 @@ extension CBS_Dto {
             public struct Req: Content {
                 
                 /// Идентификатор кошелька
-                let walletId: UUID
+                public let walletId: UUID
                 
                 /// Стоимость транзакции
-                let value: Int64
+                public let value: Int64
                 
             }
             
