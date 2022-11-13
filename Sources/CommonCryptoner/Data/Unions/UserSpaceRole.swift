@@ -12,7 +12,7 @@ public enum UserSpaceRole: String, Codable, CaseIterable {
     
     // MARK: - Static
     
-    static let scheme: String = "user_space_role_enum_001"
+    static public let scheme: String = "user_space_role_enum_001"
     
     // MARK: - Properties
     
