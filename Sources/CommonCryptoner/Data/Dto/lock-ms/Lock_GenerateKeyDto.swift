@@ -34,6 +34,20 @@ extension Lock_Dto {
                 /// Отображения ответа шифра в формате plaintext
                 let skipPlaintext: Bool
                 
+                // MARK: - Init
+                
+                public init(
+                    versionId: String,
+                    aadContext: String,
+                    dataKeySpec: String,
+                    skipPlaintext: Bool
+                ) {
+                    self.versionId = versionId
+                    self.aadContext = aadContext
+                    self.dataKeySpec = dataKeySpec
+                    self.skipPlaintext = skipPlaintext
+                }
+                
             }
             
             public struct Res: Content {
@@ -49,6 +63,20 @@ extension Lock_Dto {
                 
                 /// Шифрованный ключ DEK
                 let dataKeyCiphertext: String
+                
+                // MARK: - Init
+                
+                public init(
+                    keyId: String,
+                    versionId: String,
+                    dataKeyPlaintext: String,
+                    dataKeyCiphertext: String
+                ) {
+                    self.keyId = keyId
+                    self.versionId = versionId
+                    self.dataKeyPlaintext = dataKeyPlaintext
+                    self.dataKeyCiphertext = dataKeyCiphertext
+                }
                 
             }
             
