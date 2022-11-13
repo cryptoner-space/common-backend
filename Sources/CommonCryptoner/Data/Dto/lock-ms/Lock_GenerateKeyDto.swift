@@ -36,6 +36,22 @@ extension Lock_Dto {
                 
             }
             
+            public struct Res: Content {
+                
+                /// Идентификатор ключа
+                let keyId: String
+                
+                /// Версия ключа
+                let versionId: String
+                
+                /// PlainText ключ DEK
+                let dataKeyPlaintext: String
+                
+                /// Шифрованный ключ DEK
+                let dataKeyCiphertext: String
+                
+            }
+            
         }
         
     }
