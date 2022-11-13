@@ -18,6 +18,16 @@ extension Lock_Dto {
             
         }
         
+        public struct Res: Content {
+            
+            /// PlainText ключ DEK
+            let dataKeyPlaintext: String
+            
+            /// Шифрованный ключ DEK
+            let dataKeyCiphertext: String
+            
+        }
+        
         public struct YC: Content {
             
             public struct Req: Content {
