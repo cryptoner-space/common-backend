@@ -14,17 +14,17 @@ extension Lock_Dto {
         public struct Req: Content {
             
             /// Пароль пользователя для шифрования
-            let password: String
+            public let password: String
             
         }
         
         public struct Res: Content {
             
             /// PlainText ключ DEK
-            let dataKeyPlaintext: String
+            public let dataKeyPlaintext: String
             
             /// Шифрованный ключ DEK
-            let dataKeyCiphertext: String
+            public let dataKeyCiphertext: String
             
         }
         
@@ -33,16 +33,16 @@ extension Lock_Dto {
             public struct Req: Content {
                 
                 /// Версия ключа
-                let versionId: String
+                public let versionId: String
                 
                 /// Авторизационные данные шифрования
-                let aadContext: String
+                public let aadContext: String
                 
                 /// Алгоритм шифрования
-                let dataKeySpec: String
+                public let dataKeySpec: String
                 
                 /// Отображения ответа шифра в формате plaintext
-                let skipPlaintext: Bool
+                public let skipPlaintext: Bool
                 
                 // MARK: - Init
                 
@@ -63,30 +63,16 @@ extension Lock_Dto {
             public struct Res: Content {
                 
                 /// Идентификатор ключа
-                let keyId: String
+                public let keyId: String
                 
                 /// Версия ключа
-                let versionId: String
+                public let versionId: String
                 
                 /// PlainText ключ DEK
-                let dataKeyPlaintext: String
+                public let dataKeyPlaintext: String
                 
                 /// Шифрованный ключ DEK
-                let dataKeyCiphertext: String
-                
-                // MARK: - Init
-                
-                public init(
-                    keyId: String,
-                    versionId: String,
-                    dataKeyPlaintext: String,
-                    dataKeyCiphertext: String
-                ) {
-                    self.keyId = keyId
-                    self.versionId = versionId
-                    self.dataKeyPlaintext = dataKeyPlaintext
-                    self.dataKeyCiphertext = dataKeyCiphertext
-                }
+                public let dataKeyCiphertext: String
                 
             }
             
