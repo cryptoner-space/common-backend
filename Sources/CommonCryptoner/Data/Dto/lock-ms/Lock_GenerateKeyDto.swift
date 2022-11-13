@@ -26,6 +26,13 @@ extension Lock_Dto {
             /// Шифрованный ключ DEK
             public let dataKeyCiphertext: String
             
+            // MARK: - Init
+            
+            public init(dataKeyPlaintext: String, dataKeyCiphertext: String) {
+                self.dataKeyPlaintext = dataKeyPlaintext
+                self.dataKeyCiphertext = dataKeyCiphertext
+            }
+            
         }
         
         public struct YC: Content {
