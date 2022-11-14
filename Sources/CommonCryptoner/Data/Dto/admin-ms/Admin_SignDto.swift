@@ -40,7 +40,7 @@ extension Admin_Dto {
             
         }
         
-        public struct Res {
+        public struct Res: Content {
             
             /// Идентификатор девайса
             public let deviceId: UUID
