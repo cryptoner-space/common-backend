@@ -40,29 +40,29 @@ extension Admin_Dto {
             
         }
         
-    }
-    
-    public struct Res {
-        
-        /// Идентификатор девайса
-        public let deviceId: UUID
-        
-        /// Токен авторизации
-        public let accessToken: String
-        
-        /// Модель пользователя
-        public let user: User.Res
-        
-        // MARK: - Init
-        
-        public init(
-            deviceId: UUID,
-            accessToken: String,
-            user: User.Res
-        ) {
-            self.deviceId = deviceId
-            self.accessToken = accessToken
-            self.user = user
+        public struct Res {
+            
+            /// Идентификатор девайса
+            public let deviceId: UUID
+            
+            /// Токен авторизации
+            public let accessToken: String
+            
+            /// Модель пользователя
+            public let user: User.Res
+            
+            // MARK: - Init
+            
+            public init(
+                deviceId: UUID,
+                accessToken: String,
+                user: User.Res
+            ) {
+                self.deviceId = deviceId
+                self.accessToken = accessToken
+                self.user = user
+            }
+            
         }
         
     }
