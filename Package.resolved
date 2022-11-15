@@ -24,7 +24,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "5d37027af4814994887da97f764e95d4d129ef9f"
+        "revision" : "eff05cbbaf81f7e3ffeede66dacfb28b94e20510"
       }
     },
     {
@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "d9825fa541df64b1a7b182178d61b9a82730d01f",
-        "version" : "2.1.0"
+        "revision" : "f652300628eb2003449e627f1f394a27ea2af9a8",
+        "version" : "2.2.0"
       }
     },
     {

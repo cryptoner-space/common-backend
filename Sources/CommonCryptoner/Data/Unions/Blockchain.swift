@@ -18,7 +18,7 @@ public enum Blockchain: String, CaseIterable, Codable {
     public enum Token: String, CaseIterable, Codable {
         case ETH, TON
         
-        var blockchain: Blockchain {
+        public var blockchain: Blockchain {
             switch self {
             case .TON:
                 return .Toncoin
