@@ -51,6 +51,16 @@ extension Admin_Dto {
             
         }
         
+        public struct Put {
+            
+            /// Идентификатор девайса
+            public let deviceId: UUID?
+            
+            /// Название девайса
+            public let deviceName: String
+            
+        }
+        
         public struct Patch {
             
             public struct Req: Content {
