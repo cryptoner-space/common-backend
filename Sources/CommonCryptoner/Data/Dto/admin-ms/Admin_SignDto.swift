@@ -54,7 +54,7 @@ extension Admin_Dto {
             
             public init(
                 systemId: String,
-                deviceId: String,
+                deviceId: UUID,
                 username: String,
                 password: String
             ) {
