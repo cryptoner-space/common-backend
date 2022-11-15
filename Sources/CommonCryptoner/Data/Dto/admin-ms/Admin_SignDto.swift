@@ -25,7 +25,7 @@ extension Admin_Dto {
             // MARK: - Init
             
             public init(
-                deviceId: String,
+                deviceId: UUID,
                 username: String,
                 password: String
             ) {
