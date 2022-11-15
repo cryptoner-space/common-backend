@@ -123,6 +123,12 @@ public struct IntegrationUrlBuilder {
     /// Host by microservice
     private(set) var host: Host
     
+    // MARK: - Init
+    
+    public init(host: Host) {
+        self.host = host
+    }
+    
     // MARK: - Implementaion
     
     /// Доступ к сервису
