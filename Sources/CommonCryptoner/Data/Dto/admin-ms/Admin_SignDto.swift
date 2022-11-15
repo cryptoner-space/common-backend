@@ -22,6 +22,18 @@ extension Admin_Dto {
             /// Пароль  пользователя
             public let password: String
             
+            // MARK: - Init
+            
+            public init(
+                deviceId: String,
+                username: String,
+                password: String
+            ) {
+                self.deviceId = deviceId
+                self.username = username
+                self.password = password
+            }
+            
         }
         
         public struct UpReq: Content {
@@ -37,6 +49,20 @@ extension Admin_Dto {
             
             /// Пароль аккаунта
             public let password: String
+            
+            // MARK: - Init
+            
+            public init(
+                systemId: String,
+                deviceId: String,
+                username: String,
+                password: String
+            ) {
+                self.systemId = systemId
+                self.deviceId = deviceId
+                self.username = username
+                self.password = password
+            }
             
         }
         
