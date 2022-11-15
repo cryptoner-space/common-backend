@@ -113,36 +113,6 @@ extension Market_Dto {
             
         }
         
-        public struct Agregate {
-            
-            public struct Res: Content {
-                
-                // MARK: - Properties
-                
-                /// Криптовалюта
-                public let crypto: Crypto
-                
-                /// Фиатная валюта
-                public let fiat: Fiat
-                
-                /// Стоимость валюты в фиатном выражении
-                public let stock: Stock
-                
-                // MARK: - Init
-                
-                public init(
-                    crypto: Crypto,
-                    fiat: Fiat,
-                    stock: Stock
-                ) {
-                    self.crypto = crypto
-                    self.fiat = fiat
-                    self.stock = stock
-                }
-            }
-            
-        }
-        
     }
     
     
