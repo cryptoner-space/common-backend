@@ -134,7 +134,7 @@ extension Market_Dto {
                     crypto: Crypto,
                     fiat: Fiat,
                     stock: Stock
-                ) throws {
+                ) {
                     self.crypto = crypto
                     self.fiat = fiat
                     self.stock = stock
