@@ -18,7 +18,7 @@ public struct IntegrationUrlBuilder {
             case low = "10.129.0.17"
             
             /// Адрес сервисов MIddle level
-            case middle = "51.250.24.19"
+            case middle = "10.129.0.12"
             
             // MARK: - Init
             
@@ -44,7 +44,7 @@ public struct IntegrationUrlBuilder {
             case low = "low.cryptoner.space"
             
             /// Адрес интеграционного серсиса администрирования бизнес операций криптовалюты
-            case middle = "middle.cryptoner.space"
+            case middle = "51.250.24.19"
             
             // MARK: - Init
             
