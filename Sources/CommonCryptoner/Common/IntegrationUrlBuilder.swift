@@ -22,7 +22,7 @@ public struct IntegrationUrlBuilder {
             
             // MARK: - Init
             
-            init(_ service: Service) {
+            public init(_ service: Service) {
                 switch service {
                 case .admin:
                     self = .middle
@@ -48,7 +48,7 @@ public struct IntegrationUrlBuilder {
             
             // MARK: - Init
             
-            init(_ service: Service) {
+            public init(_ service: Service) {
                 switch service {
                 case .admin:
                     self = .middle
@@ -67,14 +67,14 @@ public struct IntegrationUrlBuilder {
         // MARK: - Properties
         
         /// Микросервис интеграции
-        let service: Service
+        public let service: Service
         
         /// Хост интеграции
-        let host: String
+        public let host: String
         
         // MARK: - Init
         
-        init(_ env: Environment, service: Service) {
+        public init(_ env: Environment, service: Service) {
             self.service = service
             
             if env.isRelease {
@@ -152,7 +152,7 @@ public struct IntegrationUrlBuilder {
 
 extension String {
     
-    var vSlash: String {
+    public var vSlash: String {
         return self.isEmpty ? "" : self + "/"
     }
     
