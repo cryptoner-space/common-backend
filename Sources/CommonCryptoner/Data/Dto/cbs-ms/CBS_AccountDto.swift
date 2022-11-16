@@ -42,7 +42,7 @@ extension CBS_Dto {
             ) {
                 self.id = id
                 self.createdAt = createdAt
-                self.updatedAt
+                self.updatedAt = updatedAt
                 self.wallets = wallets
             }
             
