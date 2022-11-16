@@ -10,12 +10,12 @@ import Vapor
 
 extension Request {
     
-    func blockchain() throws -> BlockchainMiddleware {
+    public func blockchain() throws -> BlockchainMiddleware {
         guard let middleware = self
             .application
             .middleware
             .resolve()
-            .first(where: { ($0 as? MQService) != nil }) as? BlockchainMiddleware
+            .first(where: { ($0 as? BlockchainMiddleware) != nil }) as? BlockchainMiddleware
         else {
             throw Abort(.notFound, reason: "BlockchainMiddleware -> middleware not found")
         }
