@@ -43,10 +43,10 @@ public struct IntegrationAccountDto {
         public struct Req: Content {
             
             /// Приватный ключ
-            let privateKey: String?
+            public let privateKey: String?
             
             /// Мнемоника восстановления
-            let mnemonic: [String]?
+            public let mnemonic: [String]?
             
             // MARK: - Init
             
@@ -63,13 +63,13 @@ public struct IntegrationAccountDto {
         public struct Res: Content {
             
             /// Публичный ключ
-            let publicKey: String
+            public let publicKey: String
             
             /// Приватный ключ
-            let privateKey: String
+            public let privateKey: String
             
             /// Mnemonic фраза восстановления пароля
-            let mnemonic: [String]?
+            public let mnemonic: [String]?
             
             // MARK: - Init
             
