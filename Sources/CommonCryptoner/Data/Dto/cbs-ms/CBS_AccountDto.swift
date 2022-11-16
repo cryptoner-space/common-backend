@@ -18,6 +18,22 @@ extension CBS_Dto {
             
         }
         
+        public struct Res: Content {
+            
+            /// Идентификатор счета
+            let id: UUID
+            
+            /// Дата создания
+            let createdAt: Date?
+            
+            /// Дата обновления
+            let updatedAt: Date?
+            
+            /// Список кошельков счета
+            let wallets: [WalletDto.Res]
+            
+        }
+        
     }
     
 }
