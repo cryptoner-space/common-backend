@@ -27,6 +27,16 @@ extension Request {
 
 public struct BlockchainMiddleware: Middleware {
     
+    // MARK: - Private Propertioes
+    
+    private(set) var env: Environment
+    
+    // MARK: - Init
+    
+    public init(env: Environment) {
+        self.env = env
+    }
+    
     // MARK: - Middleware Implementation
     
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
@@ -50,8 +60,7 @@ public struct BlockchainMiddleware: Middleware {
     public func market(
         blockchainToken: Blockchain.Token ,
         fiat: Fiat,
-        on client: Client,
-        env: Environment
+        on client: Client
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         let url = IntegrationUrlBuilder(
             host: .init(env, service: .market)
