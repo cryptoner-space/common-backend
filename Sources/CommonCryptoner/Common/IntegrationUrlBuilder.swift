@@ -106,6 +106,7 @@ public struct IntegrationUrlBuilder {
         case restore
         case recovery
         case list
+        case balance
     }
     
     // MARK: - Properties
