@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CurrencyDto.swift
 //  
 //
 //  Created by skibinalexander on 15.11.2022.
@@ -10,22 +10,6 @@ import Vapor
 extension Market_Dto {
     
     public struct CurrencyDto {
-        
-        // MARK: - Requests
-        
-        public struct List {
-            
-            public struct Req: Content {
-                
-                /// Название криптовалюты
-                public let cryptos: [String]
-                
-                /// Название фиатной валюты
-                public let fiat: String
-                
-            }
-            
-        }
         
         // MARK: - Response
         

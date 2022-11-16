@@ -11,6 +11,16 @@ extension Market_Dto {
     
     public struct Agregate {
         
+        public struct Req: Content {
+            
+            /// Идентификатор фиатной валюты
+            let fiat: Fiat
+            
+            /// Идентификатор блокчейн токена
+            let token: Blockchain.Token
+            
+        }
+        
         public struct Res: Content {
             
             // MARK: - Properties

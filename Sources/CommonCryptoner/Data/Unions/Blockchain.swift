@@ -56,3 +56,20 @@ extension Blockchain.Token {
     static public let scheme: String = "blockchain_token_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "blockchain_token")
 }
+
+extension Blockchain {
+    
+    public enum App {
+        case p2p, wallets
+    }
+    
+    /// Доступные токены для
+    public static var availableTokensP2P: [Blockchain.Token] {
+        [.ETH, .TON]
+    }
+    
+    public static var availableTokensWallets: [Blockchain.Token] {
+        [.ETH, .TON]
+    }
+    
+}
