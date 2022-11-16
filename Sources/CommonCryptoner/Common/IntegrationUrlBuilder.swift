@@ -159,7 +159,7 @@ extension String {
 
 extension IntegrationUrlBuilder.Service {
     
-    static func from(_ blockchain: Blockchain) throws -> Self {
+    static public func from(_ blockchain: Blockchain) throws -> Self {
         switch blockchain {
         case .Ethereum:
             return .eth
