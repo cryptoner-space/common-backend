@@ -12,17 +12,35 @@ public struct IntegrationWalletDto {
     public struct Req: Content {
         
         /// Публичный ключ
-        let publicKey: String
+        public let publicKey: String
         
         /// Приватный ключ
-        let privateKey: String
+        public let privateKey: String
+        
+        // MARK: - Init
+        
+        public init(
+            publicKey: String,
+            privateKey: String
+        ) {
+            self.publicKey = publicKey
+            self.privateKey = privateKey
+        }
         
     }
     
     public struct Res: Content {
         
         /// Адрес кошелька
-        let address: String
+        public let address: String
+        
+        // MARK: - Init
+        
+        public init(
+            address: String
+        ) {
+            self.address = address
+        }
         
     }
     

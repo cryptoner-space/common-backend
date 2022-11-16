@@ -14,23 +14,43 @@ public struct IntegrationTransactionDto {
         public struct Req: Content {
             
             /// Приватный ключ кошелька отправителя
-            let privateKey: String
+            public let privateKey: String
             
             /// Публичный ключ кошелька отправителя
-            let publicKey: String
+            public let publicKey: String
             
             /// Адрес кошелька получетеля
-            let address: String
+            public let address: String
             
             /// Стоимость транзакции
-            let amount: Int64
+            public let amount: Int64
+            
+            // MARK: - Init
+            
+            public init(
+                privateKey: String,
+                publicKey: String,
+                address: String,
+                amount: Int64
+            ) {
+                self.privateKey = privateKey
+                self.publicKey = publicKey
+                self.address = address
+                self.amount = amount
+            }
             
         }
         
         public struct Res: Content {
             
             /// Коммисия транзакции
-            let fee: Int64
+            public let fee: Int64
+            
+            // MARK: - Init
+            
+            public init(fee: Int64) {
+                self.fee = fee
+            }
             
         }
 
@@ -41,19 +61,35 @@ public struct IntegrationTransactionDto {
         public struct Req: Content {
             
             /// Приватный ключ кошелька отправителя
-            let privateKey: String
+            public let privateKey: String
             
             /// Публичный ключ кошелька отправителя
-            let publicKey: String
+            public let publicKey: String
             
             /// Адрес кошелька получетеля
-            let address: String
+            public let address: String
             
             /// Стоимость транзакции
-            let amount: Int64
+            public let amount: Int64
             
             /// Идентификатор внешней транзакции
-            let externalId: String
+            public let externalId: String
+            
+            // MARK: - Init
+            
+            public init(
+                privateKey: String,
+                publicKey: String,
+                address: String,
+                amount: Int64,
+                externalId: String
+            ) {
+                self.privateKey = privateKey
+                self.publicKey = publicKey
+                self.address = address
+                self.amount = amount
+                self.externalId = externalId
+            }
             
         }
 
