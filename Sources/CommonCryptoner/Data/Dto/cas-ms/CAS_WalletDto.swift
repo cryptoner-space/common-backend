@@ -194,13 +194,13 @@ extension CAS_Dto {
             public struct Req: Content {
                 
                 /// Блокчнейн восстановление
-                let blockchain: Blockchain
+                public let blockchain: Blockchain
                 
                 /// Серкретный ключ
-                let privateKey: String?
+                public let privateKey: String?
                 
                 /// Мнемоника восстановления кошелька
-                let mnemonic: [String]?
+                public let mnemonic: [String]?
                 
                 // MARK: - Init
                 
@@ -219,16 +219,16 @@ extension CAS_Dto {
             public struct Res: Content {
                 
                 /// Публичный адрес кошелька
-                let address: String
+                public let address: String
                 
                 /// Публичный ключ
-                let publicKey: String?
+                public let publicKey: String?
                 
                 /// Серкретный ключ
-                let privateKey: String?
+                public let privateKey: String?
                 
                 /// Мнемоника восстановления кошелька
-                let mnemonic: [String]?
+                public let mnemonic: [String]?
                 
                 // MARK: - Init
                 
