@@ -86,6 +86,7 @@ public struct IntegrationUrlBuilder {
         case p2p = "p2p-ms"
         case chats = "chats-ms"
         case cbs = "cbs-ms"
+        case cas = "cas-ms"
         case eth = "eth-ms"
         case ton = "ton-ms"
     }
