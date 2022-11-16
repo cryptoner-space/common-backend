@@ -5,7 +5,8 @@
 //  Created by skibinalexander on 16.11.2022.
 //
 
-import Foundation
+import Vapor
+import Fluent
 
 public enum Account: String, CaseIterable, Codable {
     

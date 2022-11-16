@@ -15,6 +15,7 @@ public enum Blockchain: String, CaseIterable, Codable {
     
     // MARK: - Cases
     
+    case Multi
     case Ethereum
     case Toncoin
     
