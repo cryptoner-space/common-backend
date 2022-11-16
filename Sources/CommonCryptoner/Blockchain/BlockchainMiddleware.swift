@@ -44,12 +44,7 @@ public struct BlockchainMiddleware: Middleware {
     }
     
     public func availableTokens(app: Blockchain.App) -> [Blockchain.Token] {
-        switch app {
-        case .p2p:
-            return Blockchain.availableTokensP2P
-        case .wallets:
-            return Blockchain.availableTokensWallets
-        }
+        Blockchain.availableTokens
     }
     
     /// Получить фиатное значение стоимости блокчейн токена / валюты

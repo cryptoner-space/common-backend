@@ -60,8 +60,4 @@ extension Blockchain {
         [.ETH, .TON]
     }
     
-    public static var availableTokensWallets: [Blockchain.Token] {
-        [.ETH, .TON]
-    }
-    
 }
