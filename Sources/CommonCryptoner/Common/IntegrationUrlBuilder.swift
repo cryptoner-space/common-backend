@@ -107,6 +107,7 @@ public struct IntegrationUrlBuilder {
         case recovery
         case list
         case balance
+        case fee
     }
     
     // MARK: - Properties
