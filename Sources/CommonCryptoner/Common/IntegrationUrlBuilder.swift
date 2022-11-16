@@ -97,6 +97,8 @@ public struct IntegrationUrlBuilder {
         case market = "market-ms"
         case p2p = "p2p-ms"
         case chats = "chats-ms"
+        case eth = "eth-ms"
+        case ton = "ton-ms"
     }
     
     public enum Path: String {
