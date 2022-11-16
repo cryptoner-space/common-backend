@@ -24,16 +24,10 @@ public struct IntegrationUrlBuilder {
             
             public init(_ service: Service) {
                 switch service {
-                case .admin:
+                case .admin, .wallets, .market, .chats, .p2p:
                     self = .middle
-                case .wallets:
-                    self = .middle
-                case .market:
-                    self = .middle
-                case .chats:
-                    self = .middle
-                case .p2p:
-                    self = .middle
+                case .eth, .ton:
+                    self = .low
                 }
             }
         }
@@ -50,16 +44,10 @@ public struct IntegrationUrlBuilder {
             
             public init(_ service: Service) {
                 switch service {
-                case .admin:
+                case .admin, .wallets, .market, .chats, .p2p:
                     self = .middle
-                case .wallets:
-                    self = .middle
-                case .market:
-                    self = .middle
-                case .chats:
-                    self = .middle
-                case .p2p:
-                    self = .middle
+                case .eth, .ton:
+                    self = .low
                 }
             }
         }
