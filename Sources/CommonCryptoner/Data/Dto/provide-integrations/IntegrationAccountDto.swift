@@ -14,13 +14,25 @@ public struct IntegrationAccountDto {
         public struct Res: Content {
             
             /// Публичный ключ
-            let publicKey: String
+            public let publicKey: String
             
             /// Приватный ключ
-            let privateKey: String
+            public let privateKey: String
             
             /// Mnemonic фраза восстановления пароля
-            let mnemonic: [String]?
+            public let mnemonic: [String]?
+            
+            // MARK: - Init
+            
+            public init(
+                publicKey: String,
+                privateKey: String,
+                mnemonic: [String]?
+            ) {
+                self.publicKey = publicKey
+                self.privateKey = privateKey
+                self.mnemonic = mnemonic
+            }
             
         }
         
@@ -36,6 +48,16 @@ public struct IntegrationAccountDto {
             /// Мнемоника восстановления
             let mnemonic: [String]?
             
+            // MARK: - Init
+            
+            public init(
+                privateKey: String?,
+                mnemonic: [String]?
+            ) {
+                self.privateKey = privateKey
+                self.mnemonic = mnemonic
+            }
+            
         }
         
         public struct Res: Content {
@@ -48,6 +70,18 @@ public struct IntegrationAccountDto {
             
             /// Mnemonic фраза восстановления пароля
             let mnemonic: [String]?
+            
+            // MARK: - Init
+            
+            public init(
+                publicKey: String,
+                privateKey: String,
+                mnemonic: [String]?
+            ) {
+                self.publicKey = publicKey
+                self.privateKey = privateKey
+                self.mnemonic = mnemonic
+            }
             
         }
         
