@@ -14,10 +14,20 @@ extension Market_Dto {
         public struct Req: Content {
             
             /// Идентификатор фиатной валюты
-            let fiat: Fiat
+            public let fiat: Fiat
             
             /// Идентификатор блокчейн токена
-            let token: Blockchain.Token
+            public let token: Blockchain.Token
+            
+            // MARK: - Init
+            
+            public init(
+                fiat: Fiat,
+                token: Blockchain.Token
+            ) {
+                self.fiat = fiat
+                self.token = token
+            }
             
         }
         
