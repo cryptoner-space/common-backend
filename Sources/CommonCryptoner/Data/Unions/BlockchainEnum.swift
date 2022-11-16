@@ -55,8 +55,8 @@ extension Blockchain {
         case p2p, wallets
     }
     
-    /// Доступные токены для
-    public static var availableTokensP2P: [Blockchain.Token] {
+    /// Доступные токены
+    public static var availableTokens: [Blockchain.Token] {
         [.ETH, .TON]
     }
     
