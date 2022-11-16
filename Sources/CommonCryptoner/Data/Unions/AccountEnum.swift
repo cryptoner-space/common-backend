@@ -15,3 +15,9 @@ public enum Account: String, CaseIterable, Codable {
     case Blockchain
     
 }
+
+extension Account {
+    static public let scheme: String = "account_enum_001"
+    static public let relation: FieldKey = .init(stringLiteral: "account")
+    
+}
