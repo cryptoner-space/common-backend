@@ -13,7 +13,14 @@ private let kNameToncoin: String = "Toncoin"
 
 public enum Blockchain: String, CaseIterable, Codable {
     
-    // MARK: - Tokens
+    // MARK: - Cases
+    
+    case Ethereum
+    case Toncoin
+    
+}
+
+extension Blockchain {
     
     public enum Token: String, CaseIterable, Codable {
         case ETH, TON
@@ -25,22 +32,6 @@ public enum Blockchain: String, CaseIterable, Codable {
             case .ETH:
                 return .Ethereum
             }
-        }
-    }
-    
-    // MARK: - Cases
-    
-    case Ethereum
-    case Toncoin
-    
-    // MARK: - Properties
-    
-    public var token: Token {
-        switch self {
-        case .Toncoin:
-            return .TON
-        case .Ethereum:
-            return .ETH
         }
     }
     
