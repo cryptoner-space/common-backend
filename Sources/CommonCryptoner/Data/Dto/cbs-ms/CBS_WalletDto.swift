@@ -22,6 +22,14 @@ extension CBS_Dto {
             /// Nano баланс кошелька
             public let balance: Int64
             
+            // MARK: - Init
+            
+            public init(id: UUID, token: Blockchain.Token, balance: Int64) {
+                self.id = id
+                self.token = token
+                self.balance = balance
+            }
+            
         }
         
     }

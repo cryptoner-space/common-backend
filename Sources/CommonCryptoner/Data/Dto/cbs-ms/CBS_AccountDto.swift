@@ -32,6 +32,20 @@ extension CBS_Dto {
             /// Список кошельков счета
             let wallets: [WalletDto.Res]
             
+            // MARK: - Init
+            
+            public init(
+                id: UUID,
+                createdAt: Date?,
+                updatedAt: Date?,
+                wallets: [WalletDto.Res]
+            ) {
+                self.id = id
+                self.createdAt = createdAt
+                self.updatedAt
+                self.wallets = wallets
+            }
+            
         }
         
     }
