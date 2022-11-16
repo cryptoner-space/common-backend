@@ -156,3 +156,18 @@ extension String {
     }
     
 }
+
+extension IntegrationUrlBuilder.Service {
+    
+    static func from(_ blockchain: Blockchain) throws -> Self {
+        switch blockchain {
+        case .Ethereum:
+            return .eth
+        case .Toncoin:
+            return .ton
+        case .Multi:
+            throw Abort(.internalServerError)
+        }
+    }
+    
+}
