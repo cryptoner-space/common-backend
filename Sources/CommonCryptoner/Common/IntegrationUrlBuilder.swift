@@ -24,7 +24,7 @@ public struct IntegrationUrlBuilder {
             
             public init(_ service: Service) {
                 switch service {
-                case .admin, .wallets, .market, .chats, .p2p, .cbs:
+                case .admin, .wallets, .market, .chats, .p2p, .cbs, .cas:
                     self = .middle
                 case .eth, .ton:
                     self = .low
@@ -44,7 +44,7 @@ public struct IntegrationUrlBuilder {
             
             public init(_ service: Service) {
                 switch service {
-                case .admin, .wallets, .market, .chats, .p2p, .cbs:
+                case .admin, .wallets, .market, .chats, .p2p, .cbs, .cas:
                     self = .middle
                 case .eth, .ton:
                     self = .low
