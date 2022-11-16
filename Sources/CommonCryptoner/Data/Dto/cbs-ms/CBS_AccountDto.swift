@@ -21,16 +21,16 @@ extension CBS_Dto {
         public struct Res: Content {
             
             /// Идентификатор счета
-            let id: UUID
+            public let id: UUID
             
             /// Дата создания
-            let createdAt: Date?
+            public let createdAt: Date?
             
             /// Дата обновления
-            let updatedAt: Date?
+            public let updatedAt: Date?
             
             /// Список кошельков счета
-            let wallets: [WalletDto.Res]
+            public let wallets: [WalletDto.Res]
             
             // MARK: - Init
             
