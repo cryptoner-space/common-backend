@@ -25,11 +25,11 @@ extension CAS_Dto {
             // MARK: - Init
             
             public init(
-                userId: String,
+                ownerId: String,
                 account: AccountEnum,
                 title: String?
             ) {
-                self.userId = userId
+                self.ownerId = ownerId
                 self.account = account
                 self.title = title
             }
