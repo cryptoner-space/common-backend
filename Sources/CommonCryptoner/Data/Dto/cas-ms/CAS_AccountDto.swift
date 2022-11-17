@@ -14,7 +14,7 @@ extension CAS_Dto {
         public struct Req: Content {
             
             /// Идентификатор пользователя
-            public let userId: String
+            public let ownerId: String
             
             /// Тип счета
             public let account: AccountEnum
