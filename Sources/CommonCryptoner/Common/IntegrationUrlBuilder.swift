@@ -81,7 +81,6 @@ public struct IntegrationUrlBuilder {
     
     public enum Service: String {
         case admin = "admin-ms"
-        case wallets = "wallets-ms"
         case market = "market-ms"
         case p2p = "p2p-ms"
         case chats = "chats-ms"
