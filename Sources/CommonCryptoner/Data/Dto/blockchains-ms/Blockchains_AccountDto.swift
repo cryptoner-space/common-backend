@@ -13,7 +13,7 @@ extension Blockchains_Dto {
         
         public struct Create {
             
-            public struct Res {
+            public struct Res: Content {
                 
                 /// Публичный ключ
                 public let publicKey: String
