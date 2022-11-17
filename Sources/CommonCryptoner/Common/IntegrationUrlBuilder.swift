@@ -167,7 +167,7 @@ extension IntegrationUrlBuilder.Service {
         case .Toncoin:
             return .ton
         case .Multi:
-            throw Abort(.internalServerError)
+            return .cas
         }
     }
     
