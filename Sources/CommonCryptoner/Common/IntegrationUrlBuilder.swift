@@ -35,7 +35,7 @@ public struct IntegrationUrlBuilder {
         public enum Dev: String {
             
             /// Адрес интеграционного серсиса администрирования бизнес-операций пользовательских данных
-            case low = "low.cryptoner.space"
+            case low = ""
             
             /// Адрес интеграционного серсиса администрирования бизнес операций криптовалюты
             case middle = "51.250.24.19"
