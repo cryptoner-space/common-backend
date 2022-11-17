@@ -7,7 +7,7 @@
 
 import Vapor
 
-public struct IntegrationTransactionDto {
+extension Blockchains_Dto {
     
     public struct Fee {
         

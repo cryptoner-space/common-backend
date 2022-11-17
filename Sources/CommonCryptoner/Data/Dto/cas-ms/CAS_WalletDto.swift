@@ -31,11 +31,8 @@ extension CAS_Dto {
             /// Блокчейн кошелька
             public let blockchain: Blockchain
             
-            /// Баланс кошелька в криптовалюте
-            public let rawBalance: Int64
-            
-            /// Нормализованный баланс криптовалюты
-            public let normalBalance: Double
+            /// Токены кошелька
+            public let items: [WalletItem.Res]
             
             // MARK: - Init
             
@@ -46,8 +43,7 @@ extension CAS_Dto {
                 title: String?,
                 address: String,
                 blockchain: Blockchain,
-                rawBalance: Int64,
-                normalBalance: Double
+                items: [WalletItem.Res]
             ) {
                 self.id = id
                 self.createdAt = createdAt
@@ -55,8 +51,7 @@ extension CAS_Dto {
                 self.title = title
                 self.address = address
                 self.blockchain = blockchain
-                self.rawBalance = rawBalance
-                self.normalBalance = normalBalance
+                self.items = items
             }
             
         }
