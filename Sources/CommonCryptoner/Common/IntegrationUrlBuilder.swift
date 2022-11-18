@@ -110,6 +110,8 @@ public struct IntegrationUrlBuilder {
         case balance
         case fee
         case merchants
+        case orders
+        case sales
     }
     
     // MARK: - Properties
