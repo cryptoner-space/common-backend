@@ -27,6 +27,10 @@ extension Request {
 
 public final class BlockchainMiddleware: Middleware {
     
+    // MARK: - Init
+    
+    public init() {}
+    
     // MARK: - Private Propertioes
     
     private(set) weak var req: Request!
