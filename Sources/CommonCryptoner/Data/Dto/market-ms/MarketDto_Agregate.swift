@@ -36,20 +36,20 @@ extension Market_Dto {
             // MARK: - Properties
             
             /// Криптовалюта
-            public let crypto: CurrencyDto.Crypto
+            public let crypto: Currency.Crypto
             
             /// Фиатная валюта
-            public let fiat: CurrencyDto.Fiat
+            public let fiat: Currency.Fiat
             
             /// Стоимость валюты в фиатном выражении
-            public let stock: CurrencyDto.Stock
+            public let stock: Market_Dto.Stock
             
             // MARK: - Init
             
             public init(
-                crypto: CurrencyDto.Crypto,
-                fiat: CurrencyDto.Fiat,
-                stock: CurrencyDto.Stock
+                crypto: Currency.Crypto,
+                fiat: Currency.Fiat,
+                stock: Market_Dto.Stock
             ) {
                 self.crypto = crypto
                 self.fiat = fiat

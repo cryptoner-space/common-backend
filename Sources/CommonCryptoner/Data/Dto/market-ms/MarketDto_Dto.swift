@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Market_Dto.swift
 //  
 //
 //  Created by skibinalexander on 15.11.2022.
