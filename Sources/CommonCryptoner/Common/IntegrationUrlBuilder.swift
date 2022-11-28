@@ -112,6 +112,7 @@ public struct IntegrationUrlBuilder {
         case merchants
         case orders
         case sales
+        case growth
     }
     
     // MARK: - Properties
