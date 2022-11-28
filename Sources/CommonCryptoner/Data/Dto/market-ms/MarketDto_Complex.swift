@@ -26,7 +26,7 @@ extension Market_Dto {
             
             public init(
                 fiat: Fiat,
-                tokens: [Blockchain.Token]б
+                tokens: [Blockchain.Token],
                 stocksAt: Date
             ) {
                 self.fiat = fiat

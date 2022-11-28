@@ -45,7 +45,7 @@ public final class BlockchainMiddleware: Middleware {
     }
     
     public func availableTokens(app: Blockchain.App) -> [Blockchain.Token] {
-        Blockchain.availableTokens
+        Blockchain.availableTokens(app)
     }
     
     /// Получить фиатное значение стоимости блокчейн токена / валюты
