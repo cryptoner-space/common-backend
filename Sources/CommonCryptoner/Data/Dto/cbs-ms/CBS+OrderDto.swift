@@ -46,6 +46,9 @@ extension CBS_Dto {
                 /// Статус операции
                 public let status: CBS_Union.OrderStatusEnum
                 
+                /// Дата создания операции
+                public let createdAt: Date?
+                
                 // MARK: - Init
                 
                 public init(
@@ -54,7 +57,8 @@ extension CBS_Dto {
                     token: Blockchain.Token,
                     value: Int64,
                     type: CBS_Union.OrderTypeEnum,
-                    status: CBS_Union.OrderStatusEnum
+                    status: CBS_Union.OrderStatusEnum,
+                    createdAt: Date?
                 ) {
                     self.ownerId = ownerId
                     self.employee = employee
@@ -62,6 +66,7 @@ extension CBS_Dto {
                     self.value = value
                     self.type = type
                     self.status = status
+                    self.createdAt = createdAt
                 }
                 
             }
