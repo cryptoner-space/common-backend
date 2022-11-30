@@ -1,5 +1,5 @@
 //
-//  CBS_PushTokenDto.swift
+//  CAS_TokenDto.swift
 //  
 //
 //  Created by skibinalexander on 20.11.2022.
