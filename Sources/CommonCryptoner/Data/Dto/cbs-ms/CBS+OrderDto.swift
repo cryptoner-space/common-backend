@@ -11,72 +11,104 @@ extension CBS_Dto {
     
     public struct Order {
         
-        public struct Req: Content {
+        public struct Create {
             
-            /// Идентификатор владельца операции
-            public let ownerId: String
+            public struct Req: Content {
+                
+                /// Идентификатор владельца операции
+                public let ownerId: String
+                
+                /// Токен операции
+                public let token: Blockchain.Token
+                
+                /// Сумма операции
+                public let value: Int64
+                
+                /// Тип операции
+                public let type: CBS_Union.OrderTypeEnum
+                
+                // MARK: - Init
+                
+                public init(
+                    ownerId: String,
+                    token: Blockchain.Token,
+                    value: Int64,
+                    type: CBS_Union.OrderTypeEnum
+                ) {
+                    self.ownerId = ownerId
+                    self.token = token
+                    self.value = value
+                    self.type = type
+                }
+                
+            }
             
-            /// Токен операции
-            public let token: Blockchain.Token
-            
-            /// Сумма операции
-            public let value: Int64
-            
-            /// Тип операции
-            public let type: CBS_Union.OrderTypeEnum
-            
-            // MARK: - Init
-            
-            public init(
-                ownerId: String,
-                token: Blockchain.Token,
-                value: Int64,
-                type: CBS_Union.OrderTypeEnum
-            ) {
-                self.ownerId = ownerId
-                self.token = token
-                self.value = value
-                self.type = type
+            public struct Res: Content {
+                
+                /// Идентификатор владельца операции
+                public let ownerId: String
+                
+                /// Сотрудник обслуживающий операцию
+                public let employee: CBS_Dto.Employee.Res?
+                
+                /// Токен операции
+                public let token: Blockchain.Token
+                
+                /// Сумма операции
+                public let value: Int64
+                
+                /// Тип операции
+                public let type: CBS_Union.OrderTypeEnum
+                
+                /// Статус операции
+                public let status: CBS_Union.OrderStatusEnum
+                
+                // MARK: - Init
+                
+                public init(
+                    ownerId: String,
+                    employee: CBS_Dto.Employee.Res?,
+                    token: Blockchain.Token,
+                    value: Int64,
+                    type: CBS_Union.OrderTypeEnum,
+                    status: CBS_Union.OrderStatusEnum
+                ) {
+                    self.ownerId = ownerId
+                    self.employee = employee
+                    self.token = token
+                    self.value = value
+                    self.type = type
+                    self.status = status
+                }
+                
             }
             
         }
         
-        public struct Res: Content {
+        public struct Pending {
             
-            /// Идентификатор владельца операции
-            public let ownerId: String
+            public struct Req: Content {
+                
+                /// Идентификатор
+                let id: UUID
+                
+                /// Идентификатор владельца транзакции
+                let ownerId: String
+                
+            }
             
-            /// Сотрудник обслуживающий операцию
-            public let employee: CBS_Dto.Employee.Res?
+        }
+        
+        public struct Authorized {
             
-            /// Токен операции
-            public let token: Blockchain.Token
-            
-            /// Сумма операции
-            public let value: Int64
-            
-            /// Тип операции
-            public let type: CBS_Union.OrderTypeEnum
-            
-            /// Статус операции
-            public let status: CBS_Union.OrderStatusEnum
-            
-            // MARK: - Init
-            
-            public init(
-                ownerId: String,
-                employee: CBS_Dto.Employee.Res?,
-                token: Blockchain.Token,
-                value: Int64,
-                type: CBS_Union.OrderTypeEnum,
-                status: CBS_Union.OrderStatusEnum
-            ) {
-                self.ownerId = ownerId
-                self.employee = employee
-                self.token = token
-                self.value = value
-                self.type = type
-                self.status = status
+            public struct Req: Content {
+                
+                /// Идентификатор
+                let id: UUID
+                
+                /// Идентификатор владельца транзакции
+                let ownerId: String
+                
             }
             
         }
