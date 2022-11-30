@@ -14,7 +14,15 @@ extension CBS_Dto {
         public struct Res: Content {
             
             /// Идентификатор сотрудника системы
-            let id: UUID
+            public let id: UUID
+            
+            // MARK: - Init
+            
+            public init(
+                id: UUID
+            ) {
+                self.id = id
+            }
             
         }
         
