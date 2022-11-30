@@ -90,10 +90,20 @@ extension CBS_Dto {
             public struct Req: Content {
                 
                 /// Идентификатор
-                let id: UUID
+                public let id: UUID
                 
                 /// Идентификатор владельца транзакции
-                let ownerId: String
+                public let ownerId: String
+                
+                // MARK: - Init
+                
+                public init(
+                    id: UUID,
+                    ownerId: String
+                ) {
+                    self.id = id
+                    self.ownerId = ownerId
+                }
                 
             }
             
@@ -104,10 +114,20 @@ extension CBS_Dto {
             public struct Req: Content {
                 
                 /// Идентификатор
-                let id: UUID
+                public let id: UUID
                 
                 /// Идентификатор владельца транзакции
-                let ownerId: String
+                public let ownerId: String
+                
+                // MARK: - Init
+                
+                public init(
+                    id: UUID,
+                    ownerId: String
+                ) {
+                    self.id = id
+                    self.ownerId = ownerId
+                }
                 
             }
             
