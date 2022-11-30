@@ -7,4 +7,4 @@
 
 import Foundation
 
-public struct CBS_Unions {}
+public struct CBS_Union {}
