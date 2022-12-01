@@ -16,7 +16,12 @@ extension Blockchain {
     
     /// Доступные токены
     public static func availableTokens(_ app: App) -> [Blockchain.Token] {
-        [.ETH, .TON]
+        switch app {
+        case .p2p:
+            return Blockchain.Token.allCases
+        case .wallets:
+            return [.ETH, .TON]
+        }
     }
     
 }
