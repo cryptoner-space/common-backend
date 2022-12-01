@@ -171,6 +171,8 @@ extension IntegrationUrlBuilder.Service {
             return .ton
         case .Multi:
             return .cas
+        default:
+            throw Abort(.serviceUnavailable, reason: "Blockchain not supported")
         }
     }
     
