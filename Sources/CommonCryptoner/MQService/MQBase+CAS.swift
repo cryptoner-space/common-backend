@@ -11,19 +11,33 @@ extension MQBase {
     
     public struct CAS {
         
-        public struct UpdateWalletItem: Content {
+        public struct Update: Content {
             
             /// Сервис отправителя
-            let source: Microservice.Middle
+            public let source: Microservice.Middle
             
             /// Идентификатор кошелька
-            let walletId: String
+            public let walletId: String
             
             /// Токен обнолвения баланса
-            let token: Blockchain.Token
+            public let token: Blockchain.Token
             
             /// Значение обновления баланса
-            let value: Int64
+            public let value: Int64
+            
+            // MARK: - Init
+            
+            public init(
+                source: Microservice.Middle,
+                walletId: String,
+                token: Blockchain.Token,
+                value: Int64
+            ) throws {
+                self.source = source
+                self.walletId = walletId
+                self.token = token
+                self.value = value
+            }
             
         }
         
