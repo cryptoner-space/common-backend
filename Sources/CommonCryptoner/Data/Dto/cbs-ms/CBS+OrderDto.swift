@@ -11,6 +11,56 @@ extension CBS_Dto {
     
     public struct Order {
         
+        public struct Res: Content {
+            
+            /// Идентификатор заявки
+            public let id: UUID
+            
+            /// Идентификатор владельца операции
+            public let ownerId: String
+            
+            /// Сотрудник обслуживающий операцию
+            public let employee: CBS_Dto.Employee.Res?
+            
+            /// Токен операции
+            public let token: Blockchain.Token
+            
+            /// Сумма операции
+            public let value: Int64
+            
+            /// Тип операции
+            public let type: CBS_Union.OrderTypeEnum
+            
+            /// Статус операции
+            public let status: CBS_Union.OrderStatusEnum
+            
+            /// Дата создания операции
+            public let createdAt: Date?
+            
+            // MARK: - Init
+            
+            public init(
+                id: UUID,
+                ownerId: String,
+                employee: CBS_Dto.Employee.Res?,
+                token: Blockchain.Token,
+                value: Int64,
+                type: CBS_Union.OrderTypeEnum,
+                status: CBS_Union.OrderStatusEnum,
+                createdAt: Date?
+            ) {
+                self.id = id
+                self.ownerId = ownerId
+                self.employee = employee
+                self.token = token
+                self.value = value
+                self.type = type
+                self.status = status
+                self.createdAt = createdAt
+            }
+            
+        }
+        
         public struct List {
             
             public struct Req: Content {
@@ -22,56 +72,6 @@ extension CBS_Dto {
                 
                 public init(ownerId: String) {
                     self.ownerId = ownerId
-                }
-                
-            }
-            
-            public struct Res: Content {
-                
-                /// Идентификатор заявки
-                public let id: UUID
-                
-                /// Идентификатор владельца операции
-                public let ownerId: String
-                
-                /// Сотрудник обслуживающий операцию
-                public let employee: CBS_Dto.Employee.Res?
-                
-                /// Токен операции
-                public let token: Blockchain.Token
-                
-                /// Сумма операции
-                public let value: Int64
-                
-                /// Тип операции
-                public let type: CBS_Union.OrderTypeEnum
-                
-                /// Статус операции
-                public let status: CBS_Union.OrderStatusEnum
-                
-                /// Дата создания операции
-                public let createdAt: Date?
-                
-                // MARK: - Init
-                
-                public init(
-                    id: UUID,
-                    ownerId: String,
-                    employee: CBS_Dto.Employee.Res?,
-                    token: Blockchain.Token,
-                    value: Int64,
-                    type: CBS_Union.OrderTypeEnum,
-                    status: CBS_Union.OrderStatusEnum,
-                    createdAt: Date?
-                ) {
-                    self.id = id
-                    self.ownerId = ownerId
-                    self.employee = employee
-                    self.token = token
-                    self.value = value
-                    self.type = type
-                    self.status = status
-                    self.createdAt = createdAt
                 }
                 
             }
