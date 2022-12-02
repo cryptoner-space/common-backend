@@ -13,6 +13,12 @@ extension CBS_Mq {
         
         public struct Completed: Content {
             
+            /// Идентификатор заявки
+            let id: UUID
+            
+            /// Значение изменения стоимости заявки
+            let value: Int64
+            
         }
         
     }
