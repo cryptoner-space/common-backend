@@ -14,10 +14,20 @@ extension CBS_Mq {
         public struct Completed: Content {
             
             /// Идентификатор заявки
-            let id: UUID
+            public let id: UUID
             
             /// Значение изменения стоимости заявки
-            let value: Int64
+            public let value: Int64
+            
+            // MARK: - Init
+            
+            public init(
+                id: UUID,
+                value: Int64
+            ) {
+                self.id = id
+                self.value = value
+            }
             
         }
         
