@@ -13,7 +13,7 @@ extension CAS_Mq {
     public struct Update: Codable {
         
         /// Идентификатор кошелька
-        public let walletId: String
+        public let walletId: UUID
         
         /// Токен обнолвения баланса
         public let token: Blockchain.Token
@@ -24,7 +24,7 @@ extension CAS_Mq {
         // MARK: - Init
         
         public init(
-            walletId: String,
+            walletId: UUID,
             token: Blockchain.Token,
             value: Int64
         ) throws {
