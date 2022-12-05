@@ -13,31 +13,7 @@ extension MQBase {
     public struct CAS {
         
         public enum EventId: String {
-            case update
-        }
-        
-        public struct MQBodyCAS: MQBody {
-            
-            public var eventId: String
-            
-            public var payload: Data
-            
-            public init(eventId: String, payload: Data) {
-                self.eventId = eventId
-                self.payload = payload
-            }
-            
-            public func cast<P>() throws -> P where P : Decodable, P : Encodable {
-                guard let eventId = EventId(rawValue: eventId) else {
-                    throw Abort(.notFound)
-                }
-                
-                switch eventId {
-                case .update:
-                    return try JSONDecoder().decode(P.self, from: payload)
-                }
-            }
-            
+            case updateWallet
         }
         
         public struct Update: Codable {
