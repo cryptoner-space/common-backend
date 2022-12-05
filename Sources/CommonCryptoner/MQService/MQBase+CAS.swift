@@ -5,16 +5,42 @@
 //  Created by skibinalexander on 02.12.2022.
 //
 
+import CommonVapor
 import Vapor
 
 extension MQBase {
     
     public struct CAS {
         
-        public struct Update: Content {
+        public enum EventId: String {
+            case update
+        }
+        
+        public struct MQBodyCAS: MQBody {
             
-            /// Сервис отправителя
-            public let source: Microservice.Middle
+            public var eventId: String
+            
+            public var payload: Data
+            
+            public init(eventId: String, payload: Data) {
+                self.eventId = eventId
+                self.payload = payload
+            }
+            
+            public func cast<P>() throws -> P where P : Decodable, P : Encodable {
+                guard let eventId = EventId(rawValue: eventId) else {
+                    throw Abort(.notFound)
+                }
+                
+                switch eventId {
+                case .update:
+                    return try JSONDecoder().decode(P.self, from: payload)
+                }
+            }
+            
+        }
+        
+        public struct Update: Codable {
             
             /// Идентификатор кошелька
             public let walletId: String
@@ -28,12 +54,10 @@ extension MQBase {
             // MARK: - Init
             
             public init(
-                source: Microservice.Middle,
                 walletId: String,
                 token: Blockchain.Token,
                 value: Int64
             ) throws {
-                self.source = source
                 self.walletId = walletId
                 self.token = token
                 self.value = value

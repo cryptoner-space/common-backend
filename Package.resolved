@@ -24,7 +24,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "5a24ef23f1450070695bec8df098428cd9fe06a3"
+        "revision" : "66dc97595c263156d5133486b573cceec2fee23d"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soto-project/soto.git",
       "state" : {
-        "revision" : "30bc0b8bdd5f096032b159d02784bef0da29a016",
-        "version" : "6.2.0"
+        "revision" : "ad93b6bfb76696324bc0c9f0354f59b5060d4317",
+        "version" : "6.3.0"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soto-project/soto-core.git",
       "state" : {
-        "revision" : "fee2fdbe28fef7288415c0545081c235a4941a54",
-        "version" : "6.2.1"
+        "revision" : "84a53eaef17c29ec8eb14dfcee1e44d5880b85b7",
+        "version" : "6.3.0"
       }
     },
     {
