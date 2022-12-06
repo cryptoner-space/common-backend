@@ -50,7 +50,7 @@ extension P2P_Union.BuyOrderStatusEnum {
     
     // MARK: - Scheme
     
-    static let scheme: String = "buy_sale_order_status_enum_001"
-    static let relation: FieldKey = .init(stringLiteral: "status")
+    static public let scheme: String = "buy_sale_order_status_enum_001"
+    static public let relation: FieldKey = .init(stringLiteral: "status")
     
 }
