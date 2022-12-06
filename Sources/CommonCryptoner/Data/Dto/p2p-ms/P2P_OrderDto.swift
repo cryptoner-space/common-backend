@@ -41,7 +41,6 @@ extension P2P_Dto {
                 ) {
                     self.merchantId = merchantId
                     self.token = token
-                    self.status = status
                     self.available = available
                     self.limitMinValue = limitMinValue
                     self.limitMaxValue = limitMaxValue
