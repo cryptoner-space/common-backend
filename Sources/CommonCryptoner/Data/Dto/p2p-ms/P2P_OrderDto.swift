@@ -21,6 +21,9 @@ extension P2P_Dto {
                 /// Токен криптовалюты
                 public let token: Blockchain.Token
                 
+                /// Статус заявки
+                public let status: P2P_Union.OrderStatusEnum
+                
                 /// Доступное количество валюты к продаже
                 public let available: Double
                 
@@ -35,12 +38,14 @@ extension P2P_Dto {
                 public init(
                     merchantId: UUID,
                     token: Blockchain.Token,
+                    status: P2P_Union.OrderStatusEnum,
                     available: Double,
                     limitMinValue: Double,
                     limitMaxValue: Double
                 ) {
                     self.merchantId = merchantId
                     self.token = token
+                    self.status = status
                     self.available = available
                     self.limitMinValue = limitMinValue
                     self.limitMaxValue = limitMaxValue
