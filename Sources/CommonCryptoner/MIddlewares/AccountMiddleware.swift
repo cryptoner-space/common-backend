@@ -70,7 +70,7 @@ public final class AccountMiddleware: Middleware {
     
     public func fetchStocks(
         tokens: [Blockchain.Token]
-    ) throws -> EventLoopFuture<[Market_Dto.Agregate.Res]> {
+    ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         guard let fiat = try? req.query.get(Fiat.self, at: "fiat") else {
             throw Abort(.badRequest)
         }
@@ -84,8 +84,12 @@ public final class AccountMiddleware: Middleware {
                 )
         }
         
-        return self.req.client.eventLoop.flatten(futures).flatMapEachThrowing {
-            .init(crypto: $0.crypto, fiat: $0.fiat, stock: $0.stock)
+        return self.req.client.eventLoop.flatten(futures).flatMapThrowing { dtoStocks in
+            guard let fiat = dtoStocks.first?.fiat else {
+                throw Abort(.internalServerError, reason: "AccountMiddleware: fiat not found!")
+            }
+            
+            return .init(fiat: fiat, items: Array(dtoStocks.map { $0.items }.joined()))
         }
     }
     
