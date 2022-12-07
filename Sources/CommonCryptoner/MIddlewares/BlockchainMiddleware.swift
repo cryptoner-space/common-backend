@@ -54,7 +54,7 @@ public final class BlockchainMiddleware: Middleware {
     ///   - client: Клиент запроса
     ///   - env: Инструменты параметров
     public func market(
-        blockchainToken: Blockchain.Token ,
+        tokens: [Blockchain.Token],
         fiat: Fiat
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         let url = IntegrationUrlBuilder(
@@ -64,7 +64,7 @@ public final class BlockchainMiddleware: Middleware {
         
         return req.client.get(url) {
             $0.headers.contentType = .json
-            try $0.query.encode(Market_Dto.Agregate.Req(fiat: fiat, token: blockchainToken))
+            try $0.query.encode(Market_Dto.Agregate.Req(fiat: fiat, tokens: tokens))
         }
         .flatMapThrowing { res in
             guard res.status == .ok else { throw Abort(res.status) }

@@ -75,22 +75,12 @@ public final class AccountMiddleware: Middleware {
             throw Abort(.badRequest)
         }
         
-        let futures = try tokens.map {
-            try req
-                .blockchain()
-                .market(
-                    blockchainToken: $0,
-                    fiat: fiat
-                )
-        }
-        
-        return self.req.client.eventLoop.flatten(futures).flatMapThrowing { dtoStocks in
-            guard let fiat = dtoStocks.first?.fiat else {
-                throw Abort(.internalServerError, reason: "AccountMiddleware: fiat not found!")
-            }
-            
-            return .init(fiat: fiat, items: Array(dtoStocks.map { $0.items }.joined()))
-        }
+        return try req
+            .blockchain()
+            .market(
+                tokens: tokens,
+                fiat: fiat
+            )
     }
     
 }

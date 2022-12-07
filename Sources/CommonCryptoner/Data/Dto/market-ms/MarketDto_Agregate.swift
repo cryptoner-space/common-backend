@@ -39,16 +39,16 @@ extension Market_Dto {
             public let fiat: Fiat
             
             /// Идентификатор блокчейн токена
-            public let token: Blockchain.Token
+            public let tokens: [Blockchain.Token]
             
             // MARK: - Init
             
             public init(
                 fiat: Fiat,
-                token: Blockchain.Token
+                tokens: [Blockchain.Token]
             ) {
                 self.fiat = fiat
-                self.token = token
+                self.tokens = tokens
             }
             
         }
