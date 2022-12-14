@@ -162,14 +162,19 @@ extension CBS_Dto {
                 /// Идентификатор владельца транзакции
                 public let ownerId: String
                 
+                /// Дополнительные данные подписи транзакции
+                public let payload: String?
+                
                 // MARK: - Init
                 
                 public init(
                     id: UUID,
-                    ownerId: String
+                    ownerId: String,
+                    payload: String?
                 ) {
                     self.id = id
                     self.ownerId = ownerId
+                    self.payload = payload
                 }
                 
             }

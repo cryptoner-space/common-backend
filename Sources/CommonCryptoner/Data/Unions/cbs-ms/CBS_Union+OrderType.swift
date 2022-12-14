@@ -16,10 +16,10 @@ extension CBS_Union {
         // MARK: - Cases
         
         /// Внести
-        case income
+        case deposit
         
         /// Вывести
-        case outcome
+        case withdraw
         
     }
     
