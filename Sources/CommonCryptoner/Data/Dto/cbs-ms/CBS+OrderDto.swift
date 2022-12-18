@@ -210,10 +210,17 @@ extension CBS_Dto {
                 /// Идентификатор заявки
                 public let id: UUID
                 
+                /// Идентификатор владельца транзакции
+                public let ownerId: String
+                
                 // MARK: - Init
                 
-                public init(id: UUID) {
+                public init(
+                    id: UUID,
+                    ownerId: String
+                ) {
                     self.id = id
+                    self.ownerId = ownerId
                 }
                 
             }
