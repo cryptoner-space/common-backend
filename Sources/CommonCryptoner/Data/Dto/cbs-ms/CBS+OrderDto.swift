@@ -112,6 +112,9 @@ extension CBS_Dto {
             
             public struct Res: Content {
                 
+                /// Дата создания заявки
+                public let createdAt: Date?
+                
                 /// Идентификатор владельца операции
                 public let ownerId: String
                 
@@ -133,6 +136,7 @@ extension CBS_Dto {
                 // MARK: - Init
                 
                 public init(
+                    createdAt: Date?,
                     ownerId: String,
                     employee: CBS_Dto.Employee.Res?,
                     token: Blockchain.Token,
@@ -140,6 +144,7 @@ extension CBS_Dto {
                     type: CBS_Union.OrderTypeEnum,
                     status: CBS_Union.OrderStatusEnum
                 ) {
+                    self.createdAt = createdAt
                     self.ownerId = ownerId
                     self.employee = employee
                     self.token = token
@@ -185,7 +190,24 @@ extension CBS_Dto {
             
             public struct Req: Content {
                 
-                /// Идентификатор
+                /// Идентификатор заявки
+                public let id: UUID
+                
+                // MARK: - Init
+                
+                public init(id: UUID) {
+                    self.id = id
+                }
+                
+            }
+            
+        }
+        
+        public struct Cancel {
+            
+            public struct Req: Content {
+                
+                /// Идентификатор заявки
                 public let id: UUID
                 
                 // MARK: - Init
