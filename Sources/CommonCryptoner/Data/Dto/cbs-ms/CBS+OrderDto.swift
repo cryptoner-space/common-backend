@@ -66,12 +66,19 @@ extension CBS_Dto {
             public struct Req: Content {
                 
                 /// Идентификатор владельца операции
-                public let ownerId: String
+                public let ownerIds: [String]
+                
+                /// Набор статусов для выдачи
+                public let statuses: [CBS_Union.OrderStatusEnum]
                 
                 // MARK: - Init
                 
-                public init(ownerId: String) {
-                    self.ownerId = ownerId
+                public init(
+                    ownerIds: [String],
+                    statuses: [CBS_Union.OrderStatusEnum]
+                ) {
+                    self.ownerIds = ownerIds
+                    self.statuses = statuses
                 }
                 
             }
