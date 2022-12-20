@@ -11,7 +11,7 @@ import Fluent
 extension P2P_Union {
 
     /// Статус предложения к заявке P2P
-    public enum BuyOrderStatusEnum: String, Codable {
+    public enum ProposalOrderStatusEnum: String, Codable {
         
         // MARK: - Cases
         
@@ -46,7 +46,7 @@ extension P2P_Union {
     
 }
 
-extension P2P_Union.BuyOrderStatusEnum {
+extension P2P_Union.ProposalOrderStatusEnum {
     
     // MARK: - Scheme
     

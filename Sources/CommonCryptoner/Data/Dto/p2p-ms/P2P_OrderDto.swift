@@ -9,83 +9,107 @@ import Vapor
 
 extension P2P_Dto {
     
-    public struct OrderDto {
+    // MARK: - ListDto
+    
+    public struct List {
         
-        public struct Sale {
+        public struct Req: Content {
             
-            public struct Req: Content {
-                
-                /// Идентификатор мерчанта
-                public let merchantId: UUID
-                
-                /// Токен криптовалюты
-                public let token: Blockchain.Token
-                
-                /// Доступное количество валюты к продаже
-                public let available: Double
-                
-                /// Минимальная сумма сделки
-                public let limitMinValue: Double
-                
-                /// Максимальная сумма сделки
-                public let limitMaxValue: Double
-                
-                // MARK: - Init
-                
-                public init(
-                    merchantId: UUID,
-                    token: Blockchain.Token,
-                    available: Double,
-                    limitMinValue: Double,
-                    limitMaxValue: Double
-                ) {
-                    self.merchantId = merchantId
-                    self.token = token
-                    self.available = available
-                    self.limitMinValue = limitMinValue
-                    self.limitMaxValue = limitMaxValue
-                }
-                
+            /// Идентификатор владельца операции
+            public let merchantId: UUID
+            
+            /// Статусы заявок
+            public let statuses: [P2P_Union.OrderStatusEnum]
+            
+            // MARK: - Init
+            
+            public init(
+                merchantId: UUID,
+                statuses: [P2P_Union.OrderStatusEnum]
+            ) {
+                self.merchantId = merchantId
+                self.statuses = statuses
             }
             
-            public struct Res: Content {
-                
-                /// Идентификатор заявки
-                public let id: UUID
-                
-                /// Токен заявки
-                public let token: Blockchain.Token
-                
-                /// Статус заявки
-                public let status: P2P_Union.OrderStatusEnum
-                
-                /// Доступное количство криптовалюты к продаже [nano]
-                public let available: Double
-                
-                /// Минимальная сумма сделки криптовалюты [nano]
-                public let limitMinValue: Double
-                
-                /// Максимальная сумма сделки крипто [nano]
-                public let limitMaxValue: Double
-                
-                // MARK: - Init
-                
-                public init(
-                    id: UUID,
-                    token: Blockchain.Token,
-                    status: P2P_Union.OrderStatusEnum,
-                    available: Double,
-                    limitMinValue: Double,
-                    limitMaxValue: Double
-                ) {
-                    self.id = id
-                    self.token = token
-                    self.status = status
-                    self.available = available
-                    self.limitMinValue = limitMinValue
-                    self.limitMaxValue = limitMaxValue
-                }
-                
+        }
+        
+    }
+    
+    // MARK: - EntityDto
+    
+    public struct Order {
+        
+        public struct Req: Content {
+            
+            /// Идентификатор мерчанта
+            public let merchantId: UUID
+            
+            /// Токен криптовалюты
+            public let token: Blockchain.Token
+            
+            /// Доступное количество валюты к продаже
+            public let available: Double
+            
+            /// Минимальная сумма сделки
+            public let limitMinValue: Double
+            
+            /// Максимальная сумма сделки
+            public let limitMaxValue: Double
+            
+            // MARK: - Init
+            
+            public init(
+                merchantId: UUID,
+                token: Blockchain.Token,
+                available: Double,
+                limitMinValue: Double,
+                limitMaxValue: Double
+            ) {
+                self.merchantId = merchantId
+                self.token = token
+                self.available = available
+                self.limitMinValue = limitMinValue
+                self.limitMaxValue = limitMaxValue
+            }
+            
+        }
+        
+        public struct Res: Content {
+            
+            /// Идентификатор заявки
+            public let id: UUID
+            
+            /// Токен заявки
+            public let token: Blockchain.Token
+            
+            /// Статус заявки
+            public let status: P2P_Union.OrderStatusEnum
+            
+            /// Доступное количство криптовалюты к продаже [nano]
+            public let available: Double
+            
+            /// Минимальная сумма сделки криптовалюты [nano]
+            public let limitMinValue: Double
+            
+            /// Максимальная сумма сделки крипто [nano]
+            public let limitMaxValue: Double
+            
+            // MARK: - Init
+            
+            public init(
+                id: UUID,
+                token: Blockchain.Token,
+                status: P2P_Union.OrderStatusEnum,
+                available: Double,
+                limitMinValue: Double,
+                limitMaxValue: Double
+            ) {
+                self.id = id
+                self.token = token
+                self.status = status
+                self.available = available
+                self.limitMinValue = limitMinValue
+                self.limitMaxValue = limitMaxValue
             }
             
         }
