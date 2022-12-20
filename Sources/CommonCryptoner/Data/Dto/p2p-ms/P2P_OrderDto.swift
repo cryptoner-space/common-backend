@@ -137,12 +137,10 @@ extension P2P_Dto {
                 // MARK: - Init
                 
                 public init(
-                    id: UUID,
                     token: Blockchain.Token,
                     available: Double,
                     count: Int
                 ) {
-                    self.id = id
                     self.token = token
                     self.available = available
                     self.count = count
