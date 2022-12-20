@@ -119,6 +119,39 @@ extension P2P_Dto {
             
         }
         
+        // MARK: - CountDto
+        
+        public struct Count {
+            
+            public struct Res: Content {
+                
+                /// Токен заявки
+                public let token: Blockchain.Token
+                
+                /// Доступное количство криптовалюты к продаже [nano]
+                public let available: Double
+                
+                /// Доступное количство заявок
+                public let count: Int
+                
+                // MARK: - Init
+                
+                public init(
+                    id: UUID,
+                    token: Blockchain.Token,
+                    available: Double,
+                    count: Int
+                ) {
+                    self.id = id
+                    self.token = token
+                    self.available = available
+                    self.count = count
+                }
+                
+            }
+            
+        }
+        
     }
 
     
