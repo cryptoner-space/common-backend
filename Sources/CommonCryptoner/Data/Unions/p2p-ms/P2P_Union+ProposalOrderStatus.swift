@@ -10,21 +10,21 @@ import Fluent
 
 extension P2P_Union {
 
-    /// Статус танзакции криптовалюты
+    /// Статус предложения к заявке P2P
     public enum BuyOrderStatusEnum: String, Codable {
         
         // MARK: - Cases
         
-        /// Пользователь (покупатель) создал заявку на покупку
+        /// Пользователь создал заявку на покупку / продажу
         case CREATED
         
-        /// Пользователь (покупатель) отменил заявку на покупку
+        /// Пользователь отменил заявку на покупку / продажу
         case CANCELED
         
-        /// Пользователь (продавец) подтвердил готовность выполнения заявки
+        /// Пользователь подтвердил готовность выполнения заявки
         case ACCEPTED
         
-        /// Пользователь (продавец) отклонил готовность выполнения заявки
+        /// Пользователь отклонил готовность выполнения заявки
         case DECLINED
         
         /// Заявка готова к исполнению
@@ -50,7 +50,7 @@ extension P2P_Union.BuyOrderStatusEnum {
     
     // MARK: - Scheme
     
-    static public let scheme: String = "buy_sale_order_status_enum_001"
+    static public let scheme: String = "proposal_order_status_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "status")
     
 }

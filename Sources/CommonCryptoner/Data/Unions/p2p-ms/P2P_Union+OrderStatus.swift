@@ -10,12 +10,28 @@ import Fluent
 
 extension P2P_Union {
     
-    /// Статус операций сервиса CBS
+    /// Статус заявки P2P
     public enum OrderStatusEnum: String, CaseIterable, Codable {
         
         // MARK: - Cases
         
-        case CREATED, PENDING, COMPLETED, FAILED, CANCELED
+        /// Создана
+        case CREATED
+        
+        /// Подтверждена
+        case PENDING
+        
+        /// Авторизована
+        case AUTHORIZED
+        
+        /// Успешно завершена
+        case COMPLETED
+        
+        /// Завершена с ошибкой
+        case FAILED
+        
+        /// Отменена
+        case CANCELED
         
     }
     
