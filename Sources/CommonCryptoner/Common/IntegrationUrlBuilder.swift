@@ -116,6 +116,7 @@ public struct IntegrationUrlBuilder {
         case create
         case pending
         case cancel
+        case proposals
     }
     
     // MARK: - Properties
