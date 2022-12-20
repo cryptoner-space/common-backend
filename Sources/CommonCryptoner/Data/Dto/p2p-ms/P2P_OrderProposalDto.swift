@@ -21,13 +21,13 @@ extension P2P_Dto {
                 public let merchantId: UUID
                 
                 /// Статусы заявок
-                public let statuses: [P2P_Union.ProposalOrderStatusEnum]
+                public let statuses: [P2P_Union.OrderPorposalStatusEnum]
                 
                 // MARK: - Init
                 
                 public init(
                     merchantId: UUID,
-                    statuses: [P2P_Union.ProposalOrderStatusEnum]
+                    statuses: [P2P_Union.OrderPorposalStatusEnum]
                 ) {
                     self.merchantId = merchantId
                     self.statuses = statuses

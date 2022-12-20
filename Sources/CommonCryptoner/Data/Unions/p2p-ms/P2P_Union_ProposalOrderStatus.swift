@@ -11,7 +11,7 @@ import Fluent
 extension P2P_Union {
 
     /// Статус предложения к заявке P2P
-    public enum ProposalOrderStatusEnum: String, Codable {
+    public enum OrderPorposalStatusEnum: String, Codable {
         
         // MARK: - Cases
         
@@ -46,11 +46,11 @@ extension P2P_Union {
     
 }
 
-extension P2P_Union.ProposalOrderStatusEnum {
+extension P2P_Union.OrderPorposalStatusEnum {
     
     // MARK: - Scheme
     
-    static public let scheme: String = "proposal_order_status_enum_001"
+    static public let scheme: String = "order_proposal_status_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "status")
     
 }
