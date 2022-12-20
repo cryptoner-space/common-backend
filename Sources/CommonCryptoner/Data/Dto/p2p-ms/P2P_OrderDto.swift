@@ -44,6 +44,9 @@ extension P2P_Dto {
             /// Идентификатор мерчанта
             public let merchantId: UUID
             
+            /// Тип операции
+            public let type: P2P_Union.OrderTypeEnum
+            
             /// Токен криптовалюты
             public let token: Blockchain.Token
             
@@ -60,12 +63,14 @@ extension P2P_Dto {
             
             public init(
                 merchantId: UUID,
+                type: P2P_Union.OrderTypeEnum,
                 token: Blockchain.Token,
                 available: Double,
                 limitMinValue: Double,
                 limitMaxValue: Double
             ) {
                 self.merchantId = merchantId
+                self.type = type
                 self.token = token
                 self.available = available
                 self.limitMinValue = limitMinValue
