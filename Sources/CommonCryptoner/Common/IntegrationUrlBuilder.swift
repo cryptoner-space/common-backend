@@ -119,6 +119,12 @@ public struct IntegrationUrlBuilder {
         case proposals
         case buy
         case accept
+        
+        // MARK: - Helper
+        
+        public var path: PathComponent {
+            .init(stringLiteral: self.rawValue)
+        }
     }
     
     // MARK: - Properties
