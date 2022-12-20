@@ -131,6 +131,9 @@ extension P2P_Dto {
                 /// Доступное количство криптовалюты к продаже [nano]
                 public let available: Double
                 
+                /// Средняя стоимость заявок для токена криптовалюты
+                public let average: Double
+                
                 /// Доступное количство заявок
                 public let count: Int
                 
@@ -139,10 +142,12 @@ extension P2P_Dto {
                 public init(
                     token: Blockchain.Token,
                     available: Double,
+                    average: Double,
                     count: Int
                 ) {
                     self.token = token
                     self.available = available
+                    self.average = average
                     self.count = count
                 }
                 
