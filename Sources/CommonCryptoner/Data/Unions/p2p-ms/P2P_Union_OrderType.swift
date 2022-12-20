@@ -16,10 +16,10 @@ extension P2P_Union {
         // MARK: - Cases
         
         /// Продажа
-        case sale
+        case SALE
         
         /// Покупка
-        case buy
+        case BUY
         
     }
     
