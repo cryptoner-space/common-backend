@@ -17,13 +17,15 @@ extension Request {
             .resolve()
             .first(where: { ($0 as? BlockchainMiddleware) != nil }) as? BlockchainMiddleware
         else {
-            throw Abort(.notFound, reason: "BlockchainMiddleware -> middleware not found")
+            throw Abort(.internalServerError, reason: "BlockchainMiddleware -> middleware not found")
         }
         
         return middleware
     }
     
 }
+
+private let kBlockchainMiddlewareCacheKey = "kBlockchainMiddlewareCacheKey"
 
 public final class BlockchainMiddleware: Middleware {
     
@@ -33,14 +35,17 @@ public final class BlockchainMiddleware: Middleware {
     
     // MARK: - Private Propertioes
     
-    private(set) weak var req: Request!
+    private(set) var client: Client!
+    private(set) var cache: Cache!
     private(set) var env: Environment!
     
     // MARK: - Middleware Implementation
     
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
-        self.req = request
+        self.cache = request.cache
+        self.client = request.client
         self.env = request.application.environment
+        
         return next.respond(to: request)
     }
     
@@ -57,14 +62,43 @@ public final class BlockchainMiddleware: Middleware {
         tokens: [Blockchain.Token],
         fiat: Fiat
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
+        client.eventLoop.future().tryFlatMap {
+            self.cache.get(kBlockchainMiddlewareCacheKey, as: Market_Dto.Agregate.Res.self)
+        }.tryFlatMap { cacheMarket in
+            if let cacheMarket = cacheMarket {
+                return self.client.eventLoop.makeSucceededFuture(cacheMarket)
+            } else {
+                return try self.loadMarket(tokens: tokens, fiat: fiat).tryFlatMap{ dtoMarket in
+                    return self.insertCacheMarket(dtoMarket)
+                }
+            }
+        }
+    }
+    
+    // MARK: - Private Implementation
+    
+    private func insertCacheMarket(_ market: Market_Dto.Agregate.Res) -> EventLoopFuture<Market_Dto.Agregate.Res> {
+        client.eventLoop.future().tryFlatMap {
+            self.cache.set(kBlockchainMiddlewareCacheKey, to: market, expiresIn: .minutes(15))
+        }.flatMapThrowing {
+            return market
+        }
+    }
+    
+    private func loadMarket(
+        tokens: [Blockchain.Token],
+        fiat: Fiat
+    ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         let url = IntegrationUrlBuilder(
             host: .init(env, service: .market)
         )
         .remoteUrl(paths: .stock)
         
-        return req.client.get(url) {
+        return client.get(url) {
             $0.headers.contentType = .json
-            try $0.query.encode(Market_Dto.Agregate.Req(fiat: fiat, tokens: tokens))
+            try $0.query.encode(
+                Market_Dto.Agregate.Req(fiat: fiat, tokens: tokens)
+            )
         }
         .flatMapThrowing { res in
             guard res.status == .ok else { throw Abort(res.status) }

@@ -25,6 +25,8 @@ extension Request {
     
 }
 
+private let kAccountMiddlewareCacheKeyAccountPrefix = "kAccountMiddlewareCacheKeyAccount_"
+
 public final class AccountMiddleware: Middleware {
     
     // MARK: - Public Init
@@ -33,33 +35,43 @@ public final class AccountMiddleware: Middleware {
     
     // MARK: - Private Propertioes
     
-    private(set) weak var req: Request!
+    private(set) var client: Client!
+    private(set) var logger: Logger!
+    private(set) var cache: Cache!
     private(set) var env: Environment!
+    private(set) var query: URLQueryContainer!
+    private(set) var blockchain: BlockchainMiddleware!
     
     // MARK: - Middleware Implementation
     
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
-        self.req = request
+        self.client = request.client
+        self.logger = request.logger
+        self.cache = request.cache
         self.env = request.application.environment
+        self.query = request.query
+        
+        do {
+            self.blockchain = try request.blockchain()
+        } catch {
+            return request.eventLoop.makeFailedFuture(Abort(.internalServerError))
+        }
+        
         return next.respond(to: request)
     }
     
     public func fetchAccount(by accountId: String) throws -> EventLoopFuture<CAS_Dto.Account.Res> {
-        let url = IntegrationUrlBuilder(
-            host: .init(env, service: .cas)
-        )
-        .remoteUrl(
-            paths: .accounts,
-            parameter: accountId
-        )
-        
-        return req.client
-            .get(url) { $0.headers.contentType = .json }
-            .flatMapThrowing { res in
-                self.req.logger.info(Logger.Message(stringLiteral: "GET \(url) -> \(res.status.code)"))
-                guard res.status == .ok else { throw Abort(res.status) }
-                return try res.content.decode(CAS_Dto.Account.Res.self)
+        client.eventLoop.future().tryFlatMap {
+            self.cache.get(kAccountMiddlewareCacheKeyAccountPrefix+accountId, as: CAS_Dto.Account.Res.self)
+        }.tryFlatMap { cacheAccount in
+            if let cacheAccount = cacheAccount {
+                return self.client.eventLoop.makeSucceededFuture(cacheAccount)
+            } else {
+                return try self.loadAccount(accountId: accountId).tryFlatMap{ dtoAccount in
+                    return self.insertCache(account: dtoAccount, by: accountId)
+                }
             }
+        }
     }
     
     public func fetchWallets(by accountId: String) throws -> EventLoopFuture<[CAS_Dto.Wallet.Res]> {
@@ -71,16 +83,45 @@ public final class AccountMiddleware: Middleware {
     public func fetchStocks(
         tokens: [Blockchain.Token]
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
-        guard let fiat = try? req.query.get(Fiat.self, at: "fiat") else {
+        guard let fiat = try? self.query.get(Fiat.self, at: "fiat") else {
             throw Abort(.badRequest)
         }
         
-        return try req
-            .blockchain()
-            .market(
-                tokens: tokens,
-                fiat: fiat
+        return try self.blockchain.market(tokens: tokens, fiat: fiat)
+    }
+    
+    // MARK: - Private Implementation
+    
+    private func insertCache(account: CAS_Dto.Account.Res, by accountId: String) -> EventLoopFuture<CAS_Dto.Account.Res> {
+        client.eventLoop.future().tryFlatMap {
+            self.cache.set(
+                kAccountMiddlewareCacheKeyAccountPrefix+accountId,
+                to: account,
+                expiresIn: .minutes(3)
             )
+        }.flatMapThrowing {
+            return account
+        }
+    }
+    
+    private func loadAccount(
+        accountId: String
+    ) throws -> EventLoopFuture<CAS_Dto.Account.Res> {
+        let url = IntegrationUrlBuilder(
+            host: .init(env, service: .cas)
+        )
+        .remoteUrl(
+            paths: .accounts,
+            parameter: accountId
+        )
+        
+        return client
+            .get(url) { $0.headers.contentType = .json }
+            .flatMapThrowing { res in
+                self.logger.info(Logger.Message(stringLiteral: "GET \(url) -> \(res.status.code)"))
+                guard res.status == .ok else { throw Abort(res.status) }
+                return try res.content.decode(CAS_Dto.Account.Res.self)
+            }
     }
     
 }
