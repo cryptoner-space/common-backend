@@ -107,7 +107,7 @@ extension P2P_Dto {
                     offset: Int?,
                     limit: Int?
                 ) {
-                    self.membersId = merchantId
+                    self.merchantId = merchantId
                     self.token = token
                     self.offset = offset
                     self.limit = limit
