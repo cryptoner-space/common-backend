@@ -39,42 +39,63 @@ extension P2P_Dto {
     
     public struct Order {
         
-        public struct Req: Content {
+        public struct Create: Content {
             
-            /// Идентификатор мерчанта
-            public let merchantId: UUID
+            public struct Req: Content {
+                
+                /// Идентификатор мерчанта
+                public let merchantId: UUID
+                
+                /// Тип операции
+                public let type: P2P_Union.OrderTypeEnum
+                
+                /// Токен криптовалюты
+                public let token: Blockchain.Token
+                
+                /// Доступное количество валюты к продаже
+                public let available: Double
+                
+                /// Минимальная сумма сделки
+                public let limitMinValue: Double
+                
+                /// Максимальная сумма сделки
+                public let limitMaxValue: Double
+                
+                // MARK: - Init
+                
+                public init(
+                    merchantId: UUID,
+                    type: P2P_Union.OrderTypeEnum,
+                    token: Blockchain.Token,
+                    available: Double,
+                    limitMinValue: Double,
+                    limitMaxValue: Double
+                ) {
+                    self.merchantId = merchantId
+                    self.type = type
+                    self.token = token
+                    self.available = available
+                    self.limitMinValue = limitMinValue
+                    self.limitMaxValue = limitMaxValue
+                }
+                
+            }
             
-            /// Тип операции
-            public let type: P2P_Union.OrderTypeEnum
+        }
+        
+        public struct List {
             
-            /// Токен криптовалюты
-            public let token: Blockchain.Token
-            
-            /// Доступное количество валюты к продаже
-            public let available: Double
-            
-            /// Минимальная сумма сделки
-            public let limitMinValue: Double
-            
-            /// Максимальная сумма сделки
-            public let limitMaxValue: Double
-            
-            // MARK: - Init
-            
-            public init(
-                merchantId: UUID,
-                type: P2P_Union.OrderTypeEnum,
-                token: Blockchain.Token,
-                available: Double,
-                limitMinValue: Double,
-                limitMaxValue: Double
-            ) {
-                self.merchantId = merchantId
-                self.type = type
-                self.token = token
-                self.available = available
-                self.limitMinValue = limitMinValue
-                self.limitMaxValue = limitMaxValue
+            public struct Req: Content {
+                
+                /// Токен криптовалюты
+                public let token: Blockchain.Token
+                
+                // MARK: - Init
+                
+                public init(token: Blockchain.Token) {
+                    self.token = token
+                }
+                
             }
             
         }
@@ -83,6 +104,9 @@ extension P2P_Dto {
             
             /// Идентификатор заявки
             public let id: UUID
+            
+            /// Данные мерчата заявки
+            public let merchant: P2P_Dto.MerchantDto.Res
             
             /// Токен заявки
             public let token: Blockchain.Token
@@ -103,6 +127,7 @@ extension P2P_Dto {
             
             public init(
                 id: UUID,
+                merchant: P2P_Dto.MerchantDto.Res,
                 token: Blockchain.Token,
                 status: P2P_Union.OrderStatusEnum,
                 available: Double,
@@ -110,6 +135,7 @@ extension P2P_Dto {
                 limitMaxValue: Double
             ) {
                 self.id = id
+                self.merchant = merchant
                 self.token = token
                 self.status = status
                 self.available = available
