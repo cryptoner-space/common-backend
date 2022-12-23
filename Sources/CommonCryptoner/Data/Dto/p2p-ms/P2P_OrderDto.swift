@@ -87,13 +87,30 @@ extension P2P_Dto {
             
             public struct Req: Content {
                 
+                /// Идентификатор мерчанта
+                public let merchantId: UUID?
+                
                 /// Токен криптовалюты
                 public let token: Blockchain.Token
                 
+                /// Смещение по списку
+                public var offset: Int? = nil
+                
+                /// Количиство выдачи
+                public var limit: Int? = nil
+                
                 // MARK: - Init
                 
-                public init(token: Blockchain.Token) {
+                public init(
+                    merchantId: UUID?,
+                    token: Blockchain.Token,
+                    offset: Int?,
+                    limit: Int?
+                ) {
+                    self.membersId = merchantId
                     self.token = token
+                    self.offset = offset
+                    self.limit = limit
                 }
                 
             }

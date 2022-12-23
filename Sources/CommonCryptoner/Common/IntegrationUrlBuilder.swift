@@ -119,6 +119,7 @@ public struct IntegrationUrlBuilder {
         case proposals
         case buy
         case accept
+        case count
         
         // MARK: - Helper
         
