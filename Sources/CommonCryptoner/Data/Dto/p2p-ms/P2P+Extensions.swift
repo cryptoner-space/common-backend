@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Vapor
 
 extension Array where Element == Market_Dto.Agregate.Item {
 
