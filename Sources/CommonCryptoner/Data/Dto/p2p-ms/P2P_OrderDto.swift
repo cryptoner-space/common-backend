@@ -122,6 +122,9 @@ extension P2P_Dto {
             /// Идентификатор заявки
             public let id: UUID
             
+            /// Дата создания заявки
+            public let createdAt: Date?
+            
             /// Данные мерчата заявки
             public let merchant: P2P_Dto.MerchantDto.Res
             
