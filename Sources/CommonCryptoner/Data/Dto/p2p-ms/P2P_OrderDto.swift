@@ -147,6 +147,7 @@ extension P2P_Dto {
             
             public init(
                 id: UUID,
+                createdAt: Date?,
                 merchant: P2P_Dto.MerchantDto.Res,
                 token: Blockchain.Token,
                 status: P2P_Union.OrderStatusEnum,
@@ -155,6 +156,7 @@ extension P2P_Dto {
                 limitMaxValue: Double
             ) {
                 self.id = id
+                self.createdAt = createdAt
                 self.merchant = merchant
                 self.token = token
                 self.status = status
