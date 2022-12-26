@@ -49,6 +49,13 @@ extension Chats_Dto {
                 /// Идентификатор пространства чата
                 public let id: UUID
                 
+                // MARK: - Init
+                
+                public init(id: UUID) {
+                    self.id = id
+                    
+                }
+                
             }
             
         }
