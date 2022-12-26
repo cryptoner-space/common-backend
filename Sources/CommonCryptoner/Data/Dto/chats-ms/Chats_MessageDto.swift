@@ -63,37 +63,37 @@ extension Chats_Dto {
             
         }
         
-    }
-    
-    public struct List {
-        
-        /// Модель входящей пагинации
-        public struct Req: Content {
+        public struct List {
             
-            /// Идентификатор пользователя
-            public let userId: String
-            
-            /// Идентификатор пространства чата
-            public let spaceId: UUID
-            
-            /// Смещение по списку
-            public let offset: Int
-            
-            /// Количиство выдачи
-            public let limit: Int
-            
-            // MARK: - Init
-            
-            public init(
-                userId: String,
-                spaceId: UUID,
-                offset: Int,
-                limit: Int
-            ) {
-                self.userId = userId
-                self.spaceId = spaceId
-                self.offset = offset
-                self.limit = limit
+            /// Модель входящей пагинации
+            public struct Req: Content {
+                
+                /// Идентификатор пользователя
+                public let userId: String
+                
+                /// Идентификатор пространства чата
+                public let spaceId: UUID
+                
+                /// Смещение по списку
+                public let offset: Int
+                
+                /// Количиство выдачи
+                public let limit: Int
+                
+                // MARK: - Init
+                
+                public init(
+                    userId: String,
+                    spaceId: UUID,
+                    offset: Int,
+                    limit: Int
+                ) {
+                    self.userId = userId
+                    self.spaceId = spaceId
+                    self.offset = offset
+                    self.limit = limit
+                }
+                
             }
             
         }
