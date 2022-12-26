@@ -71,16 +71,30 @@ extension Chats_Dto {
         public struct Req: Content {
             
             /// Идентификатор пользователя
-            let userId: String
+            public let userId: String
             
             /// Идентификатор пространства чата
-            let spaceId: UUID
+            public let spaceId: UUID
             
             /// Смещение по списку
-            let offset: Int
+            public let offset: Int
             
             /// Количиство выдачи
-            let limit: Int
+            public let limit: Int
+            
+            // MARK: - Init
+            
+            public init(
+                userId: String,
+                spaceId: UUID,
+                offset: Int,
+                limit: Int
+            ) {
+                self.userId = userId
+                self.spaceId = spaceId
+                self.offset = offset
+                self.limit = limit
+            }
             
         }
         
