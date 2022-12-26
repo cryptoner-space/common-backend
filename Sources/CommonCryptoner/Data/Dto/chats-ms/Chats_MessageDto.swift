@@ -65,4 +65,25 @@ extension Chats_Dto {
         
     }
     
+    public struct List {
+        
+        /// Модель входящей пагинации
+        public struct Req: Content {
+            
+            /// Идентификатор пользователя
+            let userId: String
+            
+            /// Идентификатор пространства чата
+            let spaceId: UUID
+            
+            /// Смещение по списку
+            let offset: Int
+            
+            /// Количиство выдачи
+            let limit: Int
+            
+        }
+        
+    }
+    
 }
