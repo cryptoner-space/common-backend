@@ -43,11 +43,17 @@ extension Chats_Dto {
             public let data: Data
             
             /// Отправитель сообщения
-            public let userId: UUID
+            public let userId: String
             
             // MARK: - Init
             
-            public init(id: UUID, createdAt: Date?, updatedAt: Date?, data: Data, userId: UUID) {
+            public init(
+                id: UUID,
+                createdAt: Date?,
+                updatedAt: Date?,
+                data: Data,
+                userId: String
+            ) {
                 self.id = id
                 self.createdAt = createdAt
                 self.updatedAt = updatedAt

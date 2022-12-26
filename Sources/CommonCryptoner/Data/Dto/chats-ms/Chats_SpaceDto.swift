@@ -20,18 +20,18 @@ extension Chats_Dto {
             public let title: String?
             
             /// Владелец пространства
-            public let ownerId: UUID
+            public let ownerId: String
             
             /// Участники пространства чата
-            public let membersId: [UUID]
+            public let membersId: [String]
             
             // MARK: - Init
             
             public init(
                 id: UUID,
                 title: String?,
-                ownerId: UUID,
-                membersId: [UUID]
+                ownerId: String,
+                membersId: [String]
             ) {
                 self.id = id
                 self.title = title
@@ -53,14 +53,19 @@ extension Chats_Dto {
                 public let title: String?
                 
                 /// Владелец пространства
-                public let ownerId: UUID
+                public let ownerId: String
                 
                 /// Участники пространства чата
-                public let membersId: [UUID]
+                public let membersId: [String]
                 
                 // MARK: - Init
                 
-                public init(id: UUID, title: String?, ownerId: UUID, membersId: [UUID]) {
+                public init(
+                    id: UUID,
+                    title: String?,
+                    ownerId: String,
+                    membersId: [String]
+                ) {
                     self.id = id
                     self.title = title
                     self.ownerId = ownerId
@@ -88,10 +93,10 @@ extension Chats_Dto {
                 public let date: Date?
                 
                 /// Тип пространства чата
-                public let type: UserSpaceType
+                public let type: Chat_Union.UserSpaceType
                 
                 /// Роль в пространстве чата
-                public let role: UserSpaceRole
+                public let role: Chat_Union.UserSpaceRole
                 
                 // MARK: - Init
                 
@@ -100,8 +105,8 @@ extension Chats_Dto {
                     title: String?,
                     description: String?,
                     date: Date?,
-                    type: UserSpaceType,
-                    role: UserSpaceRole
+                    type: Chat_Union.UserSpaceType,
+                    role: Chat_Union.UserSpaceRole
                 ) {
                     self.id = id
                     self.title = title
@@ -123,11 +128,14 @@ extension Chats_Dto {
                 public let spaceId: UUID
                 
                 /// Идентификатор пользоватедя
-                public let userId: UUID
+                public let userId: String
                 
                 // MARK: - Init
                 
-                public init(spaceId: UUID, userId: UUID) {
+                public init(
+                    spaceId: UUID,
+                    userId: String
+                ) {
                     self.spaceId = spaceId
                     self.userId = userId
                 }
