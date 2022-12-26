@@ -16,12 +16,12 @@ extension Chats_Dto {
             /// Идентификатор пространства
             public let spaceId: UUID
             
-            /// Бинарные данные
-            public let data: Data
+            /// Base64 данные сообщения
+            public let data: String
             
             // MARK: - Init
             
-            public init(spaceId: UUID, data: Data) {
+            public init(spaceId: UUID, data: String) {
                 self.spaceId = spaceId
                 self.data = data
             }
