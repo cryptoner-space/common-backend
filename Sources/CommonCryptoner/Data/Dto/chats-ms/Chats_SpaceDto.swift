@@ -11,32 +11,43 @@ extension Chats_Dto {
     
     public struct Space {
         
-        public struct Req: Content {
+        public struct Create {
             
-            /// Идентификатор пространства чата
-            public let id: UUID
+            public struct Req: Content {
+                
+                /// Заголовок пространства чата
+                public let title: String?
+                
+                /// Описание пространства чата
+                public let description: String?
+                
+                /// Владелец пространства
+                public let ownerId: String
+                
+                /// Участники пространства чата
+                public let membersId: [String]
+                
+                // MARK: - Init
+                
+                public init(
+                    title: String?,
+                    description: String?,
+                    ownerId: String,
+                    membersId: [String]
+                ) {
+                    self.title = title
+                    self.description = description
+                    self.ownerId = ownerId
+                    self.membersId = membersId
+                    
+                }
+                
+            }
             
-            /// Заголовок чата
-            public let title: String?
-            
-            /// Владелец пространства
-            public let ownerId: String
-            
-            /// Участники пространства чата
-            public let membersId: [String]
-            
-            // MARK: - Init
-            
-            public init(
-                id: UUID,
-                title: String?,
-                ownerId: String,
-                membersId: [String]
-            ) {
-                self.id = id
-                self.title = title
-                self.ownerId = ownerId
-                self.membersId = membersId
+            public struct Res: Content {
+                
+                /// Идентификатор пространства чата
+                public let id: UUID
                 
             }
             
