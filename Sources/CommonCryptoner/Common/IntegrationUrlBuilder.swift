@@ -120,8 +120,8 @@ public struct IntegrationUrlBuilder {
         case buy
         case accept
         case count
-        case chats
         case find
+        case spaces
         
         // MARK: - Helper
         
