@@ -17,19 +17,19 @@ extension Chats_Dto {
             public struct Req: Content {
                 
                 /// Владалец чата
-                public let adminId: String
+                public let userId: String
                 
-                /// Учатсники чата
-                public let participantsId: [String]
+                /// Учатсник чата
+                public let memberId: String
                 
                 // MARK: - Init
                 
                 public init(
-                    adminId: String,
-                    participantsId: [String]
+                    userId: String,
+                    memberId: String
                 ) {
-                    self.adminId = adminId
-                    self.participantsId = participantsId
+                    self.userId = userId
+                    self.memberId = memberId
                 }
                 
             }
