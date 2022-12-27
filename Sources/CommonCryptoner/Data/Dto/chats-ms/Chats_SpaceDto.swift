@@ -11,6 +11,31 @@ extension Chats_Dto {
     
     public struct Space {
         
+        public struct Find {
+            
+            /// Модель входящей пагинации
+            public struct Req: Content {
+                
+                /// Владалец чата
+                public let ownerId: String
+                
+                /// Идентификатор пользователя
+                public let participantsId: [String]
+                
+                // MARK: - Init
+                
+                public init(
+                    ownerId: String,
+                    participantsId: [String]
+                ) {
+                    self.ownerId = ownerId
+                    self.participantsId = participantsId
+                }
+                
+            }
+            
+        }
+        
         public struct List {
             
             /// Модель входящей пагинации
