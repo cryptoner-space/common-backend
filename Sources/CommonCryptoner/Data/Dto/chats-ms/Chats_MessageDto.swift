@@ -42,8 +42,17 @@ extension Chats_Dto {
             /// Заголовок чата
             public let data: Data
             
+            /// Идентификатор пространства чата
+            public let spaceId: UUID
+            
             /// Отправитель сообщения
-            public let userId: String
+            public let senderId: String
+            
+            /// Получатель сообщения
+            public let recipientId: String
+            
+            /// Системная информация
+            public let systemInfo: String?
             
             // MARK: - Init
             
@@ -52,13 +61,19 @@ extension Chats_Dto {
                 createdAt: Date?,
                 updatedAt: Date?,
                 data: Data,
-                userId: String
+                spaceId: UUID,
+                senderId: String,
+                recipientId: String,
+                systemInfo: String?
             ) {
                 self.id = id
                 self.createdAt = createdAt
                 self.updatedAt = updatedAt
                 self.data = data
-                self.userId = userId
+                self.spaceId = spaceId
+                self.senderId = senderId
+                self.recipientId = recipientId
+                self.systemInfo = systemInfo
             }
             
         }
