@@ -19,11 +19,29 @@ extension Chats_Dto {
             /// Base64 данные сообщения
             public let data: String
             
+            /// Отправитель сообщения
+            public let senderId: String
+            
+            /// Получатель сообщения
+            public let recipientId: String
+            
+            /// Системная информация
+            public let systemInfo: String?
+            
             // MARK: - Init
             
-            public init(spaceId: UUID, data: String) {
+            public init(
+                spaceId: UUID,
+                data: String,
+                senderId: String,
+                recipientId: String,
+                systemInfo: String?
+            ) {
                 self.spaceId = spaceId
                 self.data = data
+                self.senderId = senderId
+                self.recipientId = recipientId
+                self.systemInfo = systemInfo
             }
             
         }
