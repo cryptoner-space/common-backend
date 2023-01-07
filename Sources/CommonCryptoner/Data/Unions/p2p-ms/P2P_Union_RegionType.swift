@@ -15,7 +15,7 @@ extension P2P_Union {
         
         // MARK: - Cases
         
-        case RU, UA
+        case RU, UA, BY, KZ
         
     }
     
