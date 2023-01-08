@@ -9,7 +9,7 @@ import Vapor
 
 extension P2P_Dto {
     
-    public struct FiatPayment: Content {
+    public struct FiatPayment {
         
         public struct Res: Content {
             

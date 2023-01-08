@@ -49,7 +49,7 @@ extension P2P_Dto {
             public let advance: Float
             
             /// Способы приема плетежей
-            public let payments: [FiatPayment]
+            public let payments: [FiatPayment.Res]
             
             // MARK: - Init
             
@@ -59,7 +59,7 @@ extension P2P_Dto {
                 merchantName: String,
                 raiting: Float,
                 advance: Float,
-                payments: [FiatPayment]
+                payments: [FiatPayment.Res]
             ) {
                 self.id = id
                 self.userId = userId
