@@ -126,7 +126,7 @@ extension P2P_Dto {
             public let createdAt: Date?
             
             /// Данные мерчата заявки
-            public let merchant: P2P_Dto.MerchantDto.Res
+            public let merchant: P2P_Dto.Merchant.Res
             
             /// Токен заявки
             public let token: Blockchain.Token
@@ -148,7 +148,7 @@ extension P2P_Dto {
             public init(
                 id: UUID,
                 createdAt: Date?,
-                merchant: P2P_Dto.MerchantDto.Res,
+                merchant: P2P_Dto.Merchant.Res,
                 token: Blockchain.Token,
                 status: P2P_Union.OrderStatusEnum,
                 available: Double,
