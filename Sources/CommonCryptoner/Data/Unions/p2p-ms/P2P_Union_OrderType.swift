@@ -27,5 +27,5 @@ extension P2P_Union {
 
 extension P2P_Union.OrderTypeEnum {
     static public let scheme: String = "p2p_order_type_enum_001"
-    static public let relation: FieldKey = .init(stringLiteral: "type")
+    static public let relation: FieldKey = .init(stringLiteral: "order_type")
 }

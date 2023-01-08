@@ -51,6 +51,6 @@ extension P2P_Union.OrderPorposalStatusEnum {
     // MARK: - Scheme
     
     static public let scheme: String = "order_proposal_status_enum_001"
-    static public let relation: FieldKey = .init(stringLiteral: "status")
+    static public let relation: FieldKey = .init(stringLiteral: "proposal_order_status")
     
 }

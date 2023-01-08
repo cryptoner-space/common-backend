@@ -39,5 +39,5 @@ extension P2P_Union {
 
 extension P2P_Union.OrderStatusEnum {
     static public let scheme: String = "order_status_enum_001"
-    static public let relation: FieldKey = .init(stringLiteral: "status")
+    static public let relation: FieldKey = .init(stringLiteral: "order_status")
 }
