@@ -9,61 +9,6 @@ import Vapor
 
 extension P2P_Dto {
     
-    public struct FiatPayment: Content {
-        
-        /// Идентфикатор
-        public let id: UUID
-        
-        /// Тип фиатной оплаты
-        public let paymentType: P2P_Union.FiatPaymentTypeEnum
-        
-        /// Регион проведения оплаты
-        public let regionType: P2P_Union.RegionTypeEnum
-        
-        // MARK: - Init
-        
-        public init(
-            id: UUID,
-            paymentType: P2P_Union.FiatPaymentTypeEnum,
-            regionType: P2P_Union.RegionTypeEnum
-        ) {
-            self.id = id
-            self.paymentType = paymentType
-            self.regionType = regionType
-        }
-        
-    }
-    
-    public struct Info: Content {
-        
-        /// Идентификатор
-        public let id: UUID
-        
-        /// Рейтинг
-        public let raiting: Float
-        
-        /// Выполняемость заказов
-        public let advance: Float
-        
-        ///
-        public let payments: [FiatPayment]
-        
-        // MARK: - Init
-        
-        public init(
-            id: UUID,
-            raiting: Float,
-            advance: Float,
-            payments: [FiatPayment]
-        ) {
-            self.id = id
-            self.raiting = raiting
-            self.advance = advance
-            self.payments = payments
-        }
-        
-    }
-    
     public struct Merchant {
         
         public struct Req: Content {
@@ -97,8 +42,14 @@ extension P2P_Dto {
             /// Наименование мерчанта
             public let merchantName: String
             
-            /// Информация мерчанта
-            public let info: Info
+            /// Рейтинг
+            public let raiting: Float
+            
+            /// Выполняемость заказов
+            public let advance: Float
+            
+            /// Способы приема плетежей
+            public let payments: [FiatPayment]
             
             // MARK: - Init
             
@@ -106,12 +57,16 @@ extension P2P_Dto {
                 id: UUID,
                 userId: String,
                 merchantName: String,
-                info: Info
+                raiting: Float,
+                advance: Float,
+                payments: [FiatPayment]
             ) {
                 self.id = id
                 self.userId = userId
                 self.merchantName = merchantName
-                self.info = info
+                self.raiting = raiting
+                self.advance = advance
+                self.payments = payments
             }
             
         }
