@@ -11,7 +11,7 @@ import Fluent
 extension P2P_Union {
     
     /// Способы получения платежа
-    public enum RegionType: String, CaseIterable, Codable {
+    public enum RegionTypeEnum: String, CaseIterable, Codable {
         
         // MARK: - Cases
         
@@ -21,7 +21,7 @@ extension P2P_Union {
     
 }
 
-extension P2P_Union.RegionType {
+extension P2P_Union.RegionTypeEnum {
     static public let scheme: String = "p2p_region_type_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "type")
 }

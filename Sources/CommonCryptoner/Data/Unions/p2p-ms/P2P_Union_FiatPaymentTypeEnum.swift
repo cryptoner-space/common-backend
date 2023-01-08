@@ -11,7 +11,7 @@ import Fluent
 extension P2P_Union {
     
     /// Способы получения платежа
-    public enum FiatPaymentType: String, CaseIterable, Codable {
+    public enum FiatPaymentTypeEnum: String, CaseIterable, Codable {
         
         // MARK: - Cases
         
@@ -21,7 +21,7 @@ extension P2P_Union {
     
 }
 
-extension P2P_Union.FiatPaymentType {
+extension P2P_Union.FiatPaymentTypeEnum {
     static public let scheme: String = "p2p_fiat_payment_type_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "type")
 }
