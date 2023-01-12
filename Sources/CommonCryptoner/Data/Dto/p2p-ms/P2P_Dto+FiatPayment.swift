@@ -22,16 +22,36 @@ extension P2P_Dto {
             /// Регион проведения оплаты
             public let regionType: P2P_Union.RegionTypeEnum
             
+            /// Телефон
+            public let phone: String?
+            
+            /// Номер счета
+            public let account: String?
+            
+            /// Номер карты
+            public let card: String?
+            
+            /// Описание
+            public let description: String?
+            
             // MARK: - Init
             
             public init(
                 id: UUID,
                 paymentType: P2P_Union.FiatPaymentTypeEnum,
-                regionType: P2P_Union.RegionTypeEnum
+                regionType: P2P_Union.RegionTypeEnum,
+                phone: String? = nil,
+                account: String? = nil,
+                card: String? = nil,
+                description: String? = nil
             ) {
                 self.id = id
                 self.paymentType = paymentType
                 self.regionType = regionType
+                self.phone = phone
+                self.account = account
+                self.card = card
+                self.description = description
             }
             
         }

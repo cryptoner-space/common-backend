@@ -42,6 +42,12 @@ extension P2P_Dto {
             /// Наименование мерчанта
             public let merchantName: String
             
+            /// Изображение мерчанта
+            public let imageUrl: String?
+            
+            /// Велком сообщение мерчанта
+            public let message: String?
+            
             /// Рейтинг
             public let raiting: Float
             
@@ -57,6 +63,8 @@ extension P2P_Dto {
                 id: UUID,
                 userId: String,
                 merchantName: String,
+                imageUrl: String?,
+                message: String?,
                 raiting: Float,
                 advance: Float,
                 payments: [FiatPayment.Res]
@@ -64,6 +72,8 @@ extension P2P_Dto {
                 self.id = id
                 self.userId = userId
                 self.merchantName = merchantName
+                self.imageUrl = imageUrl
+                self.message = message
                 self.raiting = raiting
                 self.advance = advance
                 self.payments = payments
