@@ -11,6 +11,51 @@ extension P2P_Dto {
     
     public struct FiatPayment {
         
+        public struct Req: Content {
+            
+            /// Идентфикатор мерчанта
+            public let merchantId: UUID
+            
+            /// Тип фиатной оплаты
+            public let paymentType: P2P_Union.FiatPaymentTypeEnum
+            
+            /// Регион проведения оплаты
+            public let regionType: P2P_Union.RegionTypeEnum
+            
+            /// Телефон
+            public let phone: String?
+            
+            /// Номер счета
+            public let account: String?
+            
+            /// Номер карты
+            public let card: String?
+            
+            /// Описание
+            public let description: String?
+            
+            // MARK: - Init
+            
+            public init(
+                merchantId: UUID,
+                paymentType: P2P_Union.FiatPaymentTypeEnum,
+                regionType: P2P_Union.RegionTypeEnum,
+                phone: String?,
+                account: String?,
+                card: String?,
+                description: String?
+            ) {
+                self.merchantId = merchantId
+                self.paymentType = paymentType
+                self.regionType = regionType
+                self.phone = phone
+                self.account = account
+                self.card = card
+                self.description = description
+            }
+            
+        }
+        
         public struct Res: Content {
             
             /// Идентфикатор
