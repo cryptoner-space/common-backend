@@ -117,6 +117,7 @@ public struct IntegrationUrlBuilder {
         case pending
         case cancel
         case proposals
+        case fiatPayments = "fiat-payments"
         case buy
         case accept
         case count
