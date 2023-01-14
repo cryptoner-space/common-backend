@@ -91,15 +91,11 @@ extension P2P_Dto {
                 /// Сообщение мерчанта
                 public let message: String?
                 
-                /// Список способов получения фиатной валюты
-                public let payments: [FiatPayment.Req]
-                
                 // MARK: - Init
                 
-                public init(imageUrl: String?, message: String?, payments: [FiatPayment.Req]) {
+                public init(imageUrl: String?, message: String?) {
                     self.imageUrl = imageUrl
                     self.message = message
-                    self.payments = payments
                 }
                 
             }
