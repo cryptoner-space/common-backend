@@ -86,13 +86,21 @@ extension P2P_Dto {
             public struct Req: Content {
                 
                 /// Изображение мерчанта
-                let imageUrl: String?
+                public let imageUrl: String?
                 
                 /// Сообщение мерчанта
-                let message: String?
+                public let message: String?
                 
                 /// Список способов получения фиатной валюты
-                let payments: [FiatPayment.Req]
+                public let payments: [FiatPayment.Req]
+                
+                // MARK: - Init
+                
+                public init(imageUrl: String?, message: String?, payments: [FiatPayment.Req]) {
+                    self.imageUrl = imageUrl
+                    self.message = message
+                    self.payments = payments
+                }
                 
             }
             
