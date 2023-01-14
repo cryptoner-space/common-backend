@@ -88,6 +88,7 @@ extension P2P_Dto {
                 id: UUID,
                 paymentType: P2P_Union.FiatPaymentTypeEnum,
                 regionType: P2P_Union.RegionTypeEnum,
+                iconUrl: String? = nil,
                 phone: String? = nil,
                 account: String? = nil,
                 card: String? = nil,
@@ -96,6 +97,7 @@ extension P2P_Dto {
                 self.id = id
                 self.paymentType = paymentType
                 self.regionType = regionType
+                self.iconUrl = iconUrl
                 self.phone = phone
                 self.account = account
                 self.card = card
