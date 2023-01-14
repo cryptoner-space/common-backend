@@ -67,6 +67,9 @@ extension P2P_Dto {
             /// Регион проведения оплаты
             public let regionType: P2P_Union.RegionTypeEnum
             
+            /// Изображение способа оплаты
+            public let iconUrl: String?
+            
             /// Телефон
             public let phone: String?
             
