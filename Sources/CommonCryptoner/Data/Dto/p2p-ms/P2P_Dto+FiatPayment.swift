@@ -13,9 +13,6 @@ extension P2P_Dto {
         
         public struct Req: Content {
             
-            /// Идентфикатор мерчанта
-            public let merchantId: UUID
-            
             /// Тип фиатной оплаты
             public let paymentType: P2P_Union.FiatPaymentTypeEnum
             
@@ -37,7 +34,6 @@ extension P2P_Dto {
             // MARK: - Init
             
             public init(
-                merchantId: UUID,
                 paymentType: P2P_Union.FiatPaymentTypeEnum,
                 regionType: P2P_Union.RegionTypeEnum,
                 phone: String?,
@@ -45,7 +41,6 @@ extension P2P_Dto {
                 card: String?,
                 description: String?
             ) {
-                self.merchantId = merchantId
                 self.paymentType = paymentType
                 self.regionType = regionType
                 self.phone = phone
