@@ -81,7 +81,23 @@ extension P2P_Dto {
             
         }
         
+        public struct Patch {
+            
+            public struct Req: Content {
+                
+                /// Изображение мерчанта
+                let imageUrl: String?
+                
+                /// Сообщение мерчанта
+                let message: String?
+                
+                /// Список способов получения фиатной валюты
+                let payments: [FiatPayment.Req]
+                
+            }
+            
+        }
+        
     }
-
     
 }
