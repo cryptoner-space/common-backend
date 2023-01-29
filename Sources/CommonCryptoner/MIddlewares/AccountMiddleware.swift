@@ -5,6 +5,8 @@
 //  Created by skibinalexander on 21.11.2022.
 //
 
+import BlockchainSdk
+import CommonCryptonerData
 import CommonVapor
 import Vapor
 
@@ -81,7 +83,7 @@ public final class AccountMiddleware: Middleware {
     }
     
     public func fetchStocks(
-        tokens: [Blockchain.Token]
+        tokens: [BlockchainToken]
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         guard let fiat = try? self.query.get(Fiat.self, at: "fiat") else {
             throw Abort(.badRequest)

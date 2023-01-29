@@ -5,6 +5,8 @@
 //  Created by skibinalexander on 16.11.2022.
 //
 
+import BlockchainSdk
+import CommonCryptonerData
 import CommonVapor
 import Vapor
 
@@ -49,8 +51,8 @@ public final class BlockchainMiddleware: Middleware {
         return next.respond(to: request)
     }
     
-    public func availableTokens(app: Blockchain.App) -> [Blockchain.Token] {
-        Blockchain.availableTokens(app)
+    public func availableTokens() -> [Blockchain] {
+        Blockchain.allCases
     }
     
     /// Получить фиатное значение стоимости блокчейн токена / валюты
@@ -59,7 +61,7 @@ public final class BlockchainMiddleware: Middleware {
     ///   - client: Клиент запроса
     ///   - env: Инструменты параметров
     public func market(
-        tokens: [Blockchain.Token],
+        tokens: [BlockchainToken],
         fiat: Fiat
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         client.eventLoop.future().tryFlatMap {
@@ -86,7 +88,7 @@ public final class BlockchainMiddleware: Middleware {
     }
     
     private func loadMarket(
-        tokens: [Blockchain.Token],
+        tokens: [BlockchainToken],
         fiat: Fiat
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         let url = IntegrationUrlBuilder(

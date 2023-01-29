@@ -15,6 +15,8 @@ let package = Package(
             targets: ["CommonCryptoner"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/skibinalexander/BlockchainSdk.git", branch: "main"),
+        .package(url: "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git", branch: "master"),
         .package(url: "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git", branch: "master"),
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
@@ -24,6 +26,8 @@ let package = Package(
         .target(
             name: "CommonCryptoner",
             dependencies: [
+                .product(name: "BlockchainSdk", package: "BlockchainSdk"),
+                .product(name: "CommonCryptonerData", package: "common-cryptoner-data"),
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "CommonVapor", package: "common-backend"),
                 .product(name: "Fluent", package: "fluent"),

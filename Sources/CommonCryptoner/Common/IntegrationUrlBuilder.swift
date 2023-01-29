@@ -5,6 +5,8 @@
 //  Created by skibinalexander on 07.08.2022.
 //
 
+import BlockchainSdk
+import CommonCryptonerData
 import Vapor
 
 /// Сервис конфигурации микросервисов
@@ -181,14 +183,8 @@ extension IntegrationUrlBuilder.Service {
     
     static public func from(_ blockchain: Blockchain) throws -> Self {
         switch blockchain {
-        case .Ethereum:
-            return .eth
-        case .Toncoin:
-            return .ton
-        case .Multi:
-            return .cas
         default:
-            throw Abort(.serviceUnavailable, reason: "Blockchain not supported")
+            return .cas
         }
     }
     
