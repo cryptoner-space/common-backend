@@ -23,6 +23,8 @@ extension User_Dto.Req: Content {}
 extension User_Dto.Res: Content {}
 extension P2PDto.Order.Res: Content {}
 extension P2PDto.Order.List.Req: Content {}
+extension P2PDto.Token.Res: Content {}
+extension P2PDto.Token.List.Req: Content {}
 extension VirtualWalletDto.Order.Create.Req: Content {}
 extension VirtualWalletDto.Order.Cancel.Req: Content {}
 extension VirtualWalletDto.Order.Confirm.Req: Content {}
