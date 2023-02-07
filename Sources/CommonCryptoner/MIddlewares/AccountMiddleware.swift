@@ -83,7 +83,7 @@ public final class AccountMiddleware: Middleware {
     }
     
     public func fetchStocks(
-        tokens: [BlockchainToken]
+        tokens: [Blockchain.Token]
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
         guard let fiat = try? self.query.get(Fiat.self, at: "fiat") else {
             throw Abort(.badRequest)

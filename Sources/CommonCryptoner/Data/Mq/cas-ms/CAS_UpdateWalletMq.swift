@@ -17,7 +17,7 @@ extension CAS_Mq {
         public let walletId: UUID
         
         /// Токен обнолвения баланса
-        public let token: BlockchainToken
+        public let token: Blockchain.Token
         
         /// Значение обновления баланса
         public let value: Int64
@@ -26,7 +26,7 @@ extension CAS_Mq {
         
         public init(
             walletId: UUID,
-            token: BlockchainToken,
+            token: Blockchain.Token,
             value: Int64
         ) throws {
             self.walletId = walletId
