@@ -24,7 +24,7 @@
       "location" : "https://github.com/skibinalexander/BlockchainSdk.git",
       "state" : {
         "branch" : "main",
-        "revision" : "b73d21cb56e8f5bd67e343ce9546523fef6ec1cc"
+        "revision" : "ecfcdd3b91c80073b5b83fb77e92ef39bae2b1df"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "be7912ee4991bcc8a5390fac0424d1d08221dcc6",
-        "version" : "1.36.1"
+        "revision" : "d03b0ff5605bd2cfad7ecddabde1947dbaaa3b47",
+        "version" : "1.37.0"
       }
     },
     {
