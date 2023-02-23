@@ -11,6 +11,10 @@ import JWT
 
 public struct AuthMiddleware: BearerAuthenticator {
     
+    // MARK: - Init
+    
+    public init() {}
+    
     // MARK: - Implementation
 
     public func authenticate(
