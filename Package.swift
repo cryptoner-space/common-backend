@@ -20,7 +20,8 @@ let package = Package(
         .package(url: "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git", branch: "master"),
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
-        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0")
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
+        .package(url: "https://github.com/vapor/jwt.git", from: "4.0.0-rc.1"),
     ],
     targets: [
         .target(
@@ -29,6 +30,7 @@ let package = Package(
                 .product(name: "BlockchainSdk", package: "BlockchainSdk"),
                 .product(name: "CommonCryptonerData", package: "common-cryptoner-data"),
                 .product(name: "Vapor", package: "vapor"),
+                .product(name: "JWT", package: "jwt"),
                 .product(name: "CommonVapor", package: "common-backend"),
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver")
