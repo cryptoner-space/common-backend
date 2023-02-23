@@ -43,10 +43,20 @@ extension AuthMiddleware {
         // MARK: - Properties
         
         /// Идентификатор девайса
-        let deviceId: UUID
+        public let deviceId: UUID
         
         /// Идентификатор пользователя
-        let userId: UUID
+        public let userId: UUID
+        
+        // MARK: - Init
+        
+        public init(
+            deviceId: UUID,
+            userId: UUID
+        ) {
+            self.deviceId = deviceId
+            self.userId = userId
+        }
         
     }
     
@@ -55,24 +65,40 @@ extension AuthMiddleware {
         // MARK: - Properties
         
         /// a subject claim
-        var sub: SubjectClaim
+        public var sub: SubjectClaim
         
         /// Expiration
-        var exp: ExpirationClaim // an expiration claim
+        public var exp: ExpirationClaim // an expiration claim
         
         /// Идентификатор пользователя
-        var userId: UUID
+        public var userId: UUID
         
         /// Device Identifier
-        var deviceId: UUID
+        public var deviceId: UUID
         
         /// User Identifier
-        var username: String
+        public var username: String
         
         // MARK: - Implementation
 
-        func verify(using signer: JWTSigner) throws {
+        public func verify(using signer: JWTSigner) throws {
             try self.exp.verifyNotExpired()
+        }
+        
+        // MARK: - Init
+        
+        public init(
+            sub: SubjectClaim,
+            exp: ExpirationClaim,
+            userId: UUID,
+            deviceId: UUID,
+            username: String
+        ) {
+            self.sub = sub
+            self.exp = exp
+            self.userId = userId
+            self.deviceId = deviceId
+            self.username = username
         }
         
     }
