@@ -60,7 +60,7 @@ extension AuthMiddleware {
         
     }
     
-    struct AuthDevicePayload: JWTPayload, Equatable {
+    public struct AuthDevicePayload: JWTPayload, Equatable {
         
         // MARK: - Properties
         
