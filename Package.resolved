@@ -24,7 +24,7 @@
       "location" : "https://github.com/skibinalexander/BlockchainSdk.git",
       "state" : {
         "branch" : "main",
-        "revision" : "ecfcdd3b91c80073b5b83fb77e92ef39bae2b1df"
+        "revision" : "7c8b51ddf950c6d3bd81f9ef701e3f0232c4715c"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "a29a2cddef356fadd678c588bb85f965f4b1f695"
+        "revision" : "83152d5619a34cc3ee7c9edc29cbe62300229ca4"
       }
     },
     {
@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "209cb29279325df94d2a455656f78e924c6c4914"
+        "revision" : "dad9d2e3b20a9d665dfee489ab641815d0fed76f"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "10f32130a0f7e29de8def48edf69564c36cf3b74",
-        "version" : "1.38.0"
+        "revision" : "cc8fed9ed71dd61872b951df707ce5ac122d7365",
+        "version" : "1.39.0"
       }
     },
     {
@@ -302,8 +302,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "7b76fe01a8eb02aa7f61d9ca10624f98b25a5735",
-        "version" : "4.69.2"
+        "revision" : "08397d41d7c7c726dc6667af6b9db13d408201ff",
+        "version" : "4.70.0"
       }
     },
     {
