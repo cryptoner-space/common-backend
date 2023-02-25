@@ -11,7 +11,7 @@ import Vapor
 extension CAS_Dto.Account.Req: Content {}
 extension CAS_Dto.Account.Res: Content {}
 extension CAS_Dto.Wallet.Res: Content {}
-extension CAS_Dto.WalletItem.Patch.Req: Content {}
+extension CAS_Dto.WalletItem.Create.Req: Content {}
 extension CAS_Dto.WalletItem.Res: Content {}
 extension CAS_Dto.Wallet.Create.Req: Content {}
 extension CAS_Dto.Token.Push.Req: Content {}
