@@ -24,7 +24,7 @@
       "location" : "https://github.com/skibinalexander/BlockchainSdk.git",
       "state" : {
         "branch" : "main",
-        "revision" : "7c8b51ddf950c6d3bd81f9ef701e3f0232c4715c"
+        "revision" : "055890e5c8ff934b0d59bf69c7432799d9a25398"
       }
     },
     {
@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "9dad309739a02c7886f64ab2c1d549c53c4c78b8"
+        "revision" : "9cfd39d8599fcbf0c91223125fe108a835e7ca89"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "cc8fed9ed71dd61872b951df707ce5ac122d7365",
-        "version" : "1.39.0"
+        "revision" : "636a59eb1c852ae7eb3ee0e1f8aa23c104772416",
+        "version" : "1.39.1"
       }
     },
     {
@@ -257,8 +257,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-extras.git",
       "state" : {
-        "revision" : "98378d1fe56527761c180f70b2d66a7b2307fc39",
-        "version" : "1.16.0"
+        "revision" : "d75ed708d00353acf173ca23018b6bd46f949464",
+        "version" : "1.17.0"
       }
     },
     {
@@ -266,8 +266,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-http2.git",
       "state" : {
-        "revision" : "8dcda6828844022028025241e4e7d52cbbe250de",
-        "version" : "1.25.0"
+        "revision" : "860622124b01cc1863b4e65dc449b6b457ca5704",
+        "version" : "1.25.1"
       }
     },
     {
