@@ -91,21 +91,22 @@ public final class BlockchainMiddleware: Middleware {
         tokens: [Blockchain.Token],
         fiat: Fiat
     ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
-        let url = IntegrationUrlBuilder(
-            host: .init(env, service: .market)
-        )
-        .remoteUrl(paths: .stock)
-        
-        return client.get(url) {
-            $0.headers.contentType = .json
-            try $0.query.encode(
-                Market_Dto.Agregate.Req(fiat: fiat, ids: tokens.map { $0.rawValue })
-            )
-        }
-        .flatMapThrowing { res in
-            guard res.status == .ok else { throw Abort(res.status) }
-            return try res.content.decode(Market_Dto.Agregate.Res.self)
-        }
+        throw Abort(.badGateway)
+//        let url = IntegrationUrlBuilder(
+//            host: .init(env, service: .market)
+//        )
+//        .remoteUrl(paths: .stock)
+//
+//        return client.get(url) {
+//            $0.headers.contentType = .json
+//            try $0.query.encode(
+//                Market_Dto.Agregate.Req(fiat: fiat, ids: tokens.map { $0.rawValue })
+//            )
+//        }
+//        .flatMapThrowing { res in
+//            guard res.status == .ok else { throw Abort(res.status) }
+//            return try res.content.decode(Market_Dto.Agregate.Res.self)
+//        }
     }
     
 }
