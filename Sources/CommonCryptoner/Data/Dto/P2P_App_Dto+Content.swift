@@ -8,8 +8,8 @@
 import CommonCryptonerData
 import Vapor
 
-extension AppStatusDto.Res: Content {}
-extension AppStatusDto.Support: Content {}
+extension AppStatus_Dto.Res: Content {}
+extension AppStatus_Dto.Support: Content {}
 extension Feature_Dto.Res: Content {}
 extension Auth_Dto.Authentificator: Content {}
 extension User_Dto.Req: Content {}
