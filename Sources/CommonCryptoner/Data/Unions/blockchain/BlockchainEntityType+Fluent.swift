@@ -9,6 +9,6 @@ import BlockchainSdk
 import Vapor
 import Fluent
 
-extension Blockchain.EntityType  {
+extension Blockchain.Currency  {
     static public let relation: FieldKey = .init(stringLiteral: "blockchain_entity_type")
 }
