@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "fe9b9cc51587615811aacc48b5a04df7dd82ed79"
+        "revision" : "fef972c17c30adc356361383aa4953ed7a50bca5"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-nio.git",
       "state" : {
-        "revision" : "7daf026e145de2c07d6e37f4171b1acb4b5f22b1",
-        "version" : "1.12.1"
+        "revision" : "5d93f3e05f0493441ad46f6d7a76109ff685329c",
+        "version" : "1.13.0"
       }
     },
     {
@@ -221,8 +221,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "80a6e3edc1fc3a4c6c7d4177c73fa3f74c72d3e1",
-        "version" : "2.3.0"
+        "revision" : "da0fe44138ab86e380f40a2acbd8a611b07d3f64",
+        "version" : "2.4.0"
       }
     },
     {
@@ -302,8 +302,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "bac0fe31e3b186537eb750d44fae048681e2b773",
-        "version" : "4.74.0"
+        "revision" : "d1a89f8f54c409751a5891a3dd22f78171be5741",
+        "version" : "4.74.1"
       }
     },
     {
