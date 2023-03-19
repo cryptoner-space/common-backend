@@ -5,9 +5,9 @@
 //  Created by skibinalexander on 07.08.2022.
 //
 
+import Vapor
 import BlockchainSdk
 import CommonCryptonerData
-import Vapor
 
 /// Сервис конфигурации микросервисов
 public struct IntegrationUrlBuilder {
