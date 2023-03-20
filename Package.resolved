@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "6b2aa1a9a4939694cbe6ada012aa67c9ff5d9cd8"
+        "revision" : "78280340aed9028b07529da1d449baaf9e3ac99e"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent.git",
       "state" : {
-        "revision" : "4db22cc7797b3a687de65e32e11108cf92fb32da",
-        "version" : "4.7.0"
+        "revision" : "8d6015096200b4c2f17b884eb966defc42a2ad1d",
+        "version" : "4.7.1"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-postgres-driver.git",
       "state" : {
-        "revision" : "4808c539f08306ae6002f6106813a9350baa141b",
-        "version" : "2.5.0"
+        "revision" : "f2b084417472e6a153d555905796f0ef0bb6fc37",
+        "version" : "2.5.1"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-kit.git",
       "state" : {
-        "revision" : "1174d9bc57798aba7a99451e5380c0eb0fb796d8",
-        "version" : "2.9.0"
+        "revision" : "8ea9274633374d01bdef10da3206db74f3e261d6",
+        "version" : "2.9.1"
       }
     },
     {
