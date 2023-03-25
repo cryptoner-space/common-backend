@@ -5,8 +5,8 @@
 //  Created by skibinalexander on 19.03.2023.
 //
 
-import CommonCryptonerData
 import Vapor
+import CommonCryptonerData
 
 extension TON_Dto.Info: Content {}
 extension TON_Dto.Fee: Content {}

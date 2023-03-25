@@ -5,8 +5,8 @@
 //  Created by skibinalexander on 29.01.2023.
 //
 
-import CommonCryptonerData
 import Vapor
+import CommonCryptonerData
 
 extension P2P_Dto.List.Req: Content {}
 extension P2P_Dto.Order.List.Req: Content {}

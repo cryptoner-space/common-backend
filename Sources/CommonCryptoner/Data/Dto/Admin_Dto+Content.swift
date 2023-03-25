@@ -5,8 +5,8 @@
 //  Created by skibinalexander on 29.01.2023.
 //
 
-import CommonCryptonerData
 import Vapor
+import CommonCryptonerData
 
 extension Admin_Dto.Device.Req: Content {}
 extension Admin_Dto.Device.Res: Content {}

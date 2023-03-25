@@ -5,8 +5,8 @@
 //  Created by skibinalexander on 29.01.2023.
 //
 
-import CommonCryptonerData
 import Vapor
+import CommonCryptonerData
 
 extension Market_Dto.Agregate.Req: Content {}
 extension Market_Dto.Agregate.Res: Content {}

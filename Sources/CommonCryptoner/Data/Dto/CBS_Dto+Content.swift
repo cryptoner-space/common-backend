@@ -5,8 +5,8 @@
 //  Created by skibinalexander on 29.01.2023.
 //
 
-import CommonCryptonerData
 import Vapor
+import CommonCryptonerData
 
 extension CBS_Dto.Order.Res: Content {}
 extension CBS_Dto.Order.Create.Req: Content {}
