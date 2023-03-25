@@ -14,3 +14,6 @@ extension Lock_Dto.Secret.Res: Content {}
 extension Lock_Dto.DEK.Req: Content {}
 extension Lock_Dto.DEK.Res: Content {}
 
+extension Lock_Dto.DEK.YC.Req: Content {}
+extension Lock_Dto.DEK.YC.Res: Content {}
+
