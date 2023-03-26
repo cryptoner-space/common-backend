@@ -35,10 +35,15 @@ public final class YandexMiddleware: Middleware {
     // MARK: - Middleware
     
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
-        request.eventLoop.future().tryFlatMap {
-            try self.iam(on: request)
-        }.flatMap { iamToken in
-            self.bearerToken = iamToken
+        if request.application.environment.isRelease {
+            return request.eventLoop.future().tryFlatMap {
+                try self.iam(on: request)
+            }.flatMap { iamToken in
+                self.bearerToken = iamToken
+                return next.respond(to: request)
+            }
+        } else {
+            self.bearerToken = Environment.get("IAM_TOKEN")!
             return next.respond(to: request)
         }
     }
