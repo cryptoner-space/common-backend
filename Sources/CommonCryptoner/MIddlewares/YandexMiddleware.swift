@@ -10,15 +10,10 @@ import BlockchainSdk
 import CommonCryptonerData
 import CommonVapor
 
-extension Request {
+extension Middlewares {
     
-    public func yandexMiddleware() throws -> YandexMiddleware {
-        guard let middleware = self
-            .application
-            .middleware
-            .resolve()
-            .first(where: { ($0 as? YandexMiddleware) != nil }) as? YandexMiddleware
-        else {
+    public func yandex() throws -> YandexMiddleware {
+        guard let middleware = self.resolve().first(where: { ($0 as? YandexMiddleware) != nil }) as? YandexMiddleware else {
             throw Abort(.notFound, reason: "YandexMiddleware -> middleware not found")
         }
         
@@ -29,7 +24,13 @@ extension Request {
 
 public final class YandexMiddleware: Middleware {
     
-    var bearerToken: String?
+    // MARK: - Properties
+    
+    public var bearerToken: String? = nil
+    
+    // MARK: - Init
+    
+    public init() {}
     
     // MARK: - Middleware
     
