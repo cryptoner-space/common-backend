@@ -7,10 +7,10 @@
 
 import CommonVapor
 
-extension BaseOperation {
+extension OperationItem where Input == RequestOperation<FullOperationDependencies> {
     
     public func urlBuilder(to service: IntegrationUrlBuilder.Service) -> IntegrationUrlBuilder {
-        IntegrationUrlBuilder(host: .init(app.environment, service: service))
+        IntegrationUrlBuilder(host: .init(input.app.environment, service: service))
     }
     
 }
