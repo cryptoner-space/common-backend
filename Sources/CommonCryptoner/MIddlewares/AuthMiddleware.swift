@@ -8,6 +8,7 @@
 import Vapor
 import Fluent
 import JWT
+import CommonVapor
 
 public struct AuthMiddleware: BearerAuthenticator {
     
@@ -23,6 +24,13 @@ public struct AuthMiddleware: BearerAuthenticator {
     ) -> EventLoopFuture<Void> {
         do {
             let jwt = try request.jwt.verify(bearer.token, as: AuthPayloadJWT.self)
+            
+            guard
+                let subject = JWTSubject(rawValue: jwt.sub.value),
+                subject == .authorization
+            else {
+                return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
+            }
             
             request.auth.login(
                 AuthSignData(
