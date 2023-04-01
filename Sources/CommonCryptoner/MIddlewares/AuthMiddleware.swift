@@ -22,12 +22,13 @@ public struct AuthMiddleware: BearerAuthenticator {
         for request: Request
     ) -> EventLoopFuture<Void> {
         do {
-            let jwt = try request.jwt.verify(bearer.token, as: AuthDevicePayload.self)
+            let jwt = try request.jwt.verify(bearer.token, as: AuthPayloadJWT.self)
             
             request.auth.login(
                 AuthSignData(
                     deviceId: jwt.deviceId,
-                    userId: jwt.userId
+                    userId: jwt.userId,
+                    username: jwt.username
                 )
             )
             
@@ -39,6 +40,8 @@ public struct AuthMiddleware: BearerAuthenticator {
    }
     
 }
+
+// MARK: - AuthSignData
 
 extension AuthMiddleware {
     
@@ -52,19 +55,30 @@ extension AuthMiddleware {
         /// Идентификатор пользователя
         public let userId: UUID
         
+        /// Идентификатор пользователя
+        public let username: String
+        
         // MARK: - Init
         
         public init(
             deviceId: UUID,
-            userId: UUID
+            userId: UUID,
+            username: String
         ) {
             self.deviceId = deviceId
             self.userId = userId
+            self.username = username
         }
         
     }
     
-    public struct AuthDevicePayload: JWTPayload, Equatable {
+}
+
+// MARK: - AuthPayloadJWT
+
+extension AuthMiddleware {
+    
+    public struct AuthPayloadJWT: JWTPayload, Equatable {
         
         // MARK: - Properties
         
@@ -76,6 +90,9 @@ extension AuthMiddleware {
         
         /// Идентификатор пользователя
         public var userId: UUID
+        
+        /// Идентификатор приватной информации аккаунта пользователя
+        public var recoveryId: UUID
         
         /// Device Identifier
         public var deviceId: UUID
@@ -95,17 +112,18 @@ extension AuthMiddleware {
             sub: SubjectClaim,
             exp: ExpirationClaim,
             userId: UUID,
+            recoveryId: UUID,
             deviceId: UUID,
             username: String
         ) {
             self.sub = sub
             self.exp = exp
             self.userId = userId
+            self.recoveryId = recoveryId
             self.deviceId = deviceId
             self.username = username
         }
         
     }
-
     
 }

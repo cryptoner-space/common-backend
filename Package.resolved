@@ -33,7 +33,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "83152d5619a34cc3ee7c9edc29cbe62300229ca4"
+        "revision" : "e2a7288e5f5d7fb41e4133e3b912abd69a581d6c"
       }
     },
     {
@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "d9f04ac348be820b9391e23e76e3c25ea140984f"
+        "revision" : "abe1675f96d2c1515c9b5438dd016afad65fc6b4"
       }
     },
     {
