@@ -99,9 +99,6 @@ extension AuthMiddleware {
         /// Идентификатор пользователя
         public var userId: UUID
         
-        /// Идентификатор приватной информации аккаунта пользователя
-        public var recoveryId: UUID
-        
         /// Device Identifier
         public var deviceId: UUID
         
@@ -120,14 +117,12 @@ extension AuthMiddleware {
             sub: SubjectClaim,
             exp: ExpirationClaim,
             userId: UUID,
-            recoveryId: UUID,
             deviceId: UUID,
             username: String
         ) {
             self.sub = sub
             self.exp = exp
             self.userId = userId
-            self.recoveryId = recoveryId
             self.deviceId = deviceId
             self.username = username
         }
