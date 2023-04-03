@@ -171,14 +171,6 @@ public struct IntegrationUrlBuilder {
     
 }
 
-extension String {
-    
-    public var vSlash: String {
-        return self.isEmpty ? "" : self + "/"
-    }
-    
-}
-
 extension IntegrationUrlBuilder.Service {
     
     static public func from(_ blockchain: Blockchain) throws -> Self {
