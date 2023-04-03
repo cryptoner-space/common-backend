@@ -16,7 +16,7 @@ public struct LowLevelUrlBuilder {
         case local = "localhost"
         case node = "10.129.0.12"
         
-        init(_ env: Environment) throws {
+        public init(_ env: Environment) throws {
             self = env.isRelease ? .node : .local
         }
     }
