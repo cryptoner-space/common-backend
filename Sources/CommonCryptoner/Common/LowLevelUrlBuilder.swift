@@ -14,10 +14,11 @@ public struct LowLevelUrlBuilder {
     
     public enum Host: String {
         case local = "localhost"
-        case node = "10.129.0.12"
+        case internal_node = "10.129.0.12"
+        case external_node = "core.cryptoner.space"
         
         public init(_ env: Environment) throws {
-            self = env.isRelease ? .node : .local
+            self = env.isRelease ? .internal_node : .external_node
         }
     }
     
