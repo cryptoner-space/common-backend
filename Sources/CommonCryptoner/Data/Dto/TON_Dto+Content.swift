@@ -8,7 +8,8 @@
 import Vapor
 import CommonCryptonerData
 
-extension TON_Dto.Info: Content {}
+extension TON_Dto.Info.Req: Content {}
+extension TON_Dto.Info.Res: Content {}
 extension TON_Dto.Fee: Content {}
 extension TON_Dto.SendBoc: Content {}
 extension TON_Dto.Seqno: Content {}

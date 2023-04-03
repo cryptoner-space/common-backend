@@ -75,7 +75,7 @@ public struct LowLevelUrlBuilder {
 extension LowLevelUrlBuilder {
     
     public enum AdapterPath: String {
-        case info
+        case info = "adapter/info"
     }
     
     public enum Path {
