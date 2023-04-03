@@ -8,5 +8,16 @@
 import Foundation
 
 public struct LowLevelAdapterWalletInfoData {
-    let balance: Int64
+    
+    // MARK: - Properties
+    
+    /// Баланс кошелька
+    public let balance: Int64
+    
+    // MARK: - Init
+    
+    public init(balance: Int64) {
+        self.balance = balance
+    }
+    
 }
