@@ -53,6 +53,6 @@ public struct ProviderWalletInfoData {
     public let coin: Coin
     
     ///
-    public let token: [Token]
+    public let tokens: [Token]
     
 }
