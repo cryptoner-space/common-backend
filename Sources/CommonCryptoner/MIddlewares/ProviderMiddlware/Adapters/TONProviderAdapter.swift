@@ -22,7 +22,7 @@ final class TONProviderAdapter: ProviderAdapter {
     func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData> {
         guard let input = self.input else { throw Abort(.internalServerError) }
         
-        let url = try LowLevelUrlBuilder(host: .init(input.app.environment), adapter: .ton)
+        let url = try ProviderUrlBuilder(host: .init(input.app.environment), adapter: .ton)
             .remoteUrl(paths: .adapterPath(.info))
         
         return input.client.get(url) {

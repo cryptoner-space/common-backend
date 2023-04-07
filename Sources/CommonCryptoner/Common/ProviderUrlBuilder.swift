@@ -1,5 +1,5 @@
 //
-//  LowLevelUrlBuilder.swift
+//  ProviderUrlBuilder.swift
 //  
 //
 //  Created by skibinalexander on 03.04.2023.
@@ -10,7 +10,7 @@ import BlockchainSdk
 import CommonCryptonerData
 
 /// Сервис конфигурации микросервисов
-public struct LowLevelUrlBuilder {
+public struct ProviderUrlBuilder {
     
     public enum Host: String {
         case local = "localhost"
@@ -29,7 +29,9 @@ public struct LowLevelUrlBuilder {
     }
     
     public enum Adapter: String {
-        case ton = "ton-adapter-ms"
+        case ton = "ton"
+        case btc = "btc"
+        case eth = "eth"
     }
     
     // MARK: - Properties
@@ -72,10 +74,10 @@ public struct LowLevelUrlBuilder {
     
 }
 
-extension LowLevelUrlBuilder {
+extension ProviderUrlBuilder {
     
     public enum AdapterPath: String {
-        case info = "adapter/info"
+        case info = "info"
     }
     
     public enum Path {
