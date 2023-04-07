@@ -43,6 +43,8 @@ public struct ProviderFactory {
             return try TONProviderAdapter()
         case .ethereum:
             return try ETHProviderAdapter()
+        case .bitcoin:
+            return try BTCProviderAdapter()
         default:
             throw ProviderError.wrongMakeFactoryBlockchain
         }
