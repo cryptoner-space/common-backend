@@ -28,7 +28,7 @@ public final class ProviderMiddlware: Middleware {
     
     // MARK: - Properties
     
-    public var adapters: [ProviderAdapter]
+    private var adapters: [ProviderAdapter]
     
     // MARK: - Init
     
@@ -40,16 +40,19 @@ public final class ProviderMiddlware: Middleware {
         ]
     }
     
+    // MARK: - Implementation
+    
+    public func adapter(blockchain: Blockchain) throws -> ProviderAdapter? {
+        self.adapters.first(where: { $0.blockchain == blockchain })
+    }
+    
     // MARK: - Middleware
     
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
         do {
-            try self.adapters.forEach {
-                $0.input = try RequestOperation<FullOperationDependencies>(request)
-            }
-        } catch {
-            
-        }
+            try self.adapters.forEach { $0.input = try RequestOperation<FullOperationDependencies>(request) }
+        } catch {}
+        
         return next.respond(to: request)
     }
     

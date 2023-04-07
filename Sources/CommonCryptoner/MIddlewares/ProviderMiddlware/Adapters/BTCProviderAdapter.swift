@@ -15,6 +15,7 @@ import CommonVapor
 final class BTCProviderAdapter: ProviderAdapter {
     
     public var blockchain: Blockchain = .bitcoin
+    
     public var input: RequestOperation<FullOperationDependencies>!
     
     public init() throws {}
@@ -37,16 +38,11 @@ final class BTCProviderAdapter: ProviderAdapter {
         }
     }
     
-}
-
-extension BTCProviderAdapter {
-    
     func mapData(from dto: BlockBook_Dto.Address.Res) throws -> ProviderWalletInfoData {
-        guard let balance = Int64(dto.balance) else {
-            throw Abort(.internalServerError)
-        }
-        
-        return ProviderWalletInfoData(balance: balance)
+        return ProviderWalletInfoData(
+            coin: .init(entity: .BTC, status: .ACTIVE, balance: dto.balance),
+            token: []
+        )
     }
     
 }

@@ -37,16 +37,11 @@ final class TONProviderAdapter: ProviderAdapter {
         }
     }
     
-}
-
-extension TONProviderAdapter {
-    
     func mapData(from dto: TON_Dto.Info.Res) throws -> ProviderWalletInfoData {
-        guard let balance = Int64(dto.balance) else {
-            throw Abort(.internalServerError)
-        }
-        
-        return ProviderWalletInfoData(balance: balance)
+        return ProviderWalletInfoData(
+            coin: .init(entity: .TON, status: .ACTIVE, balance: dto.balance),
+            token: []
+        )
     }
     
 }

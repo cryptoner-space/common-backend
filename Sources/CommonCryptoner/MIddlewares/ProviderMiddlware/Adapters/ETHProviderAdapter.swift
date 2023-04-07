@@ -42,11 +42,16 @@ final class ETHProviderAdapter: ProviderAdapter {
 extension ETHProviderAdapter {
     
     func mapData(from dto: BlockBook_Dto.Address.Res) throws -> ProviderWalletInfoData {
-        guard let balance = Int64(dto.balance) else {
-            throw Abort(.internalServerError)
-        }
-        
-        return ProviderWalletInfoData(balance: balance)
+        return ProviderWalletInfoData(
+            coin: .init(entity: .ETH, status: .ACTIVE, balance: dto.balance),
+            token: dto.tokens.compactMap {
+                guard let token = Blockchain.Token(rawValue: $0.symbol) else {
+                    return nil
+                }
+                
+                return .init(entity: token, status: .ACTIVE, balance: $0.balance)
+            }
+        )
     }
     
 }
