@@ -62,8 +62,8 @@ public struct ProviderUrlBuilder {
             host: host.rawValue,
             port: nil,
             path:
-                adapter.rawValue.vSlash +
                 apiVersion.rawValue.vSlash +
+                adapter.rawValue.vSlash +
                 (paths.compactMap { $0.path.description }
                     .joined(separator: "/")
                 ).replacingOccurrences(of: "//", with: "/").vSlash

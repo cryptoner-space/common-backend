@@ -30,7 +30,7 @@ final class BTCProviderAdapter: ProviderAdapter {
             try $0.query.encode(BlockBook_Dto.Address.Req(address: address))
         }
         .flatMapThrowing { res in
-            input.logger.info(Logger.Message(stringLiteral: "POST \(url) -> \(res.status.code)"))
+            input.logger.info(Logger.Message(stringLiteral: "GET \(url) -> \(res.status.code)"))
             
             guard res.status == .ok else { throw Abort(res.status) }
             return try self.mapData(from: res.content.decode(BlockBook_Dto.Address.Res.self))
