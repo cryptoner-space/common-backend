@@ -62,7 +62,7 @@ public struct ProviderUrlBuilder {
             host: host.rawValue,
             port: nil,
             path:
-                .init(stringLiteral: "provider-ms") +
+                "provider-ms".vSlash +
                 apiVersion.rawValue.vSlash +
                 adapter.rawValue.vSlash +
                 (paths.compactMap { $0.path.description }
