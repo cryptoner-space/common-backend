@@ -40,13 +40,13 @@ final class ETHProviderAdapter: ProviderAdapter {
     func mapData(from dto: BlockBook_Dto.Address.Res) throws -> ProviderWalletInfoData {
         return ProviderWalletInfoData(
             coin: .init(entity: .ETH, status: .ACTIVE, balance: dto.balance),
-            tokens: dto.tokens.compactMap {
+            tokens: dto.tokens?.compactMap {
                 guard let token = Blockchain.Token(rawValue: $0.symbol) else {
                     return nil
                 }
                 
                 return .init(entity: token, status: .ACTIVE, balance: $0.balance)
-            }
+            } ?? []
         )
     }
     
