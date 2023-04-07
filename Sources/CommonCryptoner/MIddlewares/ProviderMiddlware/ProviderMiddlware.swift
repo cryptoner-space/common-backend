@@ -1,5 +1,5 @@
 //
-//  LowLevelCryptoAdapterMiddlware.swift
+//  ProviderMiddlware.swift
 //  
 //
 //  Created by skibinalexander on 03.04.2023.
@@ -12,11 +12,11 @@ import CommonVapor
 
 extension Middlewares {
     
-    public func lowLevelBlockchainAdapter() throws -> LowLevelBlockchainAdapterMiddlware {
+    public func provider() throws -> ProviderMiddlware {
         guard let middleware = self.resolve()
-            .first(where: { ($0 as? LowLevelBlockchainAdapterMiddlware) != nil }) as? LowLevelBlockchainAdapterMiddlware
+            .first(where: { ($0 as? ProviderMiddlware) != nil }) as? ProviderMiddlware
         else {
-            throw Abort(.notFound, reason: "LowLevelBlockchainAdapterMiddlware -> middleware not found")
+            throw Abort(.notFound, reason: "ProviderMiddlware -> middleware not found")
         }
         
         return middleware
@@ -24,17 +24,19 @@ extension Middlewares {
     
 }
 
-public final class LowLevelBlockchainAdapterMiddlware: Middleware {
+public final class ProviderMiddlware: Middleware {
     
     // MARK: - Properties
     
-    public var adapters: [LowLevelBlockchainAdapter]
+    public var adapters: [ProviderAdapter]
     
     // MARK: - Init
     
     public init() throws {
         self.adapters = try [
-            LowLevelBlockchainAdapterFactory.makeAdapter(for: .toncoin)
+            ProviderFactory.makeAdapter(for: .toncoin),
+            ProviderFactory.makeAdapter(for: .ethereum),
+            ProviderFactory.makeAdapter(for: .bitcoin)
         ]
     }
     

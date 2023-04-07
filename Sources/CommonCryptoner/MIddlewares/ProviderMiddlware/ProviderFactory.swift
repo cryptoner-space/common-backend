@@ -1,5 +1,5 @@
 //
-//  LowLevelBlockchainAdapter.swift
+//  ProviderFactory.swift
 //  
 //
 //  Created by skibinalexander on 03.04.2023.
@@ -10,13 +10,13 @@ import BlockchainSdk
 import CommonCryptonerData
 import CommonVapor
 
-public enum LowLevelBlockchainAdapterError: Error {
+public enum ProviderError: Error {
     case wrongMakeFactoryBlockchain
     case wrongBlockchainAdapter
     case wrongMethodNotImplemented
 }
 
-public protocol LowLevelBlockchainAdapter: AnyObject {
+public protocol ProviderAdapter: AnyObject {
     
     /// Блокчейн адаптер кошелька
     var blockchain: Blockchain { get set }
@@ -31,18 +31,20 @@ public protocol LowLevelBlockchainAdapter: AnyObject {
     // MARK: - Implementation
     
     /// Получить информацию по кошельку
-    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<LowLevelAdapterWalletInfoData>
+    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData>
     
 }
 
-public struct LowLevelBlockchainAdapterFactory {
+public struct ProviderFactory {
     
-    static public func makeAdapter(for blockchain: Blockchain) throws -> LowLevelBlockchainAdapter {
+    static public func makeAdapter(for blockchain: Blockchain) throws -> ProviderAdapter {
         switch blockchain {
         case .toncoin:
-            return try TONLowLevelAdapter()
+            return try TONProviderAdapter()
+        case .ethereum:
+            return try ETHProviderAdapter()
         default:
-            throw LowLevelBlockchainAdapterError.wrongMakeFactoryBlockchain
+            throw ProviderError.wrongMakeFactoryBlockchain
         }
     }
     
