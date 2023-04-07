@@ -41,7 +41,7 @@ final class BTCProviderAdapter: ProviderAdapter {
     func mapData(from dto: BlockBook_Dto.Address.Res) throws -> ProviderWalletInfoData {
         return ProviderWalletInfoData(
             coin: .init(entity: .BTC, status: .ACTIVE, balance: dto.balance),
-            token: []
+            tokens: []
         )
     }
     

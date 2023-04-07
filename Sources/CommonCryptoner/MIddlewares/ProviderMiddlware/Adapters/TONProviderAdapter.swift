@@ -40,7 +40,7 @@ final class TONProviderAdapter: ProviderAdapter {
     func mapData(from dto: TON_Dto.Info.Res) throws -> ProviderWalletInfoData {
         return ProviderWalletInfoData(
             coin: .init(entity: .TON, status: .ACTIVE, balance: dto.balance),
-            token: []
+            tokens: []
         )
     }
     
