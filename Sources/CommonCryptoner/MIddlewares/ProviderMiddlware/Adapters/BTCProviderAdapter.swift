@@ -20,7 +20,7 @@ final class BTCProviderAdapter: ProviderAdapter {
     
     public init() throws {}
     
-    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData> {
+    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData?> {
         guard let input = self.input else { throw Abort(.internalServerError) }
         
         let url = try ProviderUrlBuilder(host: .init(input.app.environment), adapter: .btc)
@@ -33,7 +33,7 @@ final class BTCProviderAdapter: ProviderAdapter {
         .flatMapThrowing { res in
             input.logger.info(Logger.Message(stringLiteral: "GET \(url) -> \(res.status.code)"))
             
-            guard res.status == .ok else { throw Abort(res.status) }
+            guard res.status == .ok else { return nil }
             return try self.mapData(from: res.content.decode(BlockBook_Dto.Address.Res.self))
         }
     }

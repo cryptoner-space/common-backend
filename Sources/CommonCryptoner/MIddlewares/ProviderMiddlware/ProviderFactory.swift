@@ -31,7 +31,7 @@ public protocol ProviderAdapter: AnyObject {
     // MARK: - Implementation
     
     /// Получить информацию по кошельку
-    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData>
+    func updateInfoWallet(id: UUID, for address: String) throws -> EventLoopFuture<ProviderWalletInfoData?>
     
 }
 
