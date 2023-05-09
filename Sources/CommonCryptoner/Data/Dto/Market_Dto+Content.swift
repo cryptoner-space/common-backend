@@ -13,6 +13,4 @@ extension Market_Dto.Agregate.Res: Content {}
 extension Market_Dto.Agregate.Item: Content {}
 extension Market_Dto.Growth.Req: Content {}
 extension Market_Dto.Growth.Res: Content {}
-extension Market_Dto.Currency.Crypto: Content {}
-extension Market_Dto.Currency.Fiat: Content {}
 extension Market_Dto.Stock: Content {}
