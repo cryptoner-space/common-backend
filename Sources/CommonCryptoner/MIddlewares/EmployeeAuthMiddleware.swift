@@ -1,6 +1,6 @@
 //
-//  AuthMiddleware.swift
-//  
+//  EmployeeAuthMiddleware.swift
+//
 //
 //  Created by skibinalexander on 23.02.2023.
 //
@@ -10,7 +10,7 @@ import Fluent
 import JWT
 import CommonVapor
 
-public struct AuthMiddleware: BearerAuthenticator {
+public struct EmployeeAuthMiddleware: BearerAuthenticator {
     
     // MARK: - Init
     
@@ -34,8 +34,7 @@ public struct AuthMiddleware: BearerAuthenticator {
             
             request.auth.login(
                 AuthSignData(
-                    deviceId: jwt.deviceId,
-                    userId: jwt.userId,
+                    employeeId: jwt.employeeId,
                     username: jwt.username
                 )
             )
@@ -51,17 +50,14 @@ public struct AuthMiddleware: BearerAuthenticator {
 
 // MARK: - AuthSignData
 
-extension AuthMiddleware {
+extension EmployeeAuthMiddleware {
     
     public struct AuthSignData: Content, Authenticatable {
         
         // MARK: - Properties
         
-        /// Идентификатор девайса
-        public let deviceId: UUID
-        
         /// Идентификатор пользователя
-        public let userId: UUID
+        public let employeeId: UUID
         
         /// Идентификатор пользователя
         public let username: String
@@ -69,12 +65,10 @@ extension AuthMiddleware {
         // MARK: - Init
         
         public init(
-            deviceId: UUID,
-            userId: UUID,
+            employeeId: UUID,
             username: String
         ) {
-            self.deviceId = deviceId
-            self.userId = userId
+            self.employeeId = employeeId
             self.username = username
         }
         
@@ -84,7 +78,7 @@ extension AuthMiddleware {
 
 // MARK: - AuthPayloadJWT
 
-extension AuthMiddleware {
+extension EmployeeAuthMiddleware {
     
     public struct AuthPayloadJWT: JWTPayload, Equatable {
         
@@ -96,13 +90,10 @@ extension AuthMiddleware {
         /// Expiration
         public var exp: ExpirationClaim // an expiration claim
         
-        /// Идентификатор пользователя
-        public var userId: UUID
+        /// Employee Identifier
+        public var employeeId: UUID
         
-        /// Device Identifier
-        public var deviceId: UUID
-        
-        /// User Identifier
+        /// Employee Identifier
         public var username: String
         
         // MARK: - Implementation
@@ -116,14 +107,12 @@ extension AuthMiddleware {
         public init(
             sub: SubjectClaim,
             exp: ExpirationClaim,
-            userId: UUID,
-            deviceId: UUID,
+            employeeId: UUID,
             username: String
         ) {
             self.sub = sub
             self.exp = exp
-            self.userId = userId
-            self.deviceId = deviceId
+            self.employeeId = employeeId
             self.username = username
         }
         
