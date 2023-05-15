@@ -7,15 +7,21 @@
 
 import Vapor
 
-public struct Microservice {
+public enum Infractructure {
     
-    public enum Middle: String, CaseIterable, Codable {
+    public enum Core: String, CaseIterable, Codable {
         
         /// Core Account Service
         case cas
         
         /// Core Banking Service
         case cbs
+        
+        /// Core Swap Service
+        case swap
+        
+        /// Core Market Service
+        case market
         
     }
     
