@@ -9,7 +9,7 @@ import Vapor
 
 extension Environment {
     
-    func baseUrlMQ(with target: String) -> String? {
+    public func baseUrlMQ(with target: String) -> String? {
         Self.get("BASE_MQ_QUEUE_URL")?.appending("/\(target)")
     }
     
