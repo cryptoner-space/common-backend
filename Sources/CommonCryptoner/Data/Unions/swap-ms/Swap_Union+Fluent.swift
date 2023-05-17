@@ -11,7 +11,7 @@ import Fluent
 import CommonCryptonerData
 
 extension Swap_Union.MetaType {
-    public static let scheme: String = "swap_order_meta_type"
+    public static let schema: String = "swap_order_meta_type"
     public static let relation: FieldKey = .init(stringLiteral: "meta_type")
 }
 
@@ -23,7 +23,7 @@ extension Swap_Union.MetaType {
         
         public func prepare(on database: Database) -> EventLoopFuture<Void> {
             database
-                .enum(Swap_Union.MetaType.scheme)
+                .enum(Swap_Union.MetaType.schema)
                 .case(Swap_Union.MetaType.BUY.rawValue)
                 .case(Swap_Union.MetaType.SALE.rawValue)
                 .create()
@@ -32,7 +32,7 @@ extension Swap_Union.MetaType {
 
         public func revert(on database: Database) -> EventLoopFuture<Void> {
             database
-                .enum(Swap_Union.MetaType.scheme)
+                .enum(Swap_Union.MetaType.schema)
                 .delete()
         }
         

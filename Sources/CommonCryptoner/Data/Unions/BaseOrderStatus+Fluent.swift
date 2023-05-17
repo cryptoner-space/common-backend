@@ -9,7 +9,7 @@ import Fluent
 import CommonCryptonerData
 
 extension BaseOrderStatus {
-    public static let scheme: String = "base_order_status"
+    public static let schema: String = "base_order_status"
     public static let relation: FieldKey = .init(stringLiteral: "status")
 }
 
@@ -21,7 +21,7 @@ extension BaseOrderStatus {
         
         public func prepare(on database: Database) -> EventLoopFuture<Void> {
             database
-                .enum(BaseOrderStatus.scheme)
+                .enum(BaseOrderStatus.schema)
                 .case(BaseOrderStatus.created.rawValue)
                 .case(BaseOrderStatus.approved.rawValue)
                 .case(BaseOrderStatus.cancelled.rawValue)
@@ -40,7 +40,7 @@ extension BaseOrderStatus {
 
         public func revert(on database: Database) -> EventLoopFuture<Void> {
             database
-                .enum(BaseOrderStatus.scheme)
+                .enum(BaseOrderStatus.schema)
                 .delete()
         }
         
