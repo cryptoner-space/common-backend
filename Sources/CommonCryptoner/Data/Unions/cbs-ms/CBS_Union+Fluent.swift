@@ -37,8 +37,8 @@ extension CBS_Union.OrderType {
 }
 
 extension CBS_Union.DepositoryLedgerType {
-    static let schema = "cbs_depositoty_leger_type"
-    static let relation: FieldKey = .init(stringLiteral: "ledger_type")
+    static public let schema = "cbs_depositoty_leger_type"
+    static public let relation: FieldKey = .init(stringLiteral: "ledger_type")
     
     public struct Migration_v001: Migration {
         
