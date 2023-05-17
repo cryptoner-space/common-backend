@@ -8,10 +8,6 @@
 import Vapor
 import CommonCryptonerData
 
-extension CBS_Dto.Order.Res: Content {}
-extension CBS_Dto.Order.Create.Req: Content {}
-extension CBS_Dto.Order.Create.Res: Content {}
-extension CBS_Dto.Order.List.Req: Content {}
-extension CBS_Dto.Order.Authorized.Req: Content {}
-extension CBS_Dto.Order.Cancel.Req: Content {}
-extension CBS_Dto.Order.Pending.Req: Content {}
+extension CBS_Dto.Order.Employee.List.Req: Content {}
+extension CBS_Dto.Order.Employee.List.Res: Content {}
+extension CBS_Dto.Employee.Res: Content {}
