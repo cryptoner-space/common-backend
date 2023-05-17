@@ -9,13 +9,13 @@ import Fluent
 import CommonCryptonerData
 
 extension BaseOrderStatus {
-    static let scheme: String = "base_order_status"
-    static let relation: FieldKey = .init(stringLiteral: "status")
+    public static let scheme: String = "base_order_status"
+    public static let relation: FieldKey = .init(stringLiteral: "status")
 }
 
-struct BaseOrderStatusMigration_v001: Migration {
+public struct BaseOrderStatusMigration_v001: Migration {
     
-    func prepare(on database: Database) -> EventLoopFuture<Void> {
+    public func prepare(on database: Database) -> EventLoopFuture<Void> {
         database
             .enum(BaseOrderStatus.scheme)
             .case(BaseOrderStatus.created.rawValue)
@@ -34,7 +34,7 @@ struct BaseOrderStatusMigration_v001: Migration {
             .transform(to: ())
     }
 
-    func revert(on database: Database) -> EventLoopFuture<Void> {
+    public func revert(on database: Database) -> EventLoopFuture<Void> {
         database
             .enum(BaseOrderStatus.scheme)
             .delete()
