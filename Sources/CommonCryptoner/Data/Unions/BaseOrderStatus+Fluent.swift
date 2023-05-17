@@ -15,6 +15,8 @@ extension BaseOrderStatus {
 
 public struct BaseOrderStatusMigration_v001: Migration {
     
+    public init() {}
+    
     public func prepare(on database: Database) -> EventLoopFuture<Void> {
         database
             .enum(BaseOrderStatus.scheme)
