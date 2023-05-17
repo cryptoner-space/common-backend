@@ -13,33 +13,37 @@ extension BaseOrderStatus {
     public static let relation: FieldKey = .init(stringLiteral: "status")
 }
 
-public struct BaseOrderStatusMigration_v001: Migration {
+extension BaseOrderStatus {
     
-    public init() {}
-    
-    public func prepare(on database: Database) -> EventLoopFuture<Void> {
-        database
-            .enum(BaseOrderStatus.scheme)
-            .case(BaseOrderStatus.created.rawValue)
-            .case(BaseOrderStatus.approved.rawValue)
-            .case(BaseOrderStatus.cancelled.rawValue)
-            .case(BaseOrderStatus.completed.rawValue)
-            .case(BaseOrderStatus.error.rawValue)
-            .case(BaseOrderStatus.fulfilled.rawValue)
-            .case(BaseOrderStatus.inProgress.rawValue)
-            .case(BaseOrderStatus.installing.rawValue)
-            .case(BaseOrderStatus.pending.rawValue)
-            .case(BaseOrderStatus.preparing.rawValue)
-            .case(BaseOrderStatus.processing.rawValue)
-            .case(BaseOrderStatus.received.rawValue)
-            .create()
-            .transform(to: ())
-    }
+    public struct Migration_v001: Migration {
+        
+        public init() {}
+        
+        public func prepare(on database: Database) -> EventLoopFuture<Void> {
+            database
+                .enum(BaseOrderStatus.scheme)
+                .case(BaseOrderStatus.created.rawValue)
+                .case(BaseOrderStatus.approved.rawValue)
+                .case(BaseOrderStatus.cancelled.rawValue)
+                .case(BaseOrderStatus.completed.rawValue)
+                .case(BaseOrderStatus.error.rawValue)
+                .case(BaseOrderStatus.fulfilled.rawValue)
+                .case(BaseOrderStatus.inProgress.rawValue)
+                .case(BaseOrderStatus.installing.rawValue)
+                .case(BaseOrderStatus.pending.rawValue)
+                .case(BaseOrderStatus.preparing.rawValue)
+                .case(BaseOrderStatus.processing.rawValue)
+                .case(BaseOrderStatus.received.rawValue)
+                .create()
+                .transform(to: ())
+        }
 
-    public func revert(on database: Database) -> EventLoopFuture<Void> {
-        database
-            .enum(BaseOrderStatus.scheme)
-            .delete()
+        public func revert(on database: Database) -> EventLoopFuture<Void> {
+            database
+                .enum(BaseOrderStatus.scheme)
+                .delete()
+        }
+        
     }
     
 }
