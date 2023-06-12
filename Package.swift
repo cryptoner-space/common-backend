@@ -27,7 +27,7 @@ let package = Package(
         .target(
             name: "CommonCryptoner",
             dependencies: [
-                .product(name: "BlockchainSdk", package: "BlockchainSdk"),
+                .product(name: "BlockchainData", package: "BlockchainSdk"),
                 .product(name: "CommonCryptonerData", package: "common-cryptoner-data"),
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "JWT", package: "jwt"),

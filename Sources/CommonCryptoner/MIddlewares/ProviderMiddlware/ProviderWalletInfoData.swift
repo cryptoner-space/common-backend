@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import BlockchainSdk
+import BlockchainData
 import CommonCryptonerData
 
 public struct ProviderWalletInfoData {

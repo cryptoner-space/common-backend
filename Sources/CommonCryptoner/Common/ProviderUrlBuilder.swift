@@ -6,7 +6,7 @@
 //
 
 import Vapor
-import BlockchainSdk
+import BlockchainData
 import CommonCryptonerData
 
 /// Сервис конфигурации микросервисов

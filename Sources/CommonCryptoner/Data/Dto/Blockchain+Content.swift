@@ -6,7 +6,7 @@
 //
 
 import Vapor
-import BlockchainSdk
+import BlockchainData
 
 extension Blockchain.Crypto: Content {}
 extension Blockchain.Fiat: Content {}

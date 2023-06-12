@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server/async-http-client.git",
       "state" : {
-        "revision" : "333e60cc90f52973f7ee29cd8e3a7f6adfe79f4e",
-        "version" : "1.17.0"
+        "revision" : "78db67e5bf4a8543075787f228e8920097319281",
+        "version" : "1.18.0"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/skibinalexander/BlockchainSdk.git",
       "state" : {
         "branch" : "main",
-        "revision" : "b9b252ca4997f1535ac26323df3023e746dec430"
+        "revision" : "070c531777bf9a2f5b1dc276a61784f89e947a38"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "5240271f553dbfc038fae10f78ab7d9c08c69c49"
+        "revision" : "6bccbf835e746e8bbf1664c407981bdc81a450df"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "e53acf986e32c54fe522b2c12f737baa01828c1c",
-        "version" : "1.42.2"
+        "revision" : "2d7dce5cb04156eecdb17e7349f4eac4206e8a17",
+        "version" : "1.42.4"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/jwt-kit.git",
       "state" : {
-        "revision" : "ef12bdfa557cd9d9f0c53396e0a9908f773bcd7b",
-        "version" : "4.9.0"
+        "revision" : "268cdf5e7f524f859bcf94d25a106e942e210075",
+        "version" : "4.10.0"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-kit.git",
       "state" : {
-        "revision" : "875e8c191ea776802fddf6773146349803629754",
-        "version" : "2.11.2"
+        "revision" : "a88d025748edd3a2f9f2e74091ecccc20d20fe30",
+        "version" : "2.11.3"
       }
     },
     {
@@ -140,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-nio.git",
       "state" : {
-        "revision" : "2df54bc94607f44584ae6ffa74e3cd754fffafc7",
-        "version" : "1.14.2"
+        "revision" : "061a0836d7c1887e04a975d1d2eaa2ef5fd7dfab",
+        "version" : "1.16.0"
       }
     },
     {
@@ -248,8 +248,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-metrics.git",
       "state" : {
-        "revision" : "e8bced74bc6d747745935e469f45d03f048d6cbd",
-        "version" : "2.3.4"
+        "revision" : "34025104068262db0cc998ace178975c5ff4f36b",
+        "version" : "2.4.0"
       }
     },
     {
@@ -257,8 +257,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "2d8e6ca36fe3e8ed74b0883f593757a45463c34d",
-        "version" : "2.53.0"
+        "revision" : "6213ba7a06febe8fef60563a4a7d26a4085783cf",
+        "version" : "2.54.0"
       }
     },
     {
@@ -275,8 +275,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-http2.git",
       "state" : {
-        "revision" : "6d021a48483dbb273a9be43f65234bdc9185b364",
-        "version" : "1.26.0"
+        "revision" : "a8ccf13fa62775277a5d56844878c828bbb3be1a",
+        "version" : "1.27.0"
       }
     },
     {
@@ -311,8 +311,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "b42287f2c3909930be6329922906a6a8092943d2",
-        "version" : "4.76.2"
+        "revision" : "9a340de4995e5a9dade4ff4c51cd2e6ae30c12d6",
+        "version" : "4.77.0"
       }
     },
     {
@@ -329,8 +329,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/websocket-kit.git",
       "state" : {
-        "revision" : "17c0afbf24f4e288e183bc34317dc97b5cd084bd",
-        "version" : "2.9.0"
+        "revision" : "53fe0639a98903858d0196b699720decb42aee7b",
+        "version" : "2.14.0"
       }
     }
   ],
