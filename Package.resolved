@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "0c8ddad685324c16b74dcb04d1658096e5eb4f31"
+        "revision" : "38618ff22a545e6adceefbef71fc875a1e32f0e7"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "6bccbf835e746e8bbf1664c407981bdc81a450df"
+        "revision" : "3959187973d495311d487af96fe05cdb05a685e0"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/jwt-kit.git",
       "state" : {
-        "revision" : "268cdf5e7f524f859bcf94d25a106e942e210075",
-        "version" : "4.10.0"
+        "revision" : "8b3a69c396d2bd0234c4ed4c50cb85da00bdc1bc",
+        "version" : "4.11.0"
       }
     },
     {
