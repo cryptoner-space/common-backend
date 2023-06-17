@@ -19,7 +19,7 @@ extension P2P_Union.OrderTypeEnum {
     static public let relation: FieldKey = .init(stringLiteral: "order_type")
 }
 
-extension P2P_Union.RegionTypeEnum {
+extension P2P_Union.RegionType {
     static public let scheme: String = "p2p_region_type_enum_001"
     static public let relation: FieldKey = .init(stringLiteral: "region_type")
 }
