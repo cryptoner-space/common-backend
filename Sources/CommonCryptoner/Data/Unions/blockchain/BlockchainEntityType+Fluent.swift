@@ -10,5 +10,5 @@ import Fluent
 import BlockchainData
 
 extension Blockchain.CurrencyType  {
-    static public let relation: FieldKey = .init(stringLiteral: "blockchain_entity_type")
+    static public let relation: FieldKey = .init(stringLiteral: "blockchain_type")
 }
