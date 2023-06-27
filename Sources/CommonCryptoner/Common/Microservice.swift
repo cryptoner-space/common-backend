@@ -23,6 +23,9 @@ public enum Infractructure {
         /// Core Market Service
         case market
         
+        /// Core P2P Service
+        case p2p
+        
     }
     
     public enum MessageQueueUrl: String, CaseIterable {
@@ -30,6 +33,8 @@ public enum Infractructure {
         case swap_external_mq = "dj600000000gif2m00q0/core-swap-ms-external-queue"
         case cbs_external_mq = "dj600000000gif3200q0/core-cbs-ms-external-queue"
         case cbs_internal_mq = "dj600000000gtor600q0/core-cbs-ms-internal-queue"
+        case p2p_internal_mq = "dj600000000gtor600q0/core-p2p-ms-internal-queue"
+        case p2p_external_mq = "dj600000000gtor600q0/core-p2p-ms-external-queue"
         case chat_internal_mq
         
         public static func external(for service: Core) throws -> MessageQueueUrl {
@@ -40,6 +45,8 @@ public enum Infractructure {
                 return .cbs_external_mq
             case .swap:
                 return .swap_external_mq
+            case .p2p:
+                return .p2p_external_mq
             default:
                 throw Infractructure.MQError.undefinedExternalMessageQueueUrl
             }
@@ -49,6 +56,8 @@ public enum Infractructure {
             switch service {
             case .cbs:
                 return .cbs_internal_mq
+            case .p2p:
+                return .p2p_internal_mq
             default:
                 throw Infractructure.MQError.undefinedExternalMessageQueueUrl
             }
