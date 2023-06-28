@@ -109,21 +109,7 @@ public final class AccountMiddleware: Middleware {
     private func loadAccount(
         accountId: String
     ) throws -> EventLoopFuture<CAS_Dto.Account.Res> {
-        let url = IntegrationUrlBuilder(
-            host: .init(env, service: .cas)
-        )
-        .remoteUrl(
-            paths: .accounts,
-            parameter: accountId
-        )
-        
-        return client
-            .get(url) { $0.headers.contentType = .json }
-            .flatMapThrowing { res in
-                self.logger.info(Logger.Message(stringLiteral: "GET \(url) -> \(res.status.code)"))
-                guard res.status == .ok else { throw Abort(res.status) }
-                return try res.content.decode(CAS_Dto.Account.Res.self)
-            }
+        throw Abort(.internalServerError)
     }
     
 }
