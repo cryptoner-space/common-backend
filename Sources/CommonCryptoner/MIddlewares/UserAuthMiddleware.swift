@@ -51,21 +51,21 @@ extension UserAuthMiddleware {
         
         // MARK: - Properties
         
-        /// Идентификатор пользователя
-        public let userId: UUID
-        
         /// Идентификатор recovery модели восстановления
-        public let recoveryId: String
+        public let recoveryId: UUID
         
         /// Внешний токен идентификатор recovery модели восстановления
         public let externalId: String
         
+        /// Идентификатор пользователя
+        public let userId: UUID
+        
         // MARK: - Init
         
         public init(
-            userId: UUID,
-            recoveryId: String,
-            externalId: String
+            recoveryId: UUID,
+            externalId: String,
+            userId: UUID
         ) {
             self.userId = userId
             self.recoveryId = recoveryId
