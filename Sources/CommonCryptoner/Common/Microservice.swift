@@ -7,7 +7,11 @@
 
 import Vapor
 
-public enum Infractructure {
+public enum Infractructure {}
+
+// MARK: - Infrastructure Core
+
+extension Infractructure {
     
     public enum Core: String, CaseIterable, Codable {
         
@@ -73,6 +77,21 @@ public enum Infractructure {
     }
     
 }
+
+// MARK: - Infractructure Support Apps
+
+extension Infractructure {
+    
+    public enum Apps: String, CaseIterable, Codable {
+        
+        /// Telegram Bot P2P service
+        case telegramBot_P2P
+        
+    }
+    
+}
+
+// MARK: - Errors
 
 extension Infractructure {
     
