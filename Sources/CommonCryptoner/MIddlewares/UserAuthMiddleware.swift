@@ -10,7 +10,7 @@ import Fluent
 import JWT
 import CommonVapor
 
-public struct AuthUserMiddleware: BearerAuthenticator {
+public struct UserAuthMiddleware: BearerAuthenticator {
     
     // MARK: - Init
     
@@ -32,13 +32,7 @@ public struct AuthUserMiddleware: BearerAuthenticator {
                 return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
             }
             
-            request.auth.login(
-                AuthSignData(
-                    deviceId: jwt.deviceId,
-                    userId: jwt.userId,
-                    username: jwt.username
-                )
-            )
+            request.auth.login(jwt.data)
             
             return request.eventLoop.makeSucceededVoidFuture()
         }
@@ -51,31 +45,31 @@ public struct AuthUserMiddleware: BearerAuthenticator {
 
 // MARK: - AuthSignData
 
-extension AuthUserMiddleware {
+extension UserAuthMiddleware {
     
-    public struct AuthSignData: Content, Authenticatable {
+    public struct AuthSignData: Content, Authenticatable, Equatable {
         
         // MARK: - Properties
-        
-        /// Идентификатор девайса
-        public let deviceId: UUID
         
         /// Идентификатор пользователя
         public let userId: UUID
         
-        /// Идентификатор пользователя
-        public let username: String
+        /// Идентификатор recovery модели восстановления
+        public let recoveryId: String
+        
+        /// Внешний токен идентификатор recovery модели восстановления
+        public let externalId: String
         
         // MARK: - Init
         
         public init(
-            deviceId: UUID,
             userId: UUID,
-            username: String
+            recoveryId: String,
+            externalId: String
         ) {
-            self.deviceId = deviceId
             self.userId = userId
-            self.username = username
+            self.recoveryId = recoveryId
+            self.externalId = externalId
         }
         
     }
@@ -84,7 +78,7 @@ extension AuthUserMiddleware {
 
 // MARK: - AuthPayloadJWT
 
-extension AuthUserMiddleware {
+extension UserAuthMiddleware {
     
     public struct AuthPayloadJWT: JWTPayload, Equatable {
         
@@ -96,14 +90,8 @@ extension AuthUserMiddleware {
         /// Expiration
         public var exp: ExpirationClaim // an expiration claim
         
-        /// Идентификатор пользователя
-        public var userId: UUID
-        
-        /// Device Identifier
-        public var deviceId: UUID
-        
-        /// User Identifier
-        public var username: String
+        /// Модель данных
+        public var data: AuthSignData
         
         // MARK: - Implementation
 
@@ -116,15 +104,11 @@ extension AuthUserMiddleware {
         public init(
             sub: SubjectClaim,
             exp: ExpirationClaim,
-            userId: UUID,
-            deviceId: UUID,
-            username: String
+            data: AuthSignData
         ) {
             self.sub = sub
             self.exp = exp
-            self.userId = userId
-            self.deviceId = deviceId
-            self.username = username
+            self.data = data
         }
         
     }
