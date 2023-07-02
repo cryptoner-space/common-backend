@@ -42,7 +42,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "38618ff22a545e6adceefbef71fc875a1e32f0e7"
+        "revision" : "b5827ba219fb14505abf906ab7ac04103337bd10"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "a2d281e7dc6d0ee2b53343bacacf6943a795d102"
+        "revision" : "14453411b28d68289918b667e1b4049fd76e0a7e"
       }
     },
     {
@@ -167,8 +167,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soto-project/soto.git",
       "state" : {
-        "revision" : "18184ba84e97e598ee6c5a7b803851e049e6eab5",
-        "version" : "6.6.0"
+        "revision" : "939e61467a9adfd78520b46eddf756a09291f7e1",
+        "version" : "6.7.0"
       }
     },
     {
