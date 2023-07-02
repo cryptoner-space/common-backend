@@ -40,13 +40,13 @@ public struct ProviderUrlBuilder {
     private(set) var host: Host
     
     /// Host by microservice
-    private(set) var adapter: Adapter
+    private(set) var core: Infractructure.Core
     
     // MARK: - Init
     
-    public init(host: Host, adapter: Adapter) {
+    public init(host: Host, core: Infractructure.Core) {
         self.host = host
-        self.adapter = adapter
+        self.core = core
     }
     
     // MARK: - Implementaion
@@ -64,7 +64,7 @@ public struct ProviderUrlBuilder {
             path:
                 "provider-ms".vSlash +
                 apiVersion.rawValue.vSlash +
-                adapter.rawValue.vSlash +
+                core.providerUrl.vSlash +
                 (paths.compactMap { $0.path.description }
                     .joined(separator: "/")
                 ).replacingOccurrences(of: "//", with: "/").vSlash
@@ -76,10 +76,6 @@ public struct ProviderUrlBuilder {
 }
 
 extension ProviderUrlBuilder {
-    
-    public enum AdapterPath: String {
-        case info = "info"
-    }
     
     public enum Path {
         case value(String)
@@ -95,6 +91,48 @@ extension ProviderUrlBuilder {
                 return .init(stringLiteral: path.rawValue)
             }
         }
+    }
+    
+}
+
+// MARK: - AdapterPath
+
+extension ProviderUrlBuilder {
+    
+    public enum AdapterPath: String {
+        case info = "info"
+        case auth
+        case user
+        case accounts
+        case account
+        case id
+        case device
+        case wallets
+        case currencies
+        case crypto
+        case fiat
+        case stock
+        case available
+        case transactions
+        case restore
+        case recovery
+        case list
+        case balance
+        case fee
+        case merchants
+        case orders
+        case sales
+        case growth
+        case create
+        case pending
+        case cancel
+        case proposals
+        case fiatPayments = "fiat-payments"
+        case buy
+        case accept
+        case count
+        case find
+        case spaces
     }
     
 }
