@@ -67,7 +67,7 @@ extension Infractructure.Core {
         case cbs_external_mq = "dj600000000gif3200q0/core-cbs-ms-external-queue"
         case p2p_internal_mq = "dj600000000gtor600q0/core-p2p-ms-internal-queue"
         case p2p_external_mq = "dj600000000gtor600q0/core-p2p-ms-external-queue"
-        case admin_external_mq = "dj600000000jl7l100q0/core-admin-ms-external-queue"
+        case admin_external_mq = "dj600000000jl7kf00q0/core-admin-ms-external-queue"
         case admin_internal_mq = "dj600000000jl7l100q0/core-admin-ms-internal-queue"
         
         public static func external(for service: Infractructure.Core) throws -> MessageQueueUrl {
