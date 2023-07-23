@@ -93,55 +93,51 @@ extension AuthMiddleware {
 
 // MARK: - AuthSignData
 
-extension AuthMiddleware {
+public struct AuthSignUserData: AuthIdentifible, Content {
     
-    public struct UserData: AuthIdentifible, Content {
-        
-        // MARK: - Properties
-        
-        /// Идентификатор пользователя
-        public var userId: UUID
-        
-        /// Идентификатор recovery модели восстановления
-        public let recoveryId: UUID
-        
-        /// Внешний токен идентификатор recovery модели восстановления
-        public let externalId: String
-        
-        // MARK: - Init
-        
-        public init(
-            userId: UUID,
-            recoveryId: UUID,
-            externalId: String
-        ) {
-            self.userId = userId
-            self.recoveryId = recoveryId
-            self.externalId = externalId
-        }
-        
+    // MARK: - Properties
+    
+    /// Идентификатор пользователя
+    public var userId: UUID
+    
+    /// Идентификатор recovery модели восстановления
+    public let recoveryId: UUID
+    
+    /// Внешний токен идентификатор recovery модели восстановления
+    public let externalId: String
+    
+    // MARK: - Init
+    
+    public init(
+        userId: UUID,
+        recoveryId: UUID,
+        externalId: String
+    ) {
+        self.userId = userId
+        self.recoveryId = recoveryId
+        self.externalId = externalId
     }
     
-    public struct EmployeeData: AuthIdentifible, Content {
-        
-        // MARK: - Properties
-        
-        /// Идентификатор пользователя
-        public var userId: UUID
-        
-        /// Идентификатор сотрудника
-        public let employeeId: String
-        
-        // MARK: - Init
-        
-        public init(
-            userId: UUID,
-            employeeId: String
-        ) {
-            self.userId = userId
-            self.employeeId = employeeId
-        }
-        
+}
+
+public struct AuthSignEmployeeData: AuthIdentifible, Content {
+    
+    // MARK: - Properties
+    
+    /// Идентификатор пользователя
+    public var userId: UUID
+    
+    /// Идентификатор сотрудника
+    public let employeeId: String
+    
+    // MARK: - Init
+    
+    public init(
+        userId: UUID,
+        employeeId: String
+    ) {
+        self.userId = userId
+        self.employeeId = employeeId
     }
     
 }
