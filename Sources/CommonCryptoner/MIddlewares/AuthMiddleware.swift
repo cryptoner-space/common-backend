@@ -141,3 +141,18 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     }
     
 }
+
+public struct AuthSignUniqueData: AuthIdentifible, Content {
+    
+    // MARK: - Properties
+    
+    /// Идентификатор пользователя
+    public var userId: UUID
+    
+    // MARK: - Init
+    
+    public init(userId: UUID) {
+        self.userId = userId
+    }
+    
+}
