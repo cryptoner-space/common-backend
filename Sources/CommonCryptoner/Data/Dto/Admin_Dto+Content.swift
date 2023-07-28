@@ -19,4 +19,3 @@ extension Admin_Dto.SignIn.Init.Res: Content {}
 extension Admin_Dto.SignIn.Over.Req: Content {}
 extension Admin_Dto.SignUp.Init.Req: Content {}
 extension Admin_Dto.SignUp.Init.Res: Content {}
-extension Admin_Dto.Recovery.SetPassword.Req: Content {}
