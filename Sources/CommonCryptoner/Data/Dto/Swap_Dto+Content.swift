@@ -14,5 +14,7 @@ extension Swap_Dto.Order.Employee.Approve.Req: Content {}
 extension Swap_Dto.Order.Employee.List.Res: Content {}
 extension Swap_Dto.Order.Meta.Req: Content {}
 extension Swap_Dto.Order.Meta.Res: Content {}
+extension Swap_Dto.Order.Transaction.Req: Content {}
+extension Swap_Dto.Order.Transaction.Res: Content {}
 extension Swap_Dto.Exchange.Res: Content {}
 extension Swap_Dto.Currency.Res: Content {}
