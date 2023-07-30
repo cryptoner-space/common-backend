@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "4519c03d7767ca16ad3fa5b5d1657691aeb7faba"
+        "revision" : "e6a8d3304d01decf083a3b1881548b60303db346"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "46ea401fb74ae48a433d991ff67f9fdae379f7e5",
-        "version" : "1.43.2"
+        "revision" : "e562a1015a814d42582cbccd3e58f03187d6718c",
+        "version" : "1.44.0"
       }
     },
     {
