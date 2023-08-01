@@ -127,6 +127,9 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     /// Идентификатор авторизации
     public var authId: UUID
     
+    /// Идентификатор пользователя
+    public let userId: UUID
+    
     /// Идентификатор сотрудника
     public let employeeId: String
     
@@ -134,9 +137,11 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     
     public init(
         authId: UUID,
+        userId: UUID,
         employeeId: String
     ) {
         self.authId = authId
+        self.userId = userId
         self.employeeId = employeeId
     }
     
