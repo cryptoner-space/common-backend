@@ -11,5 +11,7 @@ import CommonCryptonerData
 extension CBS_Dto.Currency.Res: Content {}
 extension CBS_Dto.Depository.Create.Req: Content {}
 extension CBS_Dto.Depository.List.Res: Content {}
-extension CBS_Dto.Depository.Item.Res: Content {}
 extension CBS_Dto.Employee.Res: Content {}
+extension CBS_Dto.Depository.Item.Create.Req: Content {}
+extension CBS_Dto.Depository.Item.Res: Content {}
+extension CBS_Dto.Depository.Item.List.Res: Content {}
