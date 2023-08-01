@@ -127,17 +127,17 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     /// Идентификатор авторизации
     public var authId: UUID
     
-    /// Идентификатор сотрудника
-    public let employeeId: UUID
+    /// Идентификатор пользователя
+    public let userId: UUID
     
     // MARK: - Init
     
     public init(
         authId: UUID,
-        employeeId: UUID
+        userId: UUID
     ) {
         self.authId = authId
-        self.employeeId = employeeId
+        self.userId = userId
     }
     
 }
