@@ -20,3 +20,4 @@ extension Admin_Dto.SignIn.Over.Req: Content {}
 extension Admin_Dto.SignUp.Init.Req: Content {}
 extension Admin_Dto.SignUp.Init.Res: Content {}
 extension Admin_Dto.Service.Create.Req: Content {}
+extension Admin_Dto.Service.List.Res: Content {}
