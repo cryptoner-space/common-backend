@@ -11,7 +11,7 @@ import JWT
 import CommonVapor
 
 public protocol AuthIdentifible: (Authenticatable & Codable) {
-    var userId: UUID { get set }
+    var authId: UUID { get set }
 }
 
 public struct AuthMiddleware<P: AuthIdentifible>: BearerAuthenticator {
@@ -97,8 +97,8 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     
     // MARK: - Properties
     
-    /// Идентификатор пользователя
-    public var userId: UUID
+    /// Идентификатор авторизации
+    public var authId: UUID
     
     /// Идентификатор recovery модели восстановления
     public let recoveryId: UUID
@@ -109,11 +109,11 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     // MARK: - Init
     
     public init(
-        userId: UUID,
+        authId: UUID,
         recoveryId: UUID,
         externalId: String
     ) {
-        self.userId = userId
+        self.authId = authId
         self.recoveryId = recoveryId
         self.externalId = externalId
     }
@@ -124,8 +124,8 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     
     // MARK: - Properties
     
-    /// Идентификатор пользователя
-    public var userId: UUID
+    /// Идентификатор авторизации
+    public var authId: UUID
     
     /// Идентификатор сотрудника
     public let employeeId: String
@@ -133,11 +133,38 @@ public struct AuthSignEmployeeData: AuthIdentifible, Content {
     // MARK: - Init
     
     public init(
-        userId: UUID,
+        authId: UUID,
         employeeId: String
     ) {
-        self.userId = userId
+        self.authId = authId
         self.employeeId = employeeId
+    }
+    
+}
+
+public struct AuthSignServiceData: AuthIdentifible, Content {
+    
+    // MARK: - Properties
+    
+    /// Идентификатор авторизации
+    public var authId: UUID
+    
+    /// Идентификатор внешнего сервиса
+    public let extenralId: String?
+    
+    /// Название внешнего сервиса
+    public let serviceName: String
+    
+    // MARK: - Init
+    
+    public init(
+        authId: UUID,
+        extenralId: String?,
+        serviceName: String
+    ) {
+        self.authId = authId
+        self.extenralId = extenralId
+        self.serviceName = serviceName
     }
     
 }
@@ -146,13 +173,13 @@ public struct AuthSignUniqueData: AuthIdentifible, Content {
     
     // MARK: - Properties
     
-    /// Идентификатор пользователя
-    public var userId: UUID
+    /// Идентификатор авторизации
+    public var authId: UUID
     
     // MARK: - Init
     
-    public init(userId: UUID) {
-        self.userId = userId
+    public init(authId: UUID) {
+        self.authId = authId
     }
     
 }
