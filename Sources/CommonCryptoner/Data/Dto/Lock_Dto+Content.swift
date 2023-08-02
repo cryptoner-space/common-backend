@@ -8,11 +8,11 @@
 import Vapor
 import CommonCryptonerData
 
-extension Lock_Dto.Secret.Create.Req: Content {}
-extension Lock_Dto.Secret.Res: Content {}
-
-extension Lock_Dto.List.Req: Content {}
 extension Lock_Dto.List.Res: Content {}
+
+extension Lock_Dto.Secret.Create.Req: Content {}
+extension Lock_Dto.Secret.List.Req: Content {}
+extension Lock_Dto.Secret.List.Res: Content {}
 
 extension Lock_Dto.DEK_YC.Decrypt.Req: Content {}
 extension Lock_Dto.DEK_YC.Decrypt.Res: Content {}
