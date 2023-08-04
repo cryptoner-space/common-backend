@@ -55,7 +55,7 @@ extension AuthMiddleware {
             return next.respond(to: request)
         }
         
-        func sign<P: Codable>(sub: SubjectClaim, exp: ExpirationClaim, payload: P) throws -> String {
+        public func sign<P: Codable>(sub: SubjectClaim, exp: ExpirationClaim, payload: P) throws -> String {
             let signature = try app.jwt.signers.sign(
                 AuthMiddleware<AuthSignUserData>.AuthPayloadJWT(
                     sub: sub,
