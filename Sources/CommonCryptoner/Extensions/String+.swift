@@ -8,9 +8,7 @@
 import Foundation
 
 extension String {
-    
     var vSlash: String {
         return self.isEmpty ? "" : self + "/"
     }
-    
 }

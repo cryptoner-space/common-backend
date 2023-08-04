@@ -1,51 +1,13 @@
 //
-//  AuthMiddleware.swift
+//  AuthMiddleware+Data.swift
 //  
 //
-//  Created by skibinalexander on 23.02.2023.
+//  Created by skibinalexander on 04.08.2023.
 //
 
+import Foundation
 import Vapor
-import Fluent
 import JWT
-import CommonVapor
-
-public protocol AuthIdentifible: (Authenticatable & Codable) {
-    var authId: UUID { get set }
-}
-
-public struct AuthMiddleware<P: AuthIdentifible>: BearerAuthenticator {
-    
-    // MARK: - Init
-    
-    public init() {}
-    
-    // MARK: - Implementation
-
-    public func authenticate(
-        bearer: BearerAuthorization,
-        for request: Request
-    ) -> EventLoopFuture<Void> {
-        do {
-            let jwt = try request.jwt.verify(bearer.token, as: AuthPayloadJWT<P>.self)
-            
-            guard
-                let subject = JWTSubject(rawValue: jwt.sub.value),
-                subject == .authorization
-            else {
-                return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
-            }
-            
-            request.auth.login(jwt.payload)
-            
-            return request.eventLoop.makeSucceededVoidFuture()
-        }
-        catch {
-            return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
-        }
-   }
-    
-}
 
 // MARK: -
 
