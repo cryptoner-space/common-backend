@@ -50,6 +50,8 @@ extension AuthMiddleware {
     public final class Signer: Middleware {
         private var app: Application!
         
+        public init() {}
+        
         public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
             self.app = request.application
             return next.respond(to: request)
