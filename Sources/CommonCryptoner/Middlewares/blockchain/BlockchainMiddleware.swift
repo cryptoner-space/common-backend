@@ -55,59 +55,5 @@ public final class BlockchainMiddleware: Middleware {
         Blockchain.allCases
     }
     
-    /// Получить фиатное значение стоимости блокчейн токена / валюты
-    /// - Parameters:
-    ///   - blockchainToken: Токен блокчейна
-    ///   - client: Клиент запроса
-    ///   - env: Инструменты параметров
-    public func market(
-        tokens: [Blockchain.Token],
-        fiat: Fiat
-    ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
-        client.eventLoop.future().tryFlatMap {
-            self.cache.get(kBlockchainMiddlewareCacheKey, as: Market_Dto.Agregate.Res.self)
-        }.tryFlatMap { cacheMarket in
-            if let cacheMarket = cacheMarket {
-                return self.client.eventLoop.makeSucceededFuture(cacheMarket)
-            } else {
-                return try self.loadMarket(tokens: tokens, fiat: fiat).tryFlatMap{ dtoMarket in
-                    return self.insertCacheMarket(dtoMarket)
-                }
-            }
-        }
-    }
-    
-    // MARK: - Private Implementation
-    
-    private func insertCacheMarket(_ market: Market_Dto.Agregate.Res) -> EventLoopFuture<Market_Dto.Agregate.Res> {
-        client.eventLoop.future().tryFlatMap {
-            self.cache.set(kBlockchainMiddlewareCacheKey, to: market, expiresIn: .minutes(15))
-        }.flatMapThrowing {
-            return market
-        }
-    }
-    
-    private func loadMarket(
-        tokens: [Blockchain.Token],
-        fiat: Fiat
-    ) throws -> EventLoopFuture<Market_Dto.Agregate.Res> {
-        throw Abort(.badGateway)
-//        let url = IntegrationUrlBuilder(
-//            host: .init(env, service: .market)
-//        )
-//        .remoteUrl(paths: .stock)
-//
-//        return client.get(url) {
-//            $0.headers.contentType = .json
-//            try $0.query.encode(
-//                Market_Dto.Agregate.Req(fiat: fiat, ids: tokens.map { $0.rawValue })
-//            )
-//        }
-//        .flatMapThrowing { res in
-//            guard res.status == .ok else { throw Abort(res.status) }
-//            return try res.content.decode(Market_Dto.Agregate.Res.self)
-//        }
-    }
-    
 }
 

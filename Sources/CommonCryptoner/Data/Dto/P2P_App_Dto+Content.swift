@@ -9,4 +9,3 @@ import Vapor
 import CommonCryptonerData
 
 extension Feature_Dto.Res: Content {}
-extension Widget_Dto.CryptoCharts.Res: Content {}
