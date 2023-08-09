@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "bde14cd1861f73783e73971ee3a9c5ae4ec7dbaf"
+        "revision" : "cd686e5c7b2e84d8d41895457996d7db766dc84e"
       }
     },
     {
@@ -257,8 +257,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "a2e487b77f17edbce9a65f2b7415f2f479dc8e48",
-        "version" : "2.57.0"
+        "revision" : "cf281631ff10ec6111f2761052aa81896a83a007",
+        "version" : "2.58.0"
       }
     },
     {
