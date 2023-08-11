@@ -7,6 +7,7 @@
 
 import Vapor
 import BlockchainData
+import CommonCryptonerData
 
-extension Blockchain.Crypto: Content {}
-extension Blockchain.Fiat: Content {}
+extension Currency_Union.Crypto: Content {}
+extension Currency_Union.Fiat: Content {}

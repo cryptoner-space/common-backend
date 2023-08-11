@@ -8,7 +8,7 @@
 import Fluent
 import CommonCryptonerData
 
-extension Fiat {
+extension FiatEnum {
     public static let schema: String = "fiat"
     public static let relation: FieldKey = .init(stringLiteral: "fiat")
 }
