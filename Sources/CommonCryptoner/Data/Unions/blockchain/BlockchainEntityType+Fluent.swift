@@ -7,7 +7,7 @@
 
 import Vapor
 import Fluent
-import BlockchainData
+import BlockchainSdk
 
 extension Blockchain.CurrencyType  {
     static public let relation: FieldKey = .init(stringLiteral: "blockchain_type")

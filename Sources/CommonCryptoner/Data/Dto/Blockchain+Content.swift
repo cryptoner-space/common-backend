@@ -6,7 +6,6 @@
 //
 
 import Vapor
-import BlockchainData
 import CommonCryptonerData
 
 extension Currency_Union.Crypto: Content {}
