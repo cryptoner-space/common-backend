@@ -28,12 +28,12 @@
       }
     },
     {
-      "identity" : "blockchainsdk",
+      "identity" : "blockchain-sdk-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/skibinalexander/BlockchainSdk.git",
+      "location" : "https://github.com/cryptoner-space/blockchain-sdk-swift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "2141f04de5d29cdd9f3b784503303069df258041"
+        "revision" : "ca5e65b6b27e521d18ba6745334181b1b5427dde"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
       "state" : {
         "branch" : "master",
-        "revision" : "fa68aadfe318ec0f88bbc28a884ae87b3f143ac6"
+        "revision" : "6c0c3c163ea7c64c258234d473d4bd82cd62ad82"
       }
     },
     {
