@@ -6,7 +6,8 @@
 //
 
 import Vapor
+import BlockchainSdk
 import CommonCryptonerData
 
-extension Currency_Union.Crypto: Content {}
-extension Currency_Union.Fiat: Content {}
+extension Currency.Crypto: Content {}
+extension Currency.Fiat: Content {}
