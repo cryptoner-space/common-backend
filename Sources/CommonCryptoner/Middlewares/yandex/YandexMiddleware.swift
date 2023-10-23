@@ -34,7 +34,7 @@ public final class YandexMiddleware: Middleware {
     public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
         if request.application.environment.isRelease {
             return request.eventLoop.future().tryFlatMap {
-                try self.iam(on: request)
+                try self.iam(on: request.application)
             }.flatMap { iamToken in
                 self.bearerToken = iamToken
                 return next.respond(to: request)
@@ -45,20 +45,34 @@ public final class YandexMiddleware: Middleware {
         }
     }
     
-    // MARK: - Private Implementation
-    
-    private func iam(on request: Request) throws -> EventLoopFuture<String> {
-        return request.client.get(
+    public func iam(on app: Application) throws -> EventLoopFuture<String> {
+        return app.client.get(
             .init(string: "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token")
         ) { req in
             req.headers.add(name: "Metadata-Flavor", value: "Google")
+            req.headers.contentType = .json
         }.flatMapThrowing { res in
             guard res.status == .ok else {
                 throw Abort(.serviceUnavailable, reason: "Google Service unavailable after request!")
             }
             
-            return try res.content.get(String.self, at: "access_token")
+            let iamData = try res.content.decode(IAM.self, using: JSONDecoder())
+            return iamData.access_token
         }
     }
     
+    // MARK: - Private Implementation
+    
+    private func asyncIam(on app: Application) async throws -> String {
+        try await iam(on: app).get()
+    }
+    
+}
+
+extension YandexMiddleware {
+    fileprivate struct IAM: Content {
+        let access_token: String
+        let expires_in: Int
+        let token_type: String
+    }
 }
