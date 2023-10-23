@@ -7,27 +7,23 @@
 
 import Vapor
 
-public struct LockboxService<P: LockboxPayload> {
+public struct LockboxService {
     
     // MARK: - Properties
     
     private(set) var app: Application
-    private(set) var secretId: String
+    private(set) var iam: String
     
     // MARK: - Init
     
-    public init(app: Application, secretId: String) {
+    public init(app: Application, iam: String) {
         self.app = app
-        self.secretId = secretId
+        self.iam = iam
     }
     
     // MARK: - Implementation
     
-    private func execute(_ iam: String?, secretId: String) async throws -> P {
-        guard let iam = iam else {
-            throw Abort(.serviceUnavailable, reason: "Yandex Lockbox Service unavailable!")
-        }
-            
+    private func execute<P: LockboxPayload>(secretId: String) async throws -> P {
         let res = try await app.client.get(
             .init(string: "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/\(secretId)/payload")
         ) { req in
