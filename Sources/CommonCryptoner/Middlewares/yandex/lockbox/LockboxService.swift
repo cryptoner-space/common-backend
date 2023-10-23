@@ -23,7 +23,7 @@ public struct LockboxService {
     
     // MARK: - Implementation
     
-    private func execute<P: LockboxPayload>(secretId: String) async throws -> P {
+    public func execute<P: LockboxPayload>(secretId: String) async throws -> P {
         let res = try await app.client.get(
             .init(string: "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/\(secretId)/payload")
         ) { req in
@@ -38,14 +38,5 @@ public struct LockboxService {
         let result = try res.content.decode(LockboxResponse.self, using: JSONDecoder())
         
         return P(from: result)
-    }
-    
-}
-
-extension LockboxService {
-    fileprivate struct IAM: Content {
-        let access_token: String
-        let expires_in: Int
-        let token_type: String
     }
 }
