@@ -15,7 +15,6 @@ let package = Package(
             targets: ["CommonCryptoner"]),
     ],
     dependencies: [
-        .package(url: "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git", branch: "master"),
         .package(url: "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git", branch: "master"),
         .package(url: "https://github.com/vapor/vapor.git", from: "4.84.6"),
         .package(url: "https://github.com/vapor/jwt.git", from: "4.2.2"),
@@ -24,7 +23,6 @@ let package = Package(
         .target(
             name: "CommonCryptoner",
             dependencies: [
-                .product(name: "CommonCryptonerData", package: "common-cryptoner-data"),
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "JWT", package: "jwt"),
                 .product(name: "CommonVapor", package: "common-backend"),

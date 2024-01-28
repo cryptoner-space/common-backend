@@ -19,39 +19,12 @@
       }
     },
     {
-      "identity" : "bigint",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/attaswift/BigInt.git",
-      "state" : {
-        "revision" : "0ed110f7555c34ff468e72e1686e59721f2b0da6",
-        "version" : "5.3.0"
-      }
-    },
-    {
-      "identity" : "blockchain-sdk-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/cryptoner-space/blockchain-sdk-swift.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "90407173558d1878638e2c90dcbf04d50ebaad04"
-      }
-    },
-    {
       "identity" : "common-backend",
       "kind" : "remoteSourceControl",
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
         "revision" : "273a720459973d341ae201b8dfad9700b57a172b"
-      }
-    },
-    {
-      "identity" : "common-cryptoner-data",
-      "kind" : "remoteSourceControl",
-      "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-cryptoner-data.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "b1b1dee7acdee755765e18b2907499bbb73d1809"
       }
     },
     {
