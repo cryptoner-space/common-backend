@@ -24,7 +24,7 @@
       "location" : "https://skibinalexander_@bitbucket.org/ws-sk/common-backend.git",
       "state" : {
         "branch" : "master",
-        "revision" : "faeb886d743cf1842bb8fa7e41e20000c064c1e9"
+        "revision" : "7a928a72c1c8e99e4e012305232b152a8c4bca6d"
       }
     },
     {
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-nio.git",
       "state" : {
-        "revision" : "fa3137d39bca84843739db1c5a3db2d7f4ae65e6",
-        "version" : "1.20.0"
+        "revision" : "e9b90b2189b6c64d41522d87616b04f6d978bb06",
+        "version" : "1.20.1"
       }
     },
     {
