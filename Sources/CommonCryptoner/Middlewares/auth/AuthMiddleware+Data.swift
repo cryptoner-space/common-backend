@@ -11,44 +11,40 @@ import JWT
 
 // MARK: -
 
-extension AuthMiddleware {
+public struct AuthPayloadJWT<P: Codable>: JWTPayload, Equatable {
     
-    public struct AuthPayloadJWT<P: Codable>: JWTPayload, Equatable {
-        
-        public static func == (lhs: AuthPayloadJWT<P>, rhs: AuthPayloadJWT<P>) -> Bool {
-            return rhs.exp.value.compare(lhs.exp.value) == .orderedDescending
-        }
-        
-        
-        // MARK: - Properties
-        
-        /// a subject claim
-        public var sub: SubjectClaim
-        
-        /// Expiration
-        public var exp: ExpirationClaim // an expiration claim
-        
-        /// Данные пользователя
-        public var payload: P
-        
-        // MARK: - Implementation
+    public static func == (lhs: AuthPayloadJWT<P>, rhs: AuthPayloadJWT<P>) -> Bool {
+        return rhs.exp.value.compare(lhs.exp.value) == .orderedDescending
+    }
+    
+    
+    // MARK: - Properties
+    
+    /// a subject claim
+    public var sub: SubjectClaim
+    
+    /// Expiration
+    public var exp: ExpirationClaim // an expiration claim
+    
+    /// Данные пользователя
+    public var payload: P
+    
+    // MARK: - Implementation
 
-        public func verify(using signer: JWTSigner) throws {
-            try self.exp.verifyNotExpired()
-        }
-        
-        // MARK: - Init
-        
-        public init(
-            sub: SubjectClaim,
-            exp: ExpirationClaim,
-            payload: P
-        ) {
-            self.sub = sub
-            self.exp = exp
-            self.payload = payload
-        }
-        
+    public func verify(using signer: JWTSigner) throws {
+        try self.exp.verifyNotExpired()
+    }
+    
+    // MARK: - Init
+    
+    public init(
+        sub: SubjectClaim,
+        exp: ExpirationClaim,
+        payload: P
+    ) {
+        self.sub = sub
+        self.exp = exp
+        self.payload = payload
     }
     
 }

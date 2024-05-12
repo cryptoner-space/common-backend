@@ -15,69 +15,42 @@ public protocol AuthIdentifible: (Authenticatable & Codable) {
 
 public struct AuthMiddleware<P: AuthIdentifible>: BearerAuthenticator {
     
+    let subject: JWTSubject
+    
     // MARK: - Init
     
-    public init() {}
+    public init(_ subject: JWTSubject = .authorization) {
+        self.subject = subject
+    }
     
     // MARK: - Implementation
 
-    public func authenticate(
-        bearer: BearerAuthorization,
-        for request: Request
-    ) -> EventLoopFuture<Void> {
-        do {
-            let jwt = try request.jwt.verify(bearer.token, as: AuthPayloadJWT<P>.self)
-            
-            guard
-                let subject = JWTSubject(rawValue: jwt.sub.value),
-                subject == .authorization
-            else {
-                return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
+    public func authenticate(bearer: BearerAuthorization, for request: Request) -> EventLoopFuture<Void> {
+        request.eventLoop
+            .future()
+            .flatMapThrowing { _ -> AuthPayloadJWT<P> in
+                try request.jwt.verify(bearer.token, as: AuthPayloadJWT<P>.self)
             }
-            
-            request.auth.login(jwt.payload)
-            
-            return request.eventLoop.makeSucceededVoidFuture()
-        }
-        catch {
-            return request.eventLoop.makeFailedFuture(Abort(.unauthorized))
-        }
+            .flatMapThrowing { jwt in
+                guard let subject = JWTSubject(rawValue: jwt.sub.value), subject == subject else {
+                    throw Abort(.unauthorized, reason: Error.failedSubjectVerification.localizedDescription)
+                }
+                
+                request.auth.login(jwt.payload)
+            }
    }
     
 }
 
-extension AuthMiddleware {
-    public final class Signer: Middleware {
-        private var app: Application!
+public extension AuthMiddleware {
+    enum Error: LocalizedError {
+        case failedSubjectVerification
         
-        public init() {}
-        
-        public func respond(to request: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
-            self.app = request.application
-            return next.respond(to: request)
+        public var errorDescription: String? {
+            switch self {
+            case .failedSubjectVerification:
+                "Error subject verification"
+            }
         }
-        
-        public func sign<P: Codable>(sub: SubjectClaim, exp: ExpirationClaim, payload: P) throws -> String {
-            let signature = try app.jwt.signers.sign(
-                AuthMiddleware<AuthSignUserData>.AuthPayloadJWT(
-                    sub: sub,
-                    exp: exp,
-                    payload: payload
-                ),
-                kid: .private
-            )
-            
-            return signature
-        }
-    }
-}
-
-public extension Middlewares {
-    func jwtAuthSigner<P: Codable>() throws -> AuthMiddleware<P>.Signer {
-        guard let middleware = self.resolve().first(where: { ($0 as? AuthMiddleware<P>.Signer) != nil }) as? AuthMiddleware<P>.Signer else {
-            throw Abort(.notFound, reason: "AuthMiddleware.Signer -> middleware not found")
-        }
-        
-        return middleware
     }
 }

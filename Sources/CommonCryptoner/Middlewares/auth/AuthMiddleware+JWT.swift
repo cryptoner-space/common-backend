@@ -8,17 +8,10 @@
 import Foundation
 import JWT
 
-/// Subject JWT токена
 public enum JWTSubject: String {
-    
-    /// Регистрация
-    case registration
-    
-    /// Авторизация
     case authorization
     
     public var claim: SubjectClaim {
         return .init(value: self.rawValue)
     }
-    
 }
