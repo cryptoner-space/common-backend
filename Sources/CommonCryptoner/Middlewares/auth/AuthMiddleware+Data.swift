@@ -61,6 +61,9 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     /// Идентификатор recovery модели восстановления
     public let recoveryId: UUID
     
+    /// Key value для получения
+    public let recoveryKey: String
+    
     /// Внешний токен идентификатор recovery модели восстановления
     public let externalId: String
     
@@ -69,33 +72,13 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     public init(
         authId: UUID,
         recoveryId: UUID,
+        recoveryKey: String,
         externalId: String
     ) {
         self.authId = authId
         self.recoveryId = recoveryId
+        self.recoveryKey = recoveryKey
         self.externalId = externalId
-    }
-    
-}
-
-public struct AuthSignEmployeeData: AuthIdentifible, Content {
-    
-    // MARK: - Properties
-    
-    /// Идентификатор авторизации
-    public var authId: UUID
-    
-    /// Идентификатор пользователя
-    public let userId: UUID
-    
-    // MARK: - Init
-    
-    public init(
-        authId: UUID,
-        userId: UUID
-    ) {
-        self.authId = authId
-        self.userId = userId
     }
     
 }
