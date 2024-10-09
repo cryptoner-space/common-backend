@@ -5,7 +5,7 @@
 //  Created by skibinalexander on 23.10.2023.
 //
 
-import CommonVapor
+import Foundation
 
 public extension ConfigDAO {
     struct Input: LockboxPayload {

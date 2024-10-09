@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "CommonCryptoner",
+    name: "CommonBackend",
     platforms: [
        .macOS(.v12)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "CommonCryptoner",
-            targets: ["CommonCryptoner"]),
+            name: "CommonBackend",
+            targets: ["CommonBackend"]),
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor.git", from: "4.84.6"),
@@ -20,7 +20,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "CommonCryptoner",
+            name: "CommonBackend",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "JWT", package: "jwt"),
