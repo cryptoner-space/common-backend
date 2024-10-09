@@ -17,7 +17,6 @@ public struct AuthPayloadJWT<P: Codable>: JWTPayload, Equatable {
         return rhs.exp.value.compare(lhs.exp.value) == .orderedDescending
     }
     
-    
     // MARK: - Properties
     
     /// a subject claim
@@ -51,12 +50,11 @@ public struct AuthPayloadJWT<P: Codable>: JWTPayload, Equatable {
 
 // MARK: - AuthSignData
 
-public struct AuthSignUserData: AuthIdentifible, Content {
+public struct AuthSignUserData: AuthenticatableID, Content {
     
     // MARK: - Properties
     
-    /// Идентификатор авторизации
-    public var authId: UUID
+    public var id: UUID
     
     /// Идентификатор recovery модели восстановления
     public let recoveryId: UUID
@@ -70,12 +68,12 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     // MARK: - Init
     
     public init(
-        authId: UUID,
+        id: UUID,
         recoveryId: UUID,
         recoveryKey: String,
         externalId: String
     ) {
-        self.authId = authId
+        self.id = id
         self.recoveryId = recoveryId
         self.recoveryKey = recoveryKey
         self.externalId = externalId
@@ -83,44 +81,17 @@ public struct AuthSignUserData: AuthIdentifible, Content {
     
 }
 
-public struct AuthSignServiceData: AuthIdentifible, Content {
+public struct AuthSignUniqueData: AuthenticatableID, Content {
     
     // MARK: - Properties
     
     /// Идентификатор авторизации
-    public var authId: UUID
-    
-    /// Идентификатор внешнего сервиса
-    public let extenralId: String?
-    
-    /// Название внешнего сервиса
-    public let serviceName: String
+    public var id: UUID
     
     // MARK: - Init
     
-    public init(
-        authId: UUID,
-        extenralId: String?,
-        serviceName: String
-    ) {
-        self.authId = authId
-        self.extenralId = extenralId
-        self.serviceName = serviceName
-    }
-    
-}
-
-public struct AuthSignUniqueData: AuthIdentifible, Content {
-    
-    // MARK: - Properties
-    
-    /// Идентификатор авторизации
-    public var authId: UUID
-    
-    // MARK: - Init
-    
-    public init(authId: UUID) {
-        self.authId = authId
+    public init(id: UUID) {
+        self.id = id
     }
     
 }

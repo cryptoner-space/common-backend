@@ -9,18 +9,16 @@ import Foundation
 import Vapor
 import JWT
 
-public protocol AuthIdentifible: (Authenticatable & Codable) {
-    var authId: UUID { get set }
-}
+public protocol AuthenticatableID: Identifiable, Authenticatable, Codable {}
 
-public struct AuthMiddleware<P: AuthIdentifible>: BearerAuthenticator {
+public struct AuthMiddleware<P: AuthenticatableID>: BearerAuthenticator {
     
-    let subject: JWTSubject
+    let subjectClaim: SubjectClaim
     
     // MARK: - Init
     
-    public init(_ subject: JWTSubject = .authorization) {
-        self.subject = subject
+    public init(_ subjectClaim: SubjectClaim) {
+        self.subjectClaim = subjectClaim
     }
     
     // MARK: - Implementation
@@ -49,7 +47,7 @@ public extension AuthMiddleware {
         public var errorDescription: String? {
             switch self {
             case .failedSubjectVerification:
-                "Error subject verification"
+                "Error: failed subject verification"
             }
         }
     }

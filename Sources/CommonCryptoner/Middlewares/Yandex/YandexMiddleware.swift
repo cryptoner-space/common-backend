@@ -8,15 +8,13 @@
 import Vapor
 
 extension Middlewares {
-    
     public func yandex() throws -> YandexMiddleware {
         guard let middleware = self.resolve().first(where: { ($0 as? YandexMiddleware) != nil }) as? YandexMiddleware else {
-            throw Abort(.notFound, reason: "YandexMiddleware -> middleware not found")
+            throw Abort(.internalServerError, reason: "YandexMiddleware -> middleware not found")
         }
         
         return middleware
     }
-    
 }
 
 public final class YandexMiddleware: Middleware {
