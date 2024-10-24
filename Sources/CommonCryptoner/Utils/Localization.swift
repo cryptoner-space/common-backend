@@ -1,6 +1,6 @@
 //
 //  Localization.swift
-//  
+//
 //
 //  Created by Alexander Skibin on 24.10.2024.
 //
@@ -8,16 +8,16 @@
 import Foundation
 import Vapor
 
-enum Localization: String {
+public enum Localization: String {
     case en, ru
     
-    static let `default`: Localization = .en
+    static public let `default`: Localization = .en
 }
 
 // MARK: - JSONSubscriptType
 
 extension Localization: JSONSubscriptType {
-    var jsonKey: JSONKey {
+    public var jsonKey: JSONKey {
         JSONKey.key(rawValue)
     }
 }
@@ -25,7 +25,7 @@ extension Localization: JSONSubscriptType {
 // MARK: - Request + Localization
 
 extension Request {
-    var currentLocalization: Localization {
+    public var currentLocalization: Localization {
         let locale = self.headers.first(name: "locale")
         return Localization(rawValue: locale ?? "") ?? Localization.default
     }
