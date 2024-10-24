@@ -28,6 +28,10 @@ public struct YandexIntegrationUrlBuilder {
         case keys
     }
     
+    // MARK: - Init
+    
+    public init() {}
+    
     // MARK: - Implementation
     
     /// Доступ к сервису
