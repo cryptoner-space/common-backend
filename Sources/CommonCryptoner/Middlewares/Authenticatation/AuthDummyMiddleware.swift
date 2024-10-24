@@ -13,6 +13,10 @@ private let dummyExternalId = UUID(uuidString: "f97c4504-8d60-4f72-b6eb-f759bafe
 
 public struct AuthDummyMiddleware<P: AuthenticatableID>: BearerAuthenticator {
     
+    // MARK: - Init
+    
+    public init() {}
+    
     // MARK: - Implementation
 
     public func authenticate(bearer: BearerAuthorization, for request: Request) -> EventLoopFuture<Void> {
