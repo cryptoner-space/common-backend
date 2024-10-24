@@ -8,14 +8,14 @@
 import Foundation
 import Vapor
 
-protocol MockStorageProtocol {
+public protocol MockStorageProtocol {
     var directory: DirectoryConfiguration { get }
     
     func parse(_ filename: String) throws -> JSON
 }
 
 extension MockStorageProtocol {
-    func parse(_ filename: String) throws -> JSON {
+    public func parse(_ filename: String) throws -> JSON {
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: directory.publicDirectory)
                 .appendingPathComponent("Mock", isDirectory: true)
